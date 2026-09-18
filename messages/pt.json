@@ -1,0 +1,410 @@
+{
+  "LanguageSwitcher": {
+    "label": "Idioma",
+    "es": "Español",
+    "en": "English",
+    "pt": "Português"
+  },
+  "Nav": {
+    "home": "Início",
+    "products": "Produtos",
+    "about": "Sobre nós",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contato",
+    "faqLong": "Perguntas frequentes",
+    "terms": "Termos e condições",
+    "privacy": "Política de privacidade"
+  },
+  "Site": {
+    "description": "Peças e acessórios para aeromodelismo e RC.",
+    "footerDescription": "Especialistas em helicópteros RC desde 2005. Kits, peças e acessórios para pilotos de todos os níveis."
+  },
+  "Header": {
+    "myAccount": "Minha conta",
+    "login": "Entrar",
+    "submit": "Entrar",
+    "register": "Criar conta",
+    "logout": "Sair",
+    "email": "Email",
+    "password": "Senha",
+    "forgotPassword": "Esqueceu sua senha?",
+    "loggingIn": "Entrando...",
+    "loginError": "Não foi possível entrar",
+    "noAccount": "Não tem conta?",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
+  },
+  "Footer": {
+    "shop": "Loja",
+    "company": "Empresa",
+    "help": "Ajuda",
+    "copyright": "© {year} {name} — Todos os direitos reservados.",
+    "paymentMethods": "Formas de pagamento: transferência bancária e dinheiro."
+  },
+  "TopBar": {
+    "facebookAria": "{name} no Facebook",
+    "instagramAria": "{name} no Instagram",
+    "youtubeAria": "{name} no YouTube"
+  },
+  "Hero": {
+    "eyebrow": "Helicópteros RC · desde 2005",
+    "title": "Tudo para sua heli decolar.",
+    "description": "Kits de competição, motores brushless, servos, baterias, ferramentas e vestuário. As marcas que os pilotos escolhem, com envio para todo o país.",
+    "cta": "Ver produtos"
+  },
+  "Stats": {
+    "yearsInMarket": "Anos no mercado",
+    "brandsAvailable": "Marcas disponíveis",
+    "shipmentsCompleted": "Envios realizados",
+    "averageRating": "Avaliação média"
+  },
+  "FeaturedProducts": {
+    "eyebrow": "Seleção da casa",
+    "title": "Produtos em destaque",
+    "cta": "Ver catálogo completo"
+  },
+  "PromoBanner": {
+    "alt": "Helicóptero RC SAB Goblin KSE, um dos modelos de competição que vendemos"
+  },
+  "LatestPosts": {
+    "eyebrow": "Novidades da comunidade",
+    "title": "Do blog",
+    "cta": "Ver todo o blog"
+  },
+  "BrandsCarousel": {
+    "eyebrow": "Marcas parceiras",
+    "previous": "Marcas anteriores",
+    "next": "Próximas marcas",
+    "goToPage": "Ir para a página {page}",
+    "ctaText": "Quer que sua marca apareça aqui?",
+    "ctaLink": "Fale conosco"
+  },
+  "SearchInput": {
+    "placeholder": "Buscar por nome ou número de peça...",
+    "ariaLabel": "Buscar produtos",
+    "clearAria": "Limpar busca",
+    "loading": "Buscando...",
+    "viewAllResults": "Ver todos os resultados",
+    "noResults": "Nenhum resultado para \"{query}\"."
+  },
+  "Breadcrumb": {
+    "home": "Início"
+  },
+  "ProductsPage": {
+    "searchResultsFor": "Resultados para \"{query}\""
+  },
+  "ProductFilters": {
+    "title": "Filtros",
+    "clear": "Limpar",
+    "stock": "Estoque",
+    "inStock": "Em estoque",
+    "outOfStock": "Sem estoque",
+    "category": "Categoria",
+    "brand": "Marca",
+    "priceRange": "Faixa de preço (USD)",
+    "min": "Mín",
+    "max": "Máx",
+    "apply": "Aplicar"
+  },
+  "SortBar": {
+    "count": "{count} produtos",
+    "sortLabel": "Ordenar",
+    "relevance": "Relevância",
+    "price": "Preço"
+  },
+  "ProductGrid": {
+    "noResults": "Nenhum produto corresponde a esses filtros.",
+    "loading": "Carregando...",
+    "loadMore": "Ver mais produtos"
+  },
+  "AddToCartButton": {
+    "added": "Produto adicionado ao carrinho",
+    "adding": "Adicionando...",
+    "add": "Adicionar ao carrinho"
+  },
+  "StockAlertButton": {
+    "subscribed": "Vamos avisar por email quando o estoque voltar.",
+    "loginLink": "Entrar",
+    "subscribePrompt": "para que a gente avise quando o estoque voltar.",
+    "activating": "Ativando...",
+    "notifyMe": "Avisar quando tiver estoque"
+  },
+  "PriceTag": {
+    "estimatedArs": "Custo estimado em pesos: {value}"
+  },
+  "ProductDetail": {
+    "inStock": "{count} em estoque",
+    "outOfStock": "Sem estoque no momento"
+  },
+  "ImageGallery": {
+    "zoom": "Ampliar imagem",
+    "viewImage": "Ver imagem {index} de {total}",
+    "close": "Fechar"
+  },
+  "Common": {
+    "viewCatalog": "Ver catálogo"
+  },
+  "CartSummary": {
+    "estimatedSubtotal": "Subtotal estimado"
+  },
+  "CartView": {
+    "title": "Carrinho",
+    "loading": "Carregando...",
+    "empty": "Você ainda não adicionou produtos.",
+    "decrease": "Diminuir",
+    "increase": "Aumentar",
+    "remove": "Remover",
+    "continueToCheckout": "Continuar para o checkout",
+    "loginToContinue": "Entrar para continuar"
+  },
+  "CartIcon": {
+    "ariaLabel": "Ver carrinho",
+    "title": "Seu carrinho",
+    "close": "Fechar",
+    "loading": "Carregando...",
+    "empty": "Você ainda não adicionou produtos.",
+    "subtotal": "Subtotal",
+    "viewFullCart": "Ver carrinho completo"
+  },
+  "CheckoutPage": {
+    "title": "Checkout",
+    "verifyEmailPrompt": "Você precisa verificar seu email antes de concluir uma compra.",
+    "emptyCart": "Seu carrinho está vazio."
+  },
+  "CheckoutForm": {
+    "yourData": "Seus dados",
+    "edit": "Editar",
+    "shippingMethod": "Método de envio",
+    "paymentMethodTitle": "Forma de pagamento",
+    "coupon": "Cupom",
+    "optional": "(opcional)",
+    "orderNotes": "Observações do pedido",
+    "notesPlaceholder": "Algo que devêssemos saber sobre o seu pedido...",
+    "confirming": "Confirmando...",
+    "confirmOrder": "Confirmar pedido",
+    "submitError": "Não foi possível confirmar o pedido"
+  },
+  "DeliverySelector": {
+    "pickupTitle": "Retirar na loja",
+    "pickupHint": "Combinamos a retirada pelo WhatsApp assim que o pagamento for confirmado.",
+    "addAddress": "+ Adicionar um endereço",
+    "manageAddressesPrefix": "Você gerencia seus endereços salvos em"
+  },
+  "PaymentMethodSelector": {
+    "bankTransferLabel": "Transferência bancária",
+    "bankTransferHint": "Você vai poder enviar o comprovante depois de confirmar o pedido.",
+    "cashLabel": "Dinheiro",
+    "cashHint": "Pague na retirada ou na entrega."
+  },
+  "BankTransferDetails": {
+    "bank": "Banco",
+    "holder": "Titular",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyAria": "Copiar {label}"
+  },
+  "CouponInput": {
+    "invalidCoupon": "Cupom inválido",
+    "couponApplied": "Cupom <b>{code}</b> aplicado",
+    "remove": "Remover",
+    "placeholder": "Tem um cupom?",
+    "verifying": "Verificando...",
+    "apply": "Aplicar"
+  },
+  "OrderSummary": {
+    "yourOrder": "Seu pedido",
+    "quantity": "Quantidade: {count}",
+    "couponPrefix": "Cupom {code}",
+    "estimatedTotal": "Total estimado",
+    "inPesos": "Em pesos"
+  },
+  "ResendVerificationButton": {
+    "sent": "Reenviamos o email",
+    "sending": "Enviando...",
+    "resend": "Reenviar verificação"
+  },
+  "BlogPage": {
+    "description": "Novidades de marcas, eventos, competições e notas de interesse para a comunidade heli. Escrito pela equipe da ChoppersRC.",
+    "noPostsInCategory": "Ainda não há publicações em \"{category}\".",
+    "noPosts": "Ainda não há publicações."
+  },
+  "BlogCategory": {
+    "TODOS": "Todos",
+    "NOVEDADES": "Novidades",
+    "INTERES_GENERAL": "Interesse geral",
+    "EVENTOS": "Eventos",
+    "COMPETENCIAS": "Competições",
+    "TUTORIALES": "Tutoriais"
+  },
+  "PostCard": {
+    "viewPost": "Ver postagem"
+  },
+  "FeaturedPost": {
+    "featured": "Destaque",
+    "readPost": "Ler a postagem"
+  },
+  "AboutPage": {
+    "eyebrow": "Nossa história",
+    "title": "Nascemos para aproximar o hobby que amamos.",
+    "quote": "Se um piloto argentino pode voar tão bem quanto um campeão mundial, fizemos bem o nosso trabalho.",
+    "quoteAuthor": "Luis, fundador da ChoppersRC"
+  },
+  "OurStory": {
+    "imageAlt": "Pilotos da ChoppersRC voando um helicóptero RC em um campo aberto",
+    "p1": "Tudo começou com um problema que todo piloto argentino conhece: os melhores produtos existem, mas estão do outro lado do mundo.",
+    "p2": "A ChoppersRC surgiu da iniciativa de <b>Luis</b>, seu dono e piloto de longa data, cansado de ver como a comunidade local ficava pelo caminho. Kits que nunca chegavam, peças impossíveis de conseguir, importações intermináveis e a sensação constante de montar o hobby com o que havia, não com o que realmente se queria voar.",
+    "p3": "Assim nasceu a ideia: trazer ao país os produtos importados de primeira qualidade que não se encontram aqui, e colocá-los ao alcance de todos em um só lugar. As marcas que os campeões escolhem, os motores que realmente rendem, as baterias em que se pode confiar quando o heli está a trinta metros de altura. Nada de segundas opções.",
+    "p4": "Mas a ChoppersRC é, antes de tudo, muito mais que uma loja. É o ponto de encontro de uma comunidade que cresce a cada voo. Por trás de cada pedido há alguém que responde suas dúvidas antes de comprar. Vendemos produtos, sim, mas o que construímos é confiança.",
+    "p5": "Porque o objetivo nunca foi vender por vender. O objetivo é que você possa aproveitar o hobby sem preocupações, que encontre tudo em um lugar seguro, que chegue quando tiver que chegar, e que a única coisa em que precise pensar seja quando vai decolar de novo."
+  },
+  "ValuesGrid": {
+    "eyebrow": "O que nos move",
+    "title": "No que acreditamos"
+  },
+  "AboutValues": {
+    "v1Title": "Qualidade sem concessões",
+    "v1Description": "Só trazemos as marcas e produtos que nós mesmos voaríamos. Importado, original e testado — nada de imitações nem segundas opções.",
+    "v2Title": "Comunidade em primeiro lugar",
+    "v2Description": "Antes de uma venda, há um piloto. Aconselhamos, recomendamos setups e acompanhamos desde o primeiro voo até a competição.",
+    "v3Title": "Comprar sem preocupações",
+    "v3Description": "Um lugar seguro e de confiança, com tudo que sua heli precisa e envios para todo o país. Você voa; do resto cuidamos nós."
+  },
+  "ContactPage": {
+    "description": "Dúvidas sobre um produto, seu setup ou um pedido? Escreva para nós. Luis e a equipe respondem todas as consultas."
+  },
+  "WhatsAppCard": {
+    "eyebrow": "A via mais rápida",
+    "title": "Fale conosco pelo WhatsApp",
+    "description": "É o canal onde respondemos mais rápido. Pergunte sobre estoque, preços ou o setup ideal para sua heli e te respondemos no mesmo dia.",
+    "chatNow": "Conversar agora",
+    "responseTime": "Resposta típica em menos de 1 hora · Seg a Sáb 9h–19h",
+    "emailLabel": "Email (consultas formais)",
+    "storeLabel": "Loja"
+  },
+  "ContactForm": {
+    "heading": "Ou deixe sua consulta",
+    "topicProduct": "Consulta sobre um produto",
+    "topicOrderStatus": "Status de um pedido",
+    "topicReturns": "Devoluções e garantias",
+    "topicPartner": "Ser distribuidor/marca parceira",
+    "topicOther": "Outro",
+    "name": "Nome",
+    "namePlaceholder": "Seu nome e sobrenome",
+    "email": "Email",
+    "emailPlaceholder": "voce@email.com",
+    "phone": "Telefone / WhatsApp",
+    "optional": "(opcional)",
+    "phonePlaceholder": "+54 ...",
+    "topic": "Tema da consulta",
+    "message": "Mensagem",
+    "messagePlaceholder": "Conte sua dúvida: qual heli você voa, o que precisa, para quando...",
+    "submit": "Enviar consulta",
+    "responseNote": "Respondemos por email. Para algo urgente, melhor pelo WhatsApp."
+  },
+  "FaqPage": {
+    "title": "Perguntas frequentes",
+    "description": "As dúvidas mais comuns sobre envios, pagamentos, garantias e devoluções. Se não encontrar o que procura, escreva para nós."
+  },
+  "FaqItems": {
+    "q1": "Quanto tempo demora para meu pedido chegar?",
+    "a1": "Os envios para a região de AMBA costumam chegar em 24 a 48h úteis. Para o resto do país, entre 3 e 7 dias úteis dependendo da localidade e do correio. Enviamos o código de rastreamento assim que despachamos o pedido.",
+    "q2": "Quais formas de pagamento vocês aceitam?",
+    "a2": "Transferência bancária e dinheiro na retirada ou entrega do pedido. Se você escolher transferência, mostramos o CBU e alias assim que você confirma a compra.",
+    "q3": "Posso retirar o pedido na loja?",
+    "a3": "Sim. Ao finalizar a compra você pode escolher retirada na loja sem custo. Avisamos por email e WhatsApp assim que estiver pronto para retirar.",
+    "q4": "Os produtos têm garantia?",
+    "a4": "Todos os produtos têm garantia oficial do fabricante ou importador, entre 3 e 12 meses dependendo do item. O detalhe de cada garantia está na ficha do produto.",
+    "q5": "Como faço uma devolução ou troca?",
+    "a5": "Você tem 10 dias a partir do recebimento do pedido para pedir uma troca ou devolução, desde que o produto esteja sem uso e na embalagem original. Escreva para nós pelo WhatsApp ou pela sua conta em Meus pedidos.",
+    "q6": "Os produtos são originais e importados?",
+    "a6": "Sim, trabalhamos apenas com marcas oficiais e importação direta. Não vendemos réplicas nem clones — tudo que publicamos é o que nós mesmos voaríamos.",
+    "q7": "Vocês enviam para todo o país?",
+    "a7": "Sim, enviamos para toda a Argentina através dos principais correios e empresas de logística. O custo e tempo estimado são calculados no checkout de acordo com seu código postal.",
+    "q8": "O que faço se meu produto chegar com um problema?",
+    "a8": "Escreva para nós assim que perceber, com fotos ou vídeo se possível. Cobrimos a substituição ou o reparo conforme a garantia, sem custo para você."
+  },
+  "LegalContent": {
+    "lastUpdatedLabel": "Última atualização: {date}"
+  },
+  "PrivacyPage": {
+    "title": "Política de privacidade",
+    "description": "Quais dados coletamos, para que os usamos e quais cookies o site utiliza.",
+    "lastUpdated": "1 de setembro de 2026",
+    "s1Title": "1. Responsável pelo tratamento",
+    "s1P1": "A ChoppersRC é responsável pelo tratamento dos dados pessoais coletados através do choppersrc.com. Para qualquer dúvida sobre esta política, você pode nos escrever pelos canais indicados na seção de Contato.",
+    "s2Title": "2. Quais dados coletamos",
+    "s2P1": "Dependendo de como você usa o site, podemos coletar: nome e sobrenome, email, telefone, endereço de entrega, histórico de pedidos, e dados de navegação (páginas visitadas, dispositivo, endereço IP) através de cookies próprios e de terceiros.",
+    "s2P2": "Não solicitamos nem armazenamos dados de cartões ou outros meios de pagamento — isso é processado diretamente por cada gateway de pagamento quando aplicável.",
+    "s3Title": "3. Para que usamos seus dados",
+    "s3P1": "Usamos seus dados para processar e entregar seus pedidos, responder dúvidas, gerenciar sua conta, cumprir obrigações legais/fiscais, e — somente se você aceitou os cookies de análise — entender como o site é usado para melhorá-lo.",
+    "s4Title": "4. Com quem compartilhamos seus dados",
+    "s4P1": "Compartilhamos dados com terceiros apenas quando necessário para prestar o serviço: correios e empresas de logística (para entregar seu pedido) e Google Analytics (para estatísticas de uso, somente se você aceitou cookies de análise).",
+    "s4P2": "Não vendemos nem alugamos seus dados pessoais a terceiros para fins de marketing.",
+    "s5Title": "5. Cookies e tecnologias similares",
+    "s5P1": "Um cookie é um pequeno arquivo que o site salva no seu navegador. Usamos dois tipos: cookies necessários, que você não pode desativar porque o site não funciona sem eles (manter sua sessão iniciada, lembrar seu carrinho), e cookies de análise, que só se ativam se você os aceitar no aviso de cookies, e que você pode recusar sem que isso afete sua compra.",
+    "s5P2": "Você pode mudar sua escolha a qualquer momento apagando os cookies do site nas configurações do seu navegador — o aviso vai aparecer novamente na sua próxima visita.",
+    "s5TableHeaders": ["Cookie", "Tipo", "Fornecedor", "Finalidade", "Duração"],
+    "s5Row1": ["session", "Necessário", "ChoppersRC (próprio)", "Mantém sua sessão iniciada.", "Até encerrar sessão / expirar"],
+    "s5Row2": ["cart", "Necessário", "ChoppersRC (próprio)", "Lembra o conteúdo do seu carrinho.", "30 dias"],
+    "s5Row3": ["_ga, _ga_*", "Análise", "Google Analytics", "Distingue visitantes únicos para as estatísticas de uso do site.", "Até 2 anos"],
+    "s5Row4": ["_gid", "Análise", "Google Analytics", "Distingue visitantes durante 24h.", "24 horas"],
+    "s6Title": "6. Seus direitos sobre seus dados",
+    "s6P1": "Conforme a Lei 25.326, você tem direito a acessar, retificar, atualizar e solicitar a exclusão dos seus dados pessoais. Você pode exercê-los escrevendo para nós pelos canais de Contato, ou diretamente junto à Agencia de Acceso a la Información Pública (AAIP) caso considere que sua solicitação não foi devidamente atendida.",
+    "s7Title": "7. Segurança dos dados",
+    "s7P1": "Tomamos medidas técnicas e organizacionais razoáveis para proteger seus dados (conexão criptografada, acesso restrito às informações de contas e pedidos). Nenhum sistema é 100% infalível, mas trabalhamos para minimizar os riscos.",
+    "s8Title": "8. Transferência internacional de dados",
+    "s8P1": "Ao usar o Google Analytics, alguns dados de navegação são processados em servidores fora da Argentina (Google LLC, Estados Unidos), sob as cláusulas e garantias do Google para o tratamento de dados.",
+    "s9Title": "9. Alterações a esta política",
+    "s9P1": "Podemos atualizar esta Política de Privacidade a qualquer momento. A versão vigente é sempre a publicada nesta página, com sua data de última atualização.",
+    "s10Title": "10. Contato",
+    "s10P1": "Para dúvidas sobre esta política ou para exercer seus direitos, escreva para nós pelos canais indicados na seção de Contato."
+  },
+  "TermsPage": {
+    "title": "Termos e condições",
+    "description": "As condições que regem o uso do site e suas compras na ChoppersRC.",
+    "lastUpdated": "1 de setembro de 2026",
+    "s1Title": "1. Aceitação dos termos",
+    "s1P1": "Ao acessar ou comprar em choppersrc.com você aceita estes Termos e Condições em sua totalidade. Se você não concordar com alguma parte, pedimos que não utilize o site.",
+    "s2Title": "2. Objeto e alcance",
+    "s2P1": "A ChoppersRC comercializa helicópteros de radiocontrole, peças e acessórios de aeromodelismo, tanto para consumidores finais quanto para distribuidores, dentro e fora da Argentina.",
+    "s3Title": "3. Cadastro de conta",
+    "s3P1": "Para comprar você pode se cadastrar com seu email ou continuar como convidado. Você é responsável por manter a confidencialidade da sua senha e por toda atividade realizada a partir da sua conta.",
+    "s3P2": "Reservamo-nos o direito de suspender ou cancelar contas com informações falsas, uso fraudulento ou descumprimento destes termos.",
+    "s4Title": "4. Produtos, preços e disponibilidade",
+    "s4P1": "Os preços publicados estão expressos em pesos argentinos (ARS) e incluem os impostos vigentes, salvo indicação em contrário. Reservamo-nos o direito de modificar preços e estoque sem aviso prévio.",
+    "s4P2": "Fazemos o possível para que as fotos e descrições sejam fiéis ao produto real; pequenas diferenças de cor ou embalagem não constituem um defeito.",
+    "s5Title": "5. Processo de compra e pagamento",
+    "s5P1": "A compra é confirmada assim que o pagamento é creditado por transferência bancária ou dinheiro (retirada/entrega). O pedido fica reservado por 48h enquanto a transferência é creditada.",
+    "s6Title": "6. Envios e entregas",
+    "s6P1": "Realizamos envios para todo o país através de correios e empresas de logística terceirizadas. O prazo estimado é informado no checkout e pode variar por motivos alheios à ChoppersRC (greve, clima, região de entrega).",
+    "s7Title": "7. Trocas, devoluções e garantias",
+    "s7P1": "Você tem 10 dias corridos a partir do recebimento para solicitar uma troca ou devolução, conforme o direito de arrependimento da Lei 24.240, desde que o produto esteja sem uso e em sua embalagem original.",
+    "s7P2": "Cada produto tem a garantia indicada em sua ficha, cobrindo defeitos de fabricação. A garantia não cobre mau uso, quedas, água ou desgaste normal de peças (pás, engrenagens, etc.).",
+    "s8Title": "8. Propriedade intelectual",
+    "s8P1": "Todo o conteúdo do site (textos, imagens, logo, design) é propriedade da ChoppersRC ou de seus licenciantes e está protegido pelas leis de propriedade intelectual. Fica proibida sua reprodução sem autorização prévia.",
+    "s9Title": "9. Uso aceitável do site",
+    "s9P1": "Não é permitido usar o site para fins fraudulentos, tentar violar sua segurança, nem publicar conteúdo ofensivo ou ilegal em qualquer canal de contato disponível (formulário, WhatsApp, comentários do blog).",
+    "s10Title": "10. Limitação de responsabilidade",
+    "s10P1": "A ChoppersRC não se responsabiliza por danos indiretos decorrentes do uso de produtos de radiocontrole, que por sua natureza exigem perícia e supervisão adequada. O voo é de responsabilidade exclusiva do usuário.",
+    "s11Title": "11. Modificações destes termos",
+    "s11P1": "Podemos atualizar estes Termos e Condições a qualquer momento. A versão vigente é sempre a publicada nesta página, com sua data de última atualização.",
+    "s12Title": "12. Lei aplicável e jurisdição",
+    "s12P1": "Estes termos são regidos pelas leis da República Argentina. Em caso de controvérsia, as partes se submetem aos tribunais ordinários competentes, sem prejuízo dos direitos do consumidor de optar pelo foro de seu domicílio.",
+    "s13Title": "13. Contato",
+    "s13P1": "Para dúvidas sobre estes termos você pode nos escrever pelos canais indicados na seção de Contato."
+  },
+  "CookieBanner": {
+    "dialogAria": "Aviso de cookies",
+    "message": "Usamos cookies próprios para que o site funcione (sessão, carrinho) e, se você aceitar, cookies de análise (Google Analytics) para entender como a loja é usada. Você pode mudar de ideia quando quiser.",
+    "moreInfo": "Saiba mais",
+    "reject": "Recusar",
+    "accept": "Aceitar"
+  },
+  "NotFound": {
+    "eyebrow": "Erro 404",
+    "title": "Caiu um helicóptero aqui!",
+    "description": "A página que você procura não existe ou mudou de lugar. Enquanto resgatamos o piloto, volte para o início e continue vendo o catálogo.",
+    "backHome": "Voltar para o início"
+  }
+}

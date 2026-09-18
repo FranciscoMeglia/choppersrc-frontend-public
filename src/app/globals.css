@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+/*
+ * Brand palette — sampled straight from public/images/logo.webp (the red of
+ * the rotor blade / "RC", the dark ink of the helicopter body / "CHOPPERS").
+ * Light mode only, on purpose: ChoppersRC's storefront doesn't offer a dark
+ * theme, so there's no `prefers-color-scheme` override here — every color
+ * below is the only one that ever applies.
+ *
+ * Defined via Tailwind v4's `@theme` (not just plain CSS custom properties)
+ * so they double as utilities: `bg-primary`, `text-ink`, `border-ink/10`,
+ * `bg-background`, etc. — see any component for real usage. Still plain CSS
+ * variables underneath (`var(--color-primary)`), for the rare spot that
+ * needs raw CSS instead of a Tailwind class.
+ */
+@theme {
+  --color-background: #ffffff;
+  --color-ink: #16232c;
+  --color-primary: #d02a2c;
+  --color-primary-hover: #ad2224;
+
+  /* Bold condensed display face for section/page titles (`font-heading`) —
+   * loaded via next/font/google in layout.tsx, this just wires its CSS
+   * variable into a Tailwind utility. */
+  --font-heading: var(--font-oswald), ui-sans-serif, system-ui, sans-serif;
+
+  /* Body face — overrides Tailwind's own `--font-sans` (the default for
+   * every element via Preflight), so this is the site-wide body font
+   * without needing a `font-sans` class anywhere. Also loaded in
+   * layout.tsx via next/font/google. */
+  --font-sans: var(--font-public-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-ink);
+}
+
+/* Tailwind's preflight deliberately leaves `<button>` at the browser default
+ * (`cursor: default`), unlike `<a>`, which is already `pointer` natively —
+ * that's what made hover states inconsistent site-wide (a Link always
+ * looked clickable, a same-looking `<button>` didn't). One rule for every
+ * button, everywhere, current and future, instead of a `cursor-pointer`
+ * class repeated on each one. `:disabled` is excluded on purpose — a
+ * disabled button isn't clickable, it shouldn't look like it is. */
+button:not(:disabled) {
+  cursor: pointer;
+}

@@ -1,0 +1,410 @@
+{
+  "LanguageSwitcher": {
+    "label": "Language",
+    "es": "Español",
+    "en": "English",
+    "pt": "Português"
+  },
+  "Nav": {
+    "home": "Home",
+    "products": "Products",
+    "about": "About us",
+    "blog": "Blog",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "faqLong": "Frequently asked questions",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy policy"
+  },
+  "Site": {
+    "description": "RC helicopter parts and accessories.",
+    "footerDescription": "RC helicopter specialists since 2005. Kits, parts and accessories for pilots of every level."
+  },
+  "Header": {
+    "myAccount": "My account",
+    "login": "Log in",
+    "submit": "Log in",
+    "register": "Create account",
+    "logout": "Log out",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot your password?",
+    "loggingIn": "Logging in...",
+    "loginError": "Couldn't log in",
+    "noAccount": "Don't have an account?",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
+  },
+  "Footer": {
+    "shop": "Shop",
+    "company": "Company",
+    "help": "Help",
+    "copyright": "© {year} {name} — All rights reserved.",
+    "paymentMethods": "Payment methods: bank transfer and cash."
+  },
+  "TopBar": {
+    "facebookAria": "{name} on Facebook",
+    "instagramAria": "{name} on Instagram",
+    "youtubeAria": "{name} on YouTube"
+  },
+  "Hero": {
+    "eyebrow": "RC helicopters · since 2005",
+    "title": "Everything your heli needs to take off.",
+    "description": "Competition kits, brushless motors, servos, batteries, tools and apparel. The brands pilots choose, shipped all over the country.",
+    "cta": "View products"
+  },
+  "Stats": {
+    "yearsInMarket": "Years in the market",
+    "brandsAvailable": "Brands available",
+    "shipmentsCompleted": "Shipments completed",
+    "averageRating": "Average rating"
+  },
+  "FeaturedProducts": {
+    "eyebrow": "Handpicked selection",
+    "title": "Featured products",
+    "cta": "View full catalog"
+  },
+  "PromoBanner": {
+    "alt": "SAB Goblin KSE RC helicopter, one of the competition models we sell"
+  },
+  "LatestPosts": {
+    "eyebrow": "Community news",
+    "title": "From the blog",
+    "cta": "View full blog"
+  },
+  "BrandsCarousel": {
+    "eyebrow": "Partner brands",
+    "previous": "Previous brands",
+    "next": "Next brands",
+    "goToPage": "Go to page {page}",
+    "ctaText": "Want your brand featured here?",
+    "ctaLink": "Get in touch"
+  },
+  "SearchInput": {
+    "placeholder": "Search by name or part number...",
+    "ariaLabel": "Search products",
+    "clearAria": "Clear search",
+    "loading": "Searching...",
+    "viewAllResults": "View all results",
+    "noResults": "No results for \"{query}\"."
+  },
+  "Breadcrumb": {
+    "home": "Home"
+  },
+  "ProductsPage": {
+    "searchResultsFor": "Results for \"{query}\""
+  },
+  "ProductFilters": {
+    "title": "Filters",
+    "clear": "Clear",
+    "stock": "Stock",
+    "inStock": "In stock",
+    "outOfStock": "Out of stock",
+    "category": "Category",
+    "brand": "Brand",
+    "priceRange": "Price range (USD)",
+    "min": "Min",
+    "max": "Max",
+    "apply": "Apply"
+  },
+  "SortBar": {
+    "count": "{count} products",
+    "sortLabel": "Sort",
+    "relevance": "Relevance",
+    "price": "Price"
+  },
+  "ProductGrid": {
+    "noResults": "No products match these filters.",
+    "loading": "Loading...",
+    "loadMore": "Load more products"
+  },
+  "AddToCartButton": {
+    "added": "Added to cart",
+    "adding": "Adding...",
+    "add": "Add to cart"
+  },
+  "StockAlertButton": {
+    "subscribed": "We'll email you when it's back in stock.",
+    "loginLink": "Log in",
+    "subscribePrompt": "so we can notify you when it's back in stock.",
+    "activating": "Activating...",
+    "notifyMe": "Notify me when in stock"
+  },
+  "PriceTag": {
+    "estimatedArs": "Estimated cost in pesos: {value}"
+  },
+  "ProductDetail": {
+    "inStock": "{count} in stock",
+    "outOfStock": "Out of stock for now"
+  },
+  "ImageGallery": {
+    "zoom": "Zoom image",
+    "viewImage": "View image {index} of {total}",
+    "close": "Close"
+  },
+  "Common": {
+    "viewCatalog": "View catalog"
+  },
+  "CartSummary": {
+    "estimatedSubtotal": "Estimated subtotal"
+  },
+  "CartView": {
+    "title": "Cart",
+    "loading": "Loading...",
+    "empty": "You haven't added any products yet.",
+    "decrease": "Decrease",
+    "increase": "Increase",
+    "remove": "Remove",
+    "continueToCheckout": "Continue to checkout",
+    "loginToContinue": "Log in to continue"
+  },
+  "CartIcon": {
+    "ariaLabel": "View cart",
+    "title": "Your cart",
+    "close": "Close",
+    "loading": "Loading...",
+    "empty": "You haven't added any products yet.",
+    "subtotal": "Subtotal",
+    "viewFullCart": "View full cart"
+  },
+  "CheckoutPage": {
+    "title": "Checkout",
+    "verifyEmailPrompt": "You need to verify your email before you can complete a purchase.",
+    "emptyCart": "Your cart is empty."
+  },
+  "CheckoutForm": {
+    "yourData": "Your details",
+    "edit": "Edit",
+    "shippingMethod": "Shipping method",
+    "paymentMethodTitle": "Payment method",
+    "coupon": "Coupon",
+    "optional": "(optional)",
+    "orderNotes": "Order notes",
+    "notesPlaceholder": "Anything we should know about your order...",
+    "confirming": "Confirming...",
+    "confirmOrder": "Confirm order",
+    "submitError": "Couldn't confirm the order"
+  },
+  "DeliverySelector": {
+    "pickupTitle": "Pick up in store",
+    "pickupHint": "We'll coordinate pickup over WhatsApp once payment is confirmed.",
+    "addAddress": "+ Add an address",
+    "manageAddressesPrefix": "You manage your saved addresses from"
+  },
+  "PaymentMethodSelector": {
+    "bankTransferLabel": "Bank transfer",
+    "bankTransferHint": "You'll be able to upload the receipt after confirming the order.",
+    "cashLabel": "Cash",
+    "cashHint": "Pay on pickup or delivery."
+  },
+  "BankTransferDetails": {
+    "bank": "Bank",
+    "holder": "Account holder",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyAria": "Copy {label}"
+  },
+  "CouponInput": {
+    "invalidCoupon": "Invalid coupon",
+    "couponApplied": "Coupon <b>{code}</b> applied",
+    "remove": "Remove",
+    "placeholder": "Got a coupon?",
+    "verifying": "Verifying...",
+    "apply": "Apply"
+  },
+  "OrderSummary": {
+    "yourOrder": "Your order",
+    "quantity": "Quantity: {count}",
+    "couponPrefix": "Coupon {code}",
+    "estimatedTotal": "Estimated total",
+    "inPesos": "In pesos"
+  },
+  "ResendVerificationButton": {
+    "sent": "We resent the email",
+    "sending": "Sending...",
+    "resend": "Resend verification"
+  },
+  "BlogPage": {
+    "description": "Brand news, events, competitions and articles for the heli community. Written by the ChoppersRC team.",
+    "noPostsInCategory": "No posts in \"{category}\" yet.",
+    "noPosts": "No posts yet."
+  },
+  "BlogCategory": {
+    "TODOS": "All",
+    "NOVEDADES": "News",
+    "INTERES_GENERAL": "General interest",
+    "EVENTOS": "Events",
+    "COMPETENCIAS": "Competitions",
+    "TUTORIALES": "Tutorials"
+  },
+  "PostCard": {
+    "viewPost": "View post"
+  },
+  "FeaturedPost": {
+    "featured": "Featured",
+    "readPost": "Read post"
+  },
+  "AboutPage": {
+    "eyebrow": "Our story",
+    "title": "We were born to bring this hobby we love closer to you.",
+    "quote": "If an Argentine pilot can fly just as well as a world champion, we did our job right.",
+    "quoteAuthor": "Luis, founder of ChoppersRC"
+  },
+  "OurStory": {
+    "imageAlt": "ChoppersRC pilots flying an RC helicopter in an open field",
+    "p1": "It all started with a problem every Argentine pilot knows: the best products exist, but they're on the other side of the world.",
+    "p2": "ChoppersRC came from the initiative of <b>Luis</b>, its owner and lifelong pilot, tired of watching the local community fall short every time. Kits that never arrived, parts impossible to find, endless imports, and the constant feeling of building the hobby with whatever was available, not what you actually wanted to fly.",
+    "p3": "That's how the idea was born: bring top-quality imported products that aren't available here into the country, and put them within everyone's reach in one place. The brands champions choose, motors that truly perform, batteries you can trust when the heli is thirty meters up. No second choices.",
+    "p4": "But ChoppersRC is, above all, much more than a store. It's the meeting point for a community that grows flight by flight. Behind every order is someone who answers your questions before you buy. Yes, we sell products, but what we build is trust.",
+    "p5": "Because the goal was never to sell for the sake of selling. The goal is for you to enjoy the hobby worry-free, to find everything in one safe place, to have it arrive when it should, and for the only thing on your mind to be when you'll take off again."
+  },
+  "ValuesGrid": {
+    "eyebrow": "What drives us",
+    "title": "What we believe in"
+  },
+  "AboutValues": {
+    "v1Title": "Quality without compromise",
+    "v1Description": "We only carry the brands and products we'd fly ourselves. Imported, original and tested — no imitations, no second choices.",
+    "v2Title": "Community first",
+    "v2Description": "Before a sale, there's a pilot. We advise, recommend setups, and stick with you from your first flight to competition.",
+    "v3Title": "Worry-free shopping",
+    "v3Description": "A safe, trusted place with everything your heli needs and shipping nationwide. You fly; we handle the rest."
+  },
+  "ContactPage": {
+    "description": "Questions about a product, your setup, or an order? Write to us. Luis and the team answer every inquiry."
+  },
+  "WhatsAppCard": {
+    "eyebrow": "The fastest way",
+    "title": "Message us on WhatsApp",
+    "description": "It's the channel where we respond fastest. Ask about stock, prices, or the ideal setup for your heli and we'll get back to you the same day.",
+    "chatNow": "Chat now",
+    "responseTime": "Typical response in under 1 hour · Mon to Sat 9am–7pm",
+    "emailLabel": "Email (formal inquiries)",
+    "storeLabel": "Store"
+  },
+  "ContactForm": {
+    "heading": "Or leave us your question",
+    "topicProduct": "Question about a product",
+    "topicOrderStatus": "Order status",
+    "topicReturns": "Returns and warranties",
+    "topicPartner": "Becoming a distributor/partner brand",
+    "topicOther": "Other",
+    "name": "Name",
+    "namePlaceholder": "Your first and last name",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "phone": "Phone / WhatsApp",
+    "optional": "(optional)",
+    "phonePlaceholder": "+54 ...",
+    "topic": "Inquiry topic",
+    "message": "Message",
+    "messagePlaceholder": "Tell us about it: what heli you fly, what you need, by when...",
+    "submit": "Send inquiry",
+    "responseNote": "We reply by email. For anything urgent, WhatsApp is faster."
+  },
+  "FaqPage": {
+    "title": "Frequently asked questions",
+    "description": "The most common questions about shipping, payments, warranties and returns. If you can't find what you're looking for, write to us."
+  },
+  "FaqItems": {
+    "q1": "How long does my order take to arrive?",
+    "a1": "Shipments to the AMBA area usually arrive within 24 to 48 business hours. To the rest of the country, between 3 and 7 business days depending on the location and courier. We send you the tracking code as soon as we dispatch the order.",
+    "q2": "What payment methods do you accept?",
+    "a2": "Bank transfer and cash on pickup or delivery. If you choose transfer, we show you the CBU and alias as soon as you confirm the purchase.",
+    "q3": "Can I pick up my order at the store?",
+    "a3": "Yes. At checkout you can choose free in-store pickup. We'll notify you by email and WhatsApp as soon as it's ready.",
+    "q4": "Do the products have a warranty?",
+    "a4": "All products carry an official warranty from the manufacturer or importer, between 3 and 12 months depending on the item. The details for each warranty are on the product page.",
+    "q5": "How do I request a return or exchange?",
+    "a5": "You have 10 days from receiving your order to request an exchange or return, as long as the product is unused and in its original packaging. Write to us on WhatsApp or from your account under My Orders.",
+    "q6": "Are the products original and imported?",
+    "a6": "Yes, we only work with official brands and direct imports. We don't sell replicas or clones — everything we list is something we'd fly ourselves.",
+    "q7": "Do you ship nationwide?",
+    "a7": "Yes, we ship all over Argentina through major couriers and logistics companies. Cost and estimated time are calculated at checkout based on your postal code.",
+    "q8": "What do I do if my product arrives with a problem?",
+    "a8": "Write to us as soon as you notice it, with photos or video if possible. We cover replacement or repair as applicable under the warranty, at no cost to you."
+  },
+  "LegalContent": {
+    "lastUpdatedLabel": "Last updated: {date}"
+  },
+  "PrivacyPage": {
+    "title": "Privacy policy",
+    "description": "What data we collect, what we use it for, and what cookies the site uses.",
+    "lastUpdated": "September 1, 2026",
+    "s1Title": "1. Data controller",
+    "s1P1": "ChoppersRC is the controller of the personal data collected through choppersrc.com. For any questions about this policy, you can reach us through the channels listed in the Contact section.",
+    "s2Title": "2. What data we collect",
+    "s2P1": "Depending on how you use the site, we may collect: first and last name, email, phone number, shipping address, order history, and browsing data (pages visited, device, IP address) through our own and third-party cookies.",
+    "s2P2": "We don't request or store card details or other payment information — that's processed directly by each payment gateway when applicable.",
+    "s3Title": "3. What we use your data for",
+    "s3P1": "We use your data to process and deliver your orders, answer questions, manage your account, comply with legal/tax obligations, and — only if you accepted analytics cookies — understand how the site is used in order to improve it.",
+    "s4Title": "4. Who we share your data with",
+    "s4P1": "We share data with third parties only when necessary to provide the service: couriers and logistics companies (to deliver your order) and Google Analytics (for usage statistics, only if you accepted analytics cookies).",
+    "s4P2": "We do not sell or rent your personal data to third parties for marketing purposes.",
+    "s5Title": "5. Cookies and similar technologies",
+    "s5P1": "A cookie is a small file the site stores in your browser. We use two types: necessary cookies, which you can't disable because the site doesn't work without them (keeping you logged in, remembering your cart), and analytics cookies, which only activate if you accept them from the cookie notice, and which you can decline without affecting your purchase.",
+    "s5P2": "You can change your choice at any time by deleting the site's cookies from your browser settings — the notice will appear again on your next visit.",
+    "s5TableHeaders": ["Cookie", "Type", "Provider", "Purpose", "Duration"],
+    "s5Row1": ["session", "Necessary", "ChoppersRC (own)", "Keeps you logged in.", "Until logout / expiration"],
+    "s5Row2": ["cart", "Necessary", "ChoppersRC (own)", "Remembers your cart's contents.", "30 days"],
+    "s5Row3": ["_ga, _ga_*", "Analytics", "Google Analytics", "Distinguishes unique visitors for site usage statistics.", "Up to 2 years"],
+    "s5Row4": ["_gid", "Analytics", "Google Analytics", "Distinguishes visitors for 24 hours.", "24 hours"],
+    "s6Title": "6. Your rights over your data",
+    "s6P1": "Under Ley 25.326, you have the right to access, rectify, update and request deletion of your personal data. You can exercise these rights by writing to us through the Contact channels, or directly with the Agencia de Acceso a la Información Pública (AAIP) if you feel your request wasn't properly addressed.",
+    "s7Title": "7. Data security",
+    "s7P1": "We take reasonable technical and organizational measures to protect your data (encrypted connection, restricted access to account and order information). No system is 100% foolproof, but we work to minimize the risks.",
+    "s8Title": "8. International data transfer",
+    "s8P1": "By using Google Analytics, some browsing data is processed on servers outside Argentina (Google LLC, United States), under Google's clauses and safeguards for data processing.",
+    "s9Title": "9. Changes to this policy",
+    "s9P1": "We may update this Privacy Policy at any time. The version in effect is always the one published on this page, along with its last-updated date.",
+    "s10Title": "10. Contact",
+    "s10P1": "For questions about this policy or to exercise your rights, write to us through the channels listed in the Contact section."
+  },
+  "TermsPage": {
+    "title": "Terms and conditions",
+    "description": "The conditions governing use of the site and your purchases at ChoppersRC.",
+    "lastUpdated": "September 1, 2026",
+    "s1Title": "1. Acceptance of terms",
+    "s1P1": "By accessing or purchasing on choppersrc.com you accept these Terms and Conditions in full. If you disagree with any part of them, please do not use the site.",
+    "s2Title": "2. Purpose and scope",
+    "s2P1": "ChoppersRC sells radio-controlled helicopters, parts and model-aircraft accessories, to both end consumers and distributors, in and outside Argentina.",
+    "s3Title": "3. Account registration",
+    "s3P1": "To make a purchase you can register with your email or continue as a guest. You're responsible for keeping your password confidential and for all activity carried out from your account.",
+    "s3P2": "We reserve the right to suspend or cancel accounts with false information, fraudulent use, or breach of these terms.",
+    "s4Title": "4. Products, prices and availability",
+    "s4P1": "Listed prices are expressed in Argentine pesos (ARS) and include applicable taxes, unless stated otherwise. We reserve the right to change prices and stock without prior notice.",
+    "s4P2": "We do our best to make photos and descriptions match the actual product; small differences in color or packaging do not constitute a defect.",
+    "s5Title": "5. Purchase and payment process",
+    "s5P1": "The purchase is confirmed once payment is credited via bank transfer or cash (pickup/delivery). The order is held for 48 hours while the transfer is credited.",
+    "s6Title": "6. Shipping and delivery",
+    "s6P1": "We ship nationwide through third-party couriers and logistics companies. The estimated timeframe is shown at checkout and may vary for reasons beyond ChoppersRC's control (strikes, weather, delivery area).",
+    "s7Title": "7. Exchanges, returns and warranties",
+    "s7P1": "You have 10 calendar days from receipt to request an exchange or return, under the right of withdrawal in Ley 24.240, provided the product is unused and in its original packaging.",
+    "s7P2": "Each product carries the warranty stated on its page, covering manufacturing defects. The warranty doesn't cover misuse, impacts, water damage, or normal wear of parts (blades, gears, etc.).",
+    "s8Title": "8. Intellectual property",
+    "s8P1": "All site content (text, images, logo, design) is owned by ChoppersRC or its licensors and is protected by intellectual property law. Reproduction without prior authorization is prohibited.",
+    "s9Title": "9. Acceptable use of the site",
+    "s9P1": "The site may not be used for fraudulent purposes, to attempt to breach its security, or to post offensive or illegal content on any available contact channel (form, WhatsApp, blog comments).",
+    "s10Title": "10. Limitation of liability",
+    "s10P1": "ChoppersRC is not liable for indirect damages arising from the use of radio-control products, which by their nature require proper skill and supervision. Flying is the user's sole responsibility.",
+    "s11Title": "11. Changes to these terms",
+    "s11P1": "We may update these Terms and Conditions at any time. The version in effect is always the one published on this page, along with its last-updated date.",
+    "s12Title": "12. Governing law and jurisdiction",
+    "s12P1": "These terms are governed by the laws of Argentina. In case of any dispute, the parties submit to the competent ordinary courts, without prejudice to consumers' right to choose the court of their domicile.",
+    "s13Title": "13. Contact",
+    "s13P1": "For questions about these terms, you can write to us through the channels listed in the Contact section."
+  },
+  "CookieBanner": {
+    "dialogAria": "Cookie notice",
+    "message": "We use our own cookies so the site works (session, cart) and, if you accept, analytics cookies (Google Analytics) to understand how the store is used. You can change your mind anytime.",
+    "moreInfo": "Learn more",
+    "reject": "Decline",
+    "accept": "Accept"
+  },
+  "NotFound": {
+    "eyebrow": "Error 404",
+    "title": "We just lost a chopper!",
+    "description": "The page you're looking for doesn't exist or moved. While we rescue the pilot, head back home and keep browsing the catalog.",
+    "backHome": "Back to home"
+  }
+}
