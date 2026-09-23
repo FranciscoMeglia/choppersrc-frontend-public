@@ -1,8 +1,11 @@
 "use client";
 
 import { useRef, useState, type ChangeEvent } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import { Button, LinkButton } from "@/components/ui/Button";
+import { ConfirmDialog } from "@/components/ui/ConfirmDialog";
 import { ApiError } from "@/lib/api/client";
+import { formatDate } from "@/lib/utils/formatDate";
 import type { ApiErrorEnvelope, ApiSuccessEnvelope } from "@/types/api";
 import type { Order } from "@/types/order";
 
@@ -15,16 +18,6 @@ function ReceiptIcon({ className }: { className?: string }) {
   );
 }
 
-function formatDateTime(value: string) {
-  return new Intl.DateTimeFormat("es-AR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(value));
-}
-
 export function ReceiptUpload({
   orderId,
   initialUploadedAt,
@@ -32,20 +25,31 @@ export function ReceiptUpload({
   orderId: number;
   initialUploadedAt: string | null;
 }) {
+  const t = useTranslations("ReceiptUpload");
+  const locale = useLocale();
   const [uploadedAt, setUploadedAt] = useState(initialUploadedAt);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  // Se guarda acá al elegirlo, todavía sin subir — recién sube al confirmar
+  // en el modal (ver ConfirmDialog más abajo). Una vez que `uploadedAt` queda
+  // seteado no hay forma de volver a elegir otro: el backend rechaza un
+  // segundo POST para el mismo pedido (ver orders.service.js#saveReceipt), a
+  // propósito, para que no ande cambiando el comprobante varias veces.
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  async function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
+  function handleFileChange(event: ChangeEvent<HTMLInputElement>) {
     const file = event.target.files?.[0];
-    if (!file) return;
+    if (file) setPendingFile(file);
+  }
 
+  async function handleConfirm() {
+    if (!pendingFile) return;
     setError(null);
     setLoading(true);
     try {
       const formData = new FormData();
-      formData.append("receipt", file);
+      formData.append("receipt", pendingFile);
       const res = await fetch(`/api/backend/orders/${orderId}/receipt`, {
         method: "POST",
         body: formData,
@@ -57,14 +61,19 @@ export function ReceiptUpload({
         throw new ApiError(body.message, body.statusCode, body.errors);
       }
       setUploadedAt(body.data.receiptUploadedAt);
+      setPendingFile(null);
     } catch (err) {
-      setError(
-        err instanceof ApiError ? err.message : "No se pudo subir el comprobante",
-      );
+      setError(err instanceof ApiError ? err.message : t("uploadError"));
+      setPendingFile(null);
     } finally {
       setLoading(false);
       if (inputRef.current) inputRef.current.value = "";
     }
+  }
+
+  function handleCancel() {
+    setPendingFile(null);
+    if (inputRef.current) inputRef.current.value = "";
   }
 
   return (
@@ -74,46 +83,63 @@ export function ReceiptUpload({
           <ReceiptIcon className="h-4.5 w-4.5" />
         </span>
         <div>
-          <p className="font-medium text-ink">Comprobante de transferencia</p>
+          <p className="font-medium text-ink">{t("title")}</p>
           <p className="text-sm text-ink/60">
             {uploadedAt
-              ? `Subido el ${formatDateTime(uploadedAt)}`
-              : "Todavía no subiste nada."}
+              ? t("uploadedOn", {
+                  date: formatDate(uploadedAt, locale, {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  }),
+                })
+              : t("notUploaded")}
           </p>
         </div>
       </div>
 
-      <input
-        ref={inputRef}
-        type="file"
-        accept="image/jpeg,image/png,image/webp,application/pdf"
-        onChange={handleFileChange}
-        disabled={loading}
-        className="hidden"
-      />
+      {!uploadedAt && (
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp,application/pdf"
+          onChange={handleFileChange}
+          disabled={loading}
+          className="hidden"
+        />
+      )}
 
       <div className="flex flex-wrap items-center gap-3">
-        {uploadedAt && (
+        {uploadedAt ? (
           <LinkButton
             href={`/api/backend/orders/${orderId}/receipt`}
             target="_blank"
             rel="noopener noreferrer"
             variant="secondary"
           >
-            Ver comprobante
+            {t("view")}
           </LinkButton>
+        ) : (
+          <Button type="button" onClick={() => inputRef.current?.click()} disabled={loading}>
+            {t("upload")}
+          </Button>
         )}
-        <Button
-          type="button"
-          variant={uploadedAt ? "secondary" : "primary"}
-          onClick={() => inputRef.current?.click()}
-          disabled={loading}
-        >
-          {loading ? "Subiendo..." : uploadedAt ? "Reemplazar" : "Subir comprobante"}
-        </Button>
       </div>
 
       {error && <p className="text-sm text-primary">{error}</p>}
+
+      <ConfirmDialog
+        open={pendingFile !== null}
+        title={t("confirmTitle")}
+        description={t("confirmDescription", { filename: pendingFile?.name ?? "" })}
+        confirmLabel={loading ? t("uploading") : t("confirmSubmit")}
+        cancelLabel={t("confirmCancel")}
+        loading={loading}
+        onConfirm={handleConfirm}
+        onCancel={handleCancel}
+      />
     </div>
   );
 }

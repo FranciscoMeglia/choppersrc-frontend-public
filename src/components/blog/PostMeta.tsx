@@ -1,10 +1,5 @@
 import { useLocale } from "next-intl";
-
-const DATE_LOCALES: Record<string, string> = {
-  es: "es-AR",
-  en: "en-US",
-  pt: "pt-BR",
-};
+import { formatDate } from "@/lib/utils/formatDate";
 
 export function PostMeta({
   date,
@@ -28,11 +23,7 @@ export function PostMeta({
           <rect x="3" y="5" width="18" height="16" rx="2" />
           <path d="M3 9h18M8 3v4M16 3v4" strokeLinecap="round" />
         </svg>
-        {new Date(date).toLocaleDateString(DATE_LOCALES[locale] ?? locale, {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-        })}
+        {formatDate(date, locale, { day: "2-digit", month: "short", year: "numeric" })}
       </span>
       {excerpt && (
         <span className="flex min-w-0 items-center gap-1.5">

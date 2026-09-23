@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { legalNav, site } from "@/config/site";
 import { getPublicSettings } from "@/lib/settings/getPublicSettings";
+import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
 export async function Footer() {
   const [t, tNav, tSite, settings] = await Promise.all([
@@ -73,11 +74,12 @@ export async function Footer() {
             ))}
             <span className="text-white/50">{settings.contactEmail}</span>
             <a
-              href={`https://wa.me/${settings.contactPhone.replace(/\D/g, "")}`}
+              href={buildWhatsAppUrl(settings.contactPhone)}
               className="text-white/85 hover:text-primary"
             >
               {settings.contactPhone}
             </a>
+            <span className="text-white/50">{settings.contactAddress}</span>
           </nav>
         </div>
       </div>

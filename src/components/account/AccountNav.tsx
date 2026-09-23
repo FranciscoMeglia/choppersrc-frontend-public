@@ -1,22 +1,24 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-
-const ACCOUNT_NAV = [
-  { label: "Mi cuenta", href: "/account" },
-  { label: "Direcciones", href: "/account/addresses" },
-  { label: "Pedidos", href: "/account/orders" },
-  { label: "Devoluciones", href: "/account/returns" },
-  { label: "Alertas de stock", href: "/account/stock-alerts" },
-];
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 
 export function AccountNav() {
+  const t = useTranslations("AccountNav");
+  const tHeader = useTranslations("Header");
   const pathname = usePathname();
+
+  const items = [
+    { label: tHeader("myAccount"), href: "/account" },
+    { label: t("addresses"), href: "/account/addresses" },
+    { label: t("orders"), href: "/account/orders" },
+    { label: t("returns"), href: "/account/returns" },
+    { label: t("stockAlerts"), href: "/account/stock-alerts" },
+  ] as const;
 
   return (
     <nav className="flex gap-2 overflow-x-auto pb-1 lg:flex-col lg:gap-1 lg:overflow-visible lg:pb-0">
-      {ACCOUNT_NAV.map((item) => {
+      {items.map((item) => {
         const isActive =
           item.href === "/account"
             ? pathname === "/account"

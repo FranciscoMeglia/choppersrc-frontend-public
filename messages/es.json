@@ -40,7 +40,7 @@
     "company": "Empresa",
     "help": "Ayuda",
     "copyright": "© {year} {name} — Todos los derechos reservados.",
-    "paymentMethods": "Medios de pago: transferencia bancaria y efectivo."
+    "paymentMethods": "Métodos de pago: transferencia bancaria y efectivo."
   },
   "TopBar": {
     "facebookAria": "{name} en Facebook",
@@ -224,6 +224,168 @@
     "sending": "Enviando...",
     "resend": "Reenviar verificación"
   },
+  "AccountNav": {
+    "addresses": "Direcciones",
+    "orders": "Pedidos",
+    "returns": "Devoluciones",
+    "stockAlerts": "Alertas de stock"
+  },
+  "AccountPage": {
+    "title": "Mi cuenta",
+    "subtitle": "Tus datos personales y tu contraseña.",
+    "activeSessionsTitle": "Sesiones activas",
+    "activeSessionsHint": "¿Iniciaste sesión en otro dispositivo? Cerrá todas las sesiones activas, incluida esta."
+  },
+  "ProfileForm": {
+    "title": "Datos personales",
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "optional": "(opcional)",
+    "email": "Email",
+    "verified": "Verificado",
+    "unverified": "Sin verificar",
+    "changesSaved": "Cambios guardados.",
+    "saving": "Guardando...",
+    "save": "Guardar cambios",
+    "saveError": "No se pudieron guardar los cambios"
+  },
+  "ChangeEmailForm": {
+    "title": "Cambiar email",
+    "hint": "Te vamos a mandar un link de confirmación a la dirección nueva — tu email actual sigue funcionando hasta que lo confirmes.",
+    "pending": "Tenés un cambio pendiente de confirmación a {email}. Podés reenviarlo con otra dirección si querés.",
+    "newEmail": "Email nuevo",
+    "currentPassword": "Contraseña actual",
+    "sending": "Enviando...",
+    "submit": "Enviar confirmación",
+    "sent": "Listo, revisá la casilla nueva para confirmar el cambio.",
+    "genericError": "No se pudo pedir el cambio de email"
+  },
+  "ConfirmEmailChangePage": {
+    "title": "Confirmar cambio de email",
+    "confirming": "Confirmando tu nuevo email...",
+    "success": "Tu email se actualizó correctamente.",
+    "goToAccount": "Ir a mi cuenta",
+    "missingToken": "Falta el token de confirmación en el link.",
+    "genericError": "No se pudo confirmar el cambio de email"
+  },
+  "PasswordForm": {
+    "title": "Cambiar contraseña",
+    "hint": "Tu sesión y las de tus otros dispositivos siguen activas después del cambio. Si preferís cerrarlas igual, podés hacerlo más abajo.",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Contraseña nueva",
+    "confirmPassword": "Confirmar contraseña nueva",
+    "passwordHint": "Mínimo 8 caracteres, con al menos una mayúscula, una minúscula, un número y un símbolo.",
+    "mismatchError": "Las contraseñas nuevas no coinciden",
+    "sameAsCurrentError": "La contraseña nueva no puede ser igual a la actual",
+    "updated": "Contraseña actualizada correctamente",
+    "genericError": "No se pudo cambiar la contraseña",
+    "changing": "Cambiando...",
+    "submit": "Cambiar contraseña"
+  },
+  "LogoutAllButton": {
+    "loggingOut": "Cerrando sesiones...",
+    "submit": "Cerrar sesión en todos los dispositivos"
+  },
+  "AddressesPage": {
+    "title": "Mis direcciones",
+    "subtitle": "Hasta 2 direcciones de envío, solo dentro de Argentina."
+  },
+  "AddressesManager": {
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "deleting": "Eliminando...",
+    "empty": "Todavía no guardaste ninguna dirección.",
+    "add": "+ Agregar dirección",
+    "maxReached": "Llegaste al máximo de {max} direcciones guardadas — borrá una para agregar otra."
+  },
+  "AddressForm": {
+    "labelField": "Nombre de la dirección",
+    "labelPlaceholder": "Casa, trabajo...",
+    "optional": "(opcional)",
+    "street": "Calle y número",
+    "floorUnit": "Piso / Depto",
+    "floorUnitPlaceholder": "Piso 3, Depto B",
+    "city": "Ciudad",
+    "province": "Provincia",
+    "postalCode": "Código postal",
+    "reference": "Referencia para el envío",
+    "referencePlaceholder": "Portón negro, timbre 2, entre calles...",
+    "saving": "Guardando...",
+    "save": "Guardar dirección",
+    "cancel": "Cancelar",
+    "saveError": "No se pudo guardar la dirección"
+  },
+  "OrdersPage": {
+    "title": "Mis pedidos",
+    "subtitle": "Historial y estado de tus compras.",
+    "empty": "Todavía no hiciste ningún pedido.",
+    "orderNumber": "Pedido #{id}"
+  },
+  "OrderDetailPage": {
+    "backToOrders": "← Mis pedidos",
+    "orderNumber": "Pedido #{id}",
+    "thanksTitle": "¡Gracias por tu compra!",
+    "thanksTransfer": "Te enviamos un email con la confirmación de tu pedido #{id}. Transferí con los datos de abajo y subí el comprobante para que confirmemos el pago más rápido.",
+    "thanksGeneric": "Te enviamos un email con la confirmación de tu pedido #{id}.",
+    "subtotal": "Subtotal",
+    "discount": "Descuento",
+    "total": "Total",
+    "estimatedArs": "Estimado en pesos",
+    "delivery": "Entrega",
+    "pickupAtStore": "Retiro en local",
+    "payment": "Pago"
+  },
+  "OrderStatusTimeline": {
+    "title": "Historial"
+  },
+  "OrderStatus": {
+    "PENDING_PAYMENT": "Pendiente de pago",
+    "PAYMENT_CONFIRMED": "Pago confirmado",
+    "PROCESSING": "En preparación",
+    "SHIPPED": "Enviado",
+    "DELIVERED": "Entregado",
+    "CANCELLED": "Cancelado"
+  },
+  "ReceiptUpload": {
+    "title": "Comprobante de transferencia",
+    "uploadedOn": "Subido el {date}",
+    "notUploaded": "Todavía no subiste nada.",
+    "view": "Ver comprobante",
+    "uploading": "Subiendo...",
+    "upload": "Subir comprobante",
+    "uploadError": "No se pudo subir el comprobante",
+    "confirmTitle": "¿Confirmás este comprobante?",
+    "confirmDescription": "Vas a subir \"{filename}\". Una vez confirmado no vas a poder reemplazarlo, así que revisá que sea el correcto.",
+    "confirmSubmit": "Sí, confirmar",
+    "confirmCancel": "Cancelar"
+  },
+  "ReturnsPage": {
+    "title": "Mis devoluciones",
+    "subtitle": "Estado de las devoluciones que pediste sobre tus pedidos.",
+    "empty": "Todavía no pediste ninguna devolución.",
+    "returnNumber": "Devolución #{id}",
+    "orderNumber": "Pedido #{id}",
+    "reason": "Motivo:",
+    "refunded": "Reembolsado: {amount}"
+  },
+  "ReturnStatus": {
+    "REQUESTED": "Solicitada",
+    "APPROVED": "Aprobada",
+    "REJECTED": "Rechazada",
+    "RECEIVED": "Recibida",
+    "REFUNDED": "Reembolsada"
+  },
+  "StockAlertsPage": {
+    "title": "Alertas de stock",
+    "subtitle": "Te avisamos por email apenas vuelva a haber stock de estos productos.",
+    "empty": "No tenés avisos activos. Activalos desde la ficha de un producto sin stock."
+  },
+  "StockAlertRow": {
+    "inStock": "{count} en stock",
+    "outOfStock": "Sin stock",
+    "removing": "Quitando...",
+    "remove": "Quitar aviso"
+  },
   "BlogPage": {
     "description": "Novedades de marcas, eventos, competencias y notas de interés para la comunidad heli. Escrito por el equipo de ChoppersRC.",
     "noPostsInCategory": "Todavía no hay publicaciones en \"{category}\".",
@@ -345,10 +507,34 @@
     "s5P1": "Una cookie es un pequeño archivo que el sitio guarda en tu navegador. Usamos dos tipos: cookies necesarias, que no podés desactivar porque el sitio no funciona sin ellas (mantener tu sesión iniciada, recordar tu carrito), y cookies de análisis, que solo se activan si las aceptás desde el aviso de cookies, y que podés rechazar sin que eso afecte tu compra.",
     "s5P2": "Podés cambiar tu elección en cualquier momento borrando las cookies del sitio desde la configuración de tu navegador — el aviso va a volver a aparecer en tu próxima visita.",
     "s5TableHeaders": ["Cookie", "Tipo", "Proveedor", "Finalidad", "Duración"],
-    "s5Row1": ["session", "Necesaria", "ChoppersRC (propia)", "Mantiene tu sesión iniciada.", "Hasta cerrar sesión / expirar"],
-    "s5Row2": ["cart", "Necesaria", "ChoppersRC (propia)", "Recuerda el contenido de tu carrito.", "30 días"],
-    "s5Row3": ["_ga, _ga_*", "Análisis", "Google Analytics", "Distingue visitantes únicos para las estadísticas de uso del sitio.", "Hasta 2 años"],
-    "s5Row4": ["_gid", "Análisis", "Google Analytics", "Distingue visitantes durante 24hs.", "24 horas"],
+    "s5Row1": [
+      "session",
+      "Necesaria",
+      "ChoppersRC (propia)",
+      "Mantiene tu sesión iniciada.",
+      "Hasta cerrar sesión / expirar"
+    ],
+    "s5Row2": [
+      "cart",
+      "Necesaria",
+      "ChoppersRC (propia)",
+      "Recuerda el contenido de tu carrito.",
+      "30 días"
+    ],
+    "s5Row3": [
+      "_ga, _ga_*",
+      "Análisis",
+      "Google Analytics",
+      "Distingue visitantes únicos para las estadísticas de uso del sitio.",
+      "Hasta 2 años"
+    ],
+    "s5Row4": [
+      "_gid",
+      "Análisis",
+      "Google Analytics",
+      "Distingue visitantes durante 24hs.",
+      "24 horas"
+    ],
     "s6Title": "6. Tus derechos sobre tus datos",
     "s6P1": "Conforme a la Ley 25.326, tenés derecho a acceder, rectificar, actualizar y solicitar la supresión de tus datos personales. Podés ejercerlos escribiéndonos por los canales de Contacto, o directamente ante la Agencia de Acceso a la Información Pública (AAIP) si considerás que no fue debidamente atendido.",
     "s7Title": "7. Seguridad de los datos",

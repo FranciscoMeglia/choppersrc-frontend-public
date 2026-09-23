@@ -58,7 +58,7 @@ export default function ForgotPasswordPage() {
             onChange={(e) => setEmail(e.target.value)}
             required
             maxLength={255}
-            className="rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
+            className="w-full rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
           />
           {error && <p className="text-sm text-primary">{error}</p>}
           <Button type="submit" disabled={loading}>

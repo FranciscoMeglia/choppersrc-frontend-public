@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { PasswordInput } from "@/components/ui/PasswordInput";
 import { ApiError } from "@/lib/api/client";
@@ -12,11 +13,10 @@ const inputClass =
 const labelClass = "flex flex-col gap-1 text-sm";
 
 const PASSWORD_PATTERN = "(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[^A-Za-z0-9]).{8,}";
-const PASSWORD_HINT =
-  "Mínimo 8 caracteres, con al menos una mayúscula, una minúscula, un número y un símbolo.";
 const PASSWORD_MAX_LENGTH = 72;
 
 export function PasswordForm() {
+  const t = useTranslations("PasswordForm");
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -30,11 +30,11 @@ export function PasswordForm() {
     setFieldErrors({});
 
     if (newPassword !== confirmPassword) {
-      setError("Las contraseñas nuevas no coinciden");
+      setError(t("mismatchError"));
       return;
     }
     if (newPassword === currentPassword) {
-      setError("La contraseña nueva no puede ser igual a la actual");
+      setError(t("sameAsCurrentError"));
       return;
     }
 
@@ -52,7 +52,7 @@ export function PasswordForm() {
         throw new ApiError(body.message, body.statusCode, body.errors);
       }
 
-      showToast("Contraseña actualizada correctamente");
+      showToast(t("updated"));
       setCurrentPassword("");
       setNewPassword("");
       setConfirmPassword("");
@@ -64,11 +64,7 @@ export function PasswordForm() {
         }
         setFieldErrors(map);
       } else {
-        setError(
-          err instanceof ApiError
-            ? err.message
-            : "No se pudo cambiar la contraseña",
-        );
+        setError(err instanceof ApiError ? err.message : t("genericError"));
       }
     } finally {
       setLoading(false);
@@ -77,15 +73,12 @@ export function PasswordForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-4">
-      <h2 className="font-medium">Cambiar contraseña</h2>
-      <p className="text-sm text-ink/60">
-        Tu sesión y las de tus otros dispositivos siguen activas después del
-        cambio. Si preferís cerrarlas igual, podés hacerlo más abajo.
-      </p>
+      <h2 className="font-medium">{t("title")}</h2>
+      <p className="text-sm text-ink/60">{t("hint")}</p>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className={labelClass}>
-          Contraseña actual
+          {t("currentPassword")}
           <PasswordInput
             value={currentPassword}
             onChange={(e) => setCurrentPassword(e.target.value)}
@@ -97,7 +90,7 @@ export function PasswordForm() {
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className={labelClass}>
-          Contraseña nueva
+          {t("newPassword")}
           <PasswordInput
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
@@ -105,13 +98,13 @@ export function PasswordForm() {
             minLength={8}
             maxLength={PASSWORD_MAX_LENGTH}
             pattern={PASSWORD_PATTERN}
-            title={PASSWORD_HINT}
+            title={t("passwordHint")}
             className={inputClass}
           />
         </label>
 
         <label className={labelClass}>
-          Confirmar contraseña nueva
+          {t("confirmPassword")}
           <PasswordInput
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -122,7 +115,7 @@ export function PasswordForm() {
           />
         </label>
       </div>
-      <p className="text-xs text-ink/50">{PASSWORD_HINT}</p>
+      <p className="text-xs text-ink/50">{t("passwordHint")}</p>
 
       {(error || Object.keys(fieldErrors).length > 0) && (
         <div className="flex flex-col gap-1 text-sm text-primary">
@@ -135,7 +128,7 @@ export function PasswordForm() {
 
       <div>
         <Button type="submit" disabled={loading}>
-          {loading ? "Cambiando..." : "Cambiar contraseña"}
+          {loading ? t("changing") : t("submit")}
         </Button>
       </div>
     </form>

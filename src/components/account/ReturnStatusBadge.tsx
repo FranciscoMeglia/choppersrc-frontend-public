@@ -1,12 +1,5 @@
+import { useTranslations } from "next-intl";
 import type { ReturnStatus } from "@/types/return";
-
-const LABELS: Record<ReturnStatus, string> = {
-  REQUESTED: "Solicitada",
-  APPROVED: "Aprobada",
-  REJECTED: "Rechazada",
-  RECEIVED: "Recibida",
-  REFUNDED: "Reembolsada",
-};
 
 const COLORS: Record<ReturnStatus, string> = {
   REQUESTED: "border-amber-200 bg-amber-50 text-amber-700",
@@ -17,11 +10,13 @@ const COLORS: Record<ReturnStatus, string> = {
 };
 
 export function ReturnStatusBadge({ status }: { status: ReturnStatus }) {
+  const t = useTranslations("ReturnStatus");
+
   return (
     <span
       className={`rounded-full border px-3 py-1 text-xs font-medium whitespace-nowrap ${COLORS[status]}`}
     >
-      {LABELS[status]}
+      {t(status)}
     </span>
   );
 }

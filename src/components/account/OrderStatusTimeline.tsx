@@ -1,28 +1,23 @@
-import { ORDER_STATUS_BADGE_CLASSES, ORDER_STATUS_ICONS, ORDER_STATUS_LABELS } from "@/lib/orderStatus";
+import { useLocale, useTranslations } from "next-intl";
+import { ORDER_STATUS_BADGE_CLASSES, ORDER_STATUS_ICONS } from "@/lib/orderStatus";
+import { formatDate } from "@/lib/utils/formatDate";
 import type { OrderStatusHistoryEntry } from "@/types/order";
-
-function formatDateTime(value: string) {
-  return new Intl.DateTimeFormat("es-AR", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  }).format(new Date(value));
-}
 
 export function OrderStatusTimeline({
   history,
 }: {
   history: OrderStatusHistoryEntry[];
 }) {
+  const t = useTranslations("OrderStatusTimeline");
+  const tStatus = useTranslations("OrderStatus");
+  const locale = useLocale();
   const sorted = [...history].sort(
     (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
   );
 
   return (
     <div className="rounded-xl bg-background p-5 shadow-sm">
-      <h2 className="text-base font-semibold text-ink">Historial</h2>
+      <h2 className="text-base font-semibold text-ink">{t("title")}</h2>
       <ol className="mt-4 flex flex-col gap-4">
         {sorted.map((entry, i) => {
           const Icon = ORDER_STATUS_ICONS[entry.status];
@@ -40,13 +35,19 @@ export function OrderStatusTimeline({
               </div>
               <div className="pb-1">
                 <p className="text-sm font-medium text-ink">
-                  {ORDER_STATUS_LABELS[entry.status]}
+                  {tStatus(entry.status)}
                 </p>
                 {entry.note && (
                   <p className="text-sm text-ink/60">{entry.note}</p>
                 )}
                 <p className="mt-0.5 text-xs text-ink/40">
-                  {formatDateTime(entry.createdAt)}
+                  {formatDate(entry.createdAt, locale, {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric",
+                    hour: "2-digit",
+                    minute: "2-digit",
+                  })}
                 </p>
               </div>
             </li>

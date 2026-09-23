@@ -224,6 +224,168 @@
     "sending": "Enviando...",
     "resend": "Reenviar verificação"
   },
+  "AccountNav": {
+    "addresses": "Endereços",
+    "orders": "Pedidos",
+    "returns": "Devoluções",
+    "stockAlerts": "Alertas de estoque"
+  },
+  "AccountPage": {
+    "title": "Minha conta",
+    "subtitle": "Seus dados pessoais e sua senha.",
+    "activeSessionsTitle": "Sessões ativas",
+    "activeSessionsHint": "Entrou em outro dispositivo? Encerre todas as sessões ativas, incluindo esta."
+  },
+  "ProfileForm": {
+    "title": "Dados pessoais",
+    "name": "Nome",
+    "phone": "Telefone",
+    "optional": "(opcional)",
+    "email": "Email",
+    "verified": "Verificado",
+    "unverified": "Não verificado",
+    "changesSaved": "Alterações salvas.",
+    "saving": "Salvando...",
+    "save": "Salvar alterações",
+    "saveError": "Não foi possível salvar as alterações"
+  },
+  "ChangeEmailForm": {
+    "title": "Alterar email",
+    "hint": "Vamos enviar um link de confirmação para o novo endereço — seu email atual continua funcionando até você confirmar.",
+    "pending": "Você tem uma troca pendente de confirmação para {email}. Pode reenviar com outro endereço se quiser.",
+    "newEmail": "Novo email",
+    "currentPassword": "Senha atual",
+    "sending": "Enviando...",
+    "submit": "Enviar confirmação",
+    "sent": "Pronto, confira a nova caixa de entrada para confirmar a troca.",
+    "genericError": "Não foi possível solicitar a troca de email"
+  },
+  "ConfirmEmailChangePage": {
+    "title": "Confirmar troca de email",
+    "confirming": "Confirmando seu novo email...",
+    "success": "Seu email foi atualizado com sucesso.",
+    "goToAccount": "Ir para minha conta",
+    "missingToken": "Falta o token de confirmação no link.",
+    "genericError": "Não foi possível confirmar a troca de email"
+  },
+  "PasswordForm": {
+    "title": "Alterar senha",
+    "hint": "Sua sessão e as dos seus outros dispositivos continuam ativas depois da troca. Se preferir encerrá-las de qualquer forma, você pode fazer isso abaixo.",
+    "currentPassword": "Senha atual",
+    "newPassword": "Nova senha",
+    "confirmPassword": "Confirmar nova senha",
+    "passwordHint": "Mínimo de 8 caracteres, com pelo menos uma maiúscula, uma minúscula, um número e um símbolo.",
+    "mismatchError": "As novas senhas não coincidem",
+    "sameAsCurrentError": "A nova senha não pode ser igual à atual",
+    "updated": "Senha atualizada com sucesso",
+    "genericError": "Não foi possível alterar a senha",
+    "changing": "Alterando...",
+    "submit": "Alterar senha"
+  },
+  "LogoutAllButton": {
+    "loggingOut": "Encerrando sessões...",
+    "submit": "Encerrar sessão em todos os dispositivos"
+  },
+  "AddressesPage": {
+    "title": "Meus endereços",
+    "subtitle": "Até 2 endereços de entrega, somente dentro da Argentina."
+  },
+  "AddressesManager": {
+    "edit": "Editar",
+    "delete": "Excluir",
+    "deleting": "Excluindo...",
+    "empty": "Você ainda não salvou nenhum endereço.",
+    "add": "+ Adicionar endereço",
+    "maxReached": "Você atingiu o limite de {max} endereços salvos — exclua um para adicionar outro."
+  },
+  "AddressForm": {
+    "labelField": "Nome do endereço",
+    "labelPlaceholder": "Casa, trabalho...",
+    "optional": "(opcional)",
+    "street": "Rua e número",
+    "floorUnit": "Andar / Apto",
+    "floorUnitPlaceholder": "Andar 3, Apto B",
+    "city": "Cidade",
+    "province": "Província",
+    "postalCode": "Código postal",
+    "reference": "Referência para a entrega",
+    "referencePlaceholder": "Portão preto, campainha 2, entre ruas...",
+    "saving": "Salvando...",
+    "save": "Salvar endereço",
+    "cancel": "Cancelar",
+    "saveError": "Não foi possível salvar o endereço"
+  },
+  "OrdersPage": {
+    "title": "Meus pedidos",
+    "subtitle": "Histórico e status das suas compras.",
+    "empty": "Você ainda não fez nenhum pedido.",
+    "orderNumber": "Pedido #{id}"
+  },
+  "OrderDetailPage": {
+    "backToOrders": "← Meus pedidos",
+    "orderNumber": "Pedido #{id}",
+    "thanksTitle": "Obrigado pela sua compra!",
+    "thanksTransfer": "Enviamos um email confirmando o pedido #{id}. Transfira com os dados abaixo e envie o comprovante para confirmarmos o pagamento mais rápido.",
+    "thanksGeneric": "Enviamos um email confirmando o pedido #{id}.",
+    "subtotal": "Subtotal",
+    "discount": "Desconto",
+    "total": "Total",
+    "estimatedArs": "Estimado em pesos",
+    "delivery": "Entrega",
+    "pickupAtStore": "Retirada na loja",
+    "payment": "Pagamento"
+  },
+  "OrderStatusTimeline": {
+    "title": "Histórico"
+  },
+  "OrderStatus": {
+    "PENDING_PAYMENT": "Aguardando pagamento",
+    "PAYMENT_CONFIRMED": "Pagamento confirmado",
+    "PROCESSING": "Em preparação",
+    "SHIPPED": "Enviado",
+    "DELIVERED": "Entregue",
+    "CANCELLED": "Cancelado"
+  },
+  "ReceiptUpload": {
+    "title": "Comprovante de transferência",
+    "uploadedOn": "Enviado em {date}",
+    "notUploaded": "Você ainda não enviou nada.",
+    "view": "Ver comprovante",
+    "uploading": "Enviando...",
+    "upload": "Enviar comprovante",
+    "uploadError": "Não foi possível enviar o comprovante",
+    "confirmTitle": "Confirmar este comprovante?",
+    "confirmDescription": "Você vai enviar \"{filename}\". Depois de confirmado não vai poder substituí-lo, então verifique se é o correto.",
+    "confirmSubmit": "Sim, confirmar",
+    "confirmCancel": "Cancelar"
+  },
+  "ReturnsPage": {
+    "title": "Minhas devoluções",
+    "subtitle": "Status das devoluções solicitadas nos seus pedidos.",
+    "empty": "Você ainda não solicitou nenhuma devolução.",
+    "returnNumber": "Devolução #{id}",
+    "orderNumber": "Pedido #{id}",
+    "reason": "Motivo:",
+    "refunded": "Reembolsado: {amount}"
+  },
+  "ReturnStatus": {
+    "REQUESTED": "Solicitada",
+    "APPROVED": "Aprovada",
+    "REJECTED": "Rejeitada",
+    "RECEIVED": "Recebida",
+    "REFUNDED": "Reembolsada"
+  },
+  "StockAlertsPage": {
+    "title": "Alertas de estoque",
+    "subtitle": "Avisamos por email assim que esses produtos voltarem ao estoque.",
+    "empty": "Você não tem avisos ativos. Ative-os na página de um produto sem estoque."
+  },
+  "StockAlertRow": {
+    "inStock": "{count} em estoque",
+    "outOfStock": "Sem estoque",
+    "removing": "Removendo...",
+    "remove": "Remover aviso"
+  },
   "BlogPage": {
     "description": "Novidades de marcas, eventos, competições e notas de interesse para a comunidade heli. Escrito pela equipe da ChoppersRC.",
     "noPostsInCategory": "Ainda não há publicações em \"{category}\".",

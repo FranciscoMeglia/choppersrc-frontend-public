@@ -55,14 +55,14 @@ export default function LoginPage() {
           onChange={(e) => setEmail(e.target.value)}
           required
           maxLength={255}
-          className="rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
+          className="w-full rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
         />
         <PasswordInput
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
-          className="rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
+          className="w-full rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
         />
         <Link href="/forgot-password" className="self-start text-xs text-ink/60 hover:text-primary">
           ¿Olvidaste tu contraseña?

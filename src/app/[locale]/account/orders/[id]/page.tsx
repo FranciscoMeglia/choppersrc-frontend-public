@@ -1,6 +1,7 @@
-import Link from "next/link";
 import type { ComponentType } from "react";
 import { notFound } from "next/navigation";
+import { getLocale, getTranslations } from "next-intl/server";
+import { Link } from "@/i18n/navigation";
 import { authFetch } from "@/lib/api/authFetch";
 import { apiFetch, ApiError } from "@/lib/api/client";
 import { OrderStatusBadge } from "@/components/account/OrderStatusBadge";
@@ -8,13 +9,9 @@ import { OrderStatusTimeline } from "@/components/account/OrderStatusTimeline";
 import { ReceiptUpload } from "@/components/account/ReceiptUpload";
 import { BankTransferDetails } from "@/components/checkout/BankTransferDetails";
 import { formatArs, formatUsd } from "@/lib/utils/formatPrice";
+import { formatDate } from "@/lib/utils/formatDate";
 import type { Order } from "@/types/order";
 import type { PublicSettings } from "@/types/settings";
-
-const PAYMENT_LABELS: Record<Order["paymentMethod"], string> = {
-  TRANSFERENCIA: "Transferencia bancaria",
-  EFECTIVO: "Efectivo",
-};
 
 const PAYMENT_ICONS: Record<Order["paymentMethod"], ComponentType<{ className?: string }>> = {
   TRANSFERENCIA: BankIcon,
@@ -61,16 +58,6 @@ function CashIcon({ className }: { className?: string }) {
   );
 }
 
-function formatDate(date: string) {
-  return new Date(date).toLocaleDateString("es-AR", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-}
-
 type Props = {
   params: Promise<{ id: string }>;
   searchParams: Promise<{ justPlaced?: string }>;
@@ -81,6 +68,15 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
   const { justPlaced } = await searchParams;
 
   const settingsPromise = apiFetch<PublicSettings>("/settings");
+  const [t, tPayment, locale] = await Promise.all([
+    getTranslations("OrderDetailPage"),
+    getTranslations("PaymentMethodSelector"),
+    getLocale(),
+  ]);
+  const PAYMENT_LABELS: Record<Order["paymentMethod"], string> = {
+    TRANSFERENCIA: tPayment("bankTransferLabel"),
+    EFECTIVO: tPayment("cashLabel"),
+  };
 
   let order: Order;
   try {
@@ -105,11 +101,11 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
     <div className="flex flex-col gap-8">
       {justPlaced && (
         <div className="rounded border border-primary/20 bg-primary/5 p-4 text-sm">
-          <p className="font-medium text-primary">¡Gracias por tu compra!</p>
+          <p className="font-medium text-primary">{t("thanksTitle")}</p>
           <p className="mt-1 text-ink/70">
             {awaitingTransfer
-              ? `Te enviamos un email con la confirmación de tu pedido #${order.id}. Transferí con los datos de abajo y subí el comprobante para que confirmemos el pago más rápido.`
-              : `Te enviamos un email con la confirmación de tu pedido #${order.id}.`}
+              ? t("thanksTransfer", { id: order.id })
+              : t("thanksGeneric", { id: order.id })}
           </p>
         </div>
       )}
@@ -120,10 +116,20 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
             href="/account/orders"
             className="text-sm text-ink/60 hover:text-primary"
           >
-            ← Mis pedidos
+            {t("backToOrders")}
           </Link>
-          <h1 className="mt-1 text-2xl font-semibold">Pedido #{order.id}</h1>
-          <p className="text-sm text-ink/60">{formatDate(order.createdAt)}</p>
+          <h1 className="mt-1 text-2xl font-semibold">
+            {t("orderNumber", { id: order.id })}
+          </h1>
+          <p className="text-sm text-ink/60">
+            {formatDate(order.createdAt, locale, {
+              day: "2-digit",
+              month: "short",
+              year: "numeric",
+              hour: "2-digit",
+              minute: "2-digit",
+            })}
+          </p>
         </div>
         <OrderStatusBadge status={order.status} />
       </div>
@@ -157,21 +163,21 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
 
         <div className="flex flex-col gap-1 border-t border-ink/10 p-4 text-sm">
           <div className="flex justify-between">
-            <span className="text-ink/60">Subtotal</span>
+            <span className="text-ink/60">{t("subtotal")}</span>
             <span>{formatUsd(order.subtotal)}</span>
           </div>
           {Number(order.couponDiscount) > 0 && (
             <div className="flex justify-between">
-              <span className="text-ink/60">Descuento</span>
+              <span className="text-ink/60">{t("discount")}</span>
               <span>-{formatUsd(order.couponDiscount)}</span>
             </div>
           )}
           <div className="mt-1 flex justify-between text-base font-semibold">
-            <span>Total</span>
+            <span>{t("total")}</span>
             <span>{formatUsd(order.total)}</span>
           </div>
           <div className="flex justify-between text-xs text-ink/50">
-            <span>Estimado en pesos</span>
+            <span>{t("estimatedArs")}</span>
             <span>{formatArs(order.totalArs)}</span>
           </div>
         </div>
@@ -183,9 +189,9 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
             <DeliveryIcon className="h-4.5 w-4.5" />
           </span>
           <div>
-            <p className="font-medium text-ink">Entrega</p>
+            <p className="font-medium text-ink">{t("delivery")}</p>
             <p className="mt-0.5 text-ink/70">
-              {order.shippingAddress ?? "Retiro en local"}
+              {order.shippingAddress ?? t("pickupAtStore")}
             </p>
           </div>
         </div>
@@ -195,7 +201,7 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
             <PaymentIcon className="h-4.5 w-4.5" />
           </span>
           <div>
-            <p className="font-medium text-ink">Pago</p>
+            <p className="font-medium text-ink">{t("payment")}</p>
             <p className="mt-0.5 text-ink/70">
               {PAYMENT_LABELS[order.paymentMethod]}
             </p>

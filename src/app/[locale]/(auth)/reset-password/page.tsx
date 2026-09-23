@@ -102,7 +102,7 @@ export default function ResetPasswordPage() {
             maxLength={PASSWORD_MAX_LENGTH}
             pattern={PASSWORD_PATTERN}
             title={PASSWORD_HINT}
-            className="rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
+            className="w-full rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
           />
           <PasswordInput
             placeholder="Confirmar contraseña nueva"
@@ -111,7 +111,7 @@ export default function ResetPasswordPage() {
             required
             minLength={8}
             maxLength={PASSWORD_MAX_LENGTH}
-            className="rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
+            className="w-full rounded border border-ink/20 px-3 py-2 text-sm focus:border-primary focus:outline-none"
           />
           <p className="text-xs text-ink/50">{PASSWORD_HINT}</p>
           {(error || Object.keys(fieldErrors).length > 0) && (

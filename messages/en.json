@@ -224,6 +224,168 @@
     "sending": "Sending...",
     "resend": "Resend verification"
   },
+  "AccountNav": {
+    "addresses": "Addresses",
+    "orders": "Orders",
+    "returns": "Returns",
+    "stockAlerts": "Stock alerts"
+  },
+  "AccountPage": {
+    "title": "My account",
+    "subtitle": "Your personal details and password.",
+    "activeSessionsTitle": "Active sessions",
+    "activeSessionsHint": "Logged in on another device? Sign out of all active sessions, including this one."
+  },
+  "ProfileForm": {
+    "title": "Personal details",
+    "name": "Name",
+    "phone": "Phone",
+    "optional": "(optional)",
+    "email": "Email",
+    "verified": "Verified",
+    "unverified": "Not verified",
+    "changesSaved": "Changes saved.",
+    "saving": "Saving...",
+    "save": "Save changes",
+    "saveError": "Couldn't save the changes"
+  },
+  "ChangeEmailForm": {
+    "title": "Change email",
+    "hint": "We'll send a confirmation link to the new address — your current email keeps working until you confirm it.",
+    "pending": "You have a change pending confirmation to {email}. You can resend it with a different address if you want.",
+    "newEmail": "New email",
+    "currentPassword": "Current password",
+    "sending": "Sending...",
+    "submit": "Send confirmation",
+    "sent": "Done, check the new inbox to confirm the change.",
+    "genericError": "Couldn't request the email change"
+  },
+  "ConfirmEmailChangePage": {
+    "title": "Confirm email change",
+    "confirming": "Confirming your new email...",
+    "success": "Your email was updated successfully.",
+    "goToAccount": "Go to my account",
+    "missingToken": "The confirmation token is missing from the link.",
+    "genericError": "Couldn't confirm the email change"
+  },
+  "PasswordForm": {
+    "title": "Change password",
+    "hint": "Your session and your other devices' sessions stay active after the change. If you'd rather close them anyway, you can do it below.",
+    "currentPassword": "Current password",
+    "newPassword": "New password",
+    "confirmPassword": "Confirm new password",
+    "passwordHint": "At least 8 characters, with an uppercase letter, a lowercase letter, a number, and a symbol.",
+    "mismatchError": "The new passwords don't match",
+    "sameAsCurrentError": "The new password can't be the same as the current one",
+    "updated": "Password updated successfully",
+    "genericError": "Couldn't change the password",
+    "changing": "Changing...",
+    "submit": "Change password"
+  },
+  "LogoutAllButton": {
+    "loggingOut": "Signing out...",
+    "submit": "Sign out of all devices"
+  },
+  "AddressesPage": {
+    "title": "My addresses",
+    "subtitle": "Up to 2 shipping addresses, within Argentina only."
+  },
+  "AddressesManager": {
+    "edit": "Edit",
+    "delete": "Delete",
+    "deleting": "Deleting...",
+    "empty": "You haven't saved any addresses yet.",
+    "add": "+ Add address",
+    "maxReached": "You reached the limit of {max} saved addresses — delete one to add another."
+  },
+  "AddressForm": {
+    "labelField": "Address name",
+    "labelPlaceholder": "Home, work...",
+    "optional": "(optional)",
+    "street": "Street and number",
+    "floorUnit": "Floor / Unit",
+    "floorUnitPlaceholder": "Floor 3, Unit B",
+    "city": "City",
+    "province": "Province",
+    "postalCode": "Postal code",
+    "reference": "Delivery reference",
+    "referencePlaceholder": "Black gate, buzzer 2, between streets...",
+    "saving": "Saving...",
+    "save": "Save address",
+    "cancel": "Cancel",
+    "saveError": "Couldn't save the address"
+  },
+  "OrdersPage": {
+    "title": "My orders",
+    "subtitle": "History and status of your purchases.",
+    "empty": "You haven't placed any orders yet.",
+    "orderNumber": "Order #{id}"
+  },
+  "OrderDetailPage": {
+    "backToOrders": "← My orders",
+    "orderNumber": "Order #{id}",
+    "thanksTitle": "Thanks for your purchase!",
+    "thanksTransfer": "We sent you an email confirming order #{id}. Transfer using the details below and upload the receipt so we can confirm payment faster.",
+    "thanksGeneric": "We sent you an email confirming order #{id}.",
+    "subtotal": "Subtotal",
+    "discount": "Discount",
+    "total": "Total",
+    "estimatedArs": "Estimated in pesos",
+    "delivery": "Delivery",
+    "pickupAtStore": "Pickup at the store",
+    "payment": "Payment"
+  },
+  "OrderStatusTimeline": {
+    "title": "History"
+  },
+  "OrderStatus": {
+    "PENDING_PAYMENT": "Awaiting payment",
+    "PAYMENT_CONFIRMED": "Payment confirmed",
+    "PROCESSING": "Preparing",
+    "SHIPPED": "Shipped",
+    "DELIVERED": "Delivered",
+    "CANCELLED": "Cancelled"
+  },
+  "ReceiptUpload": {
+    "title": "Transfer receipt",
+    "uploadedOn": "Uploaded on {date}",
+    "notUploaded": "You haven't uploaded anything yet.",
+    "view": "View receipt",
+    "uploading": "Uploading...",
+    "upload": "Upload receipt",
+    "uploadError": "Couldn't upload the receipt",
+    "confirmTitle": "Confirm this receipt?",
+    "confirmDescription": "You're about to upload \"{filename}\". Once confirmed you won't be able to replace it, so double-check it's the right one.",
+    "confirmSubmit": "Yes, confirm",
+    "confirmCancel": "Cancel"
+  },
+  "ReturnsPage": {
+    "title": "My returns",
+    "subtitle": "Status of the returns you requested on your orders.",
+    "empty": "You haven't requested any returns yet.",
+    "returnNumber": "Return #{id}",
+    "orderNumber": "Order #{id}",
+    "reason": "Reason:",
+    "refunded": "Refunded: {amount}"
+  },
+  "ReturnStatus": {
+    "REQUESTED": "Requested",
+    "APPROVED": "Approved",
+    "REJECTED": "Rejected",
+    "RECEIVED": "Received",
+    "REFUNDED": "Refunded"
+  },
+  "StockAlertsPage": {
+    "title": "Stock alerts",
+    "subtitle": "We'll email you as soon as these products are back in stock.",
+    "empty": "You don't have any active alerts. Turn them on from a sold-out product's page."
+  },
+  "StockAlertRow": {
+    "inStock": "{count} in stock",
+    "outOfStock": "Out of stock",
+    "removing": "Removing...",
+    "remove": "Remove alert"
+  },
   "BlogPage": {
     "description": "Brand news, events, competitions and articles for the heli community. Written by the ChoppersRC team.",
     "noPostsInCategory": "No posts in \"{category}\" yet.",

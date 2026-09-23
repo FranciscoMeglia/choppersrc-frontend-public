@@ -9,15 +9,8 @@ import {
 } from "lucide-react";
 import type { OrderStatus } from "@/types/order";
 
-export const ORDER_STATUS_LABELS: Record<OrderStatus, string> = {
-  PENDING_PAYMENT: "Pendiente de pago",
-  PAYMENT_CONFIRMED: "Pago confirmado",
-  PROCESSING: "En preparación",
-  SHIPPED: "Enviado",
-  DELIVERED: "Entregado",
-  CANCELLED: "Cancelado",
-};
-
+// Las etiquetas viven en el namespace de traducción "OrderStatus" (ver
+// messages/*.json) — acá sólo lo visual, que no depende del idioma.
 export const ORDER_STATUS_BADGE_CLASSES: Record<OrderStatus, string> = {
   PENDING_PAYMENT: "bg-[#fef3c7] text-[#92400e]",
   PAYMENT_CONFIRMED: "bg-[#dbeafe] text-[#1e40af]",

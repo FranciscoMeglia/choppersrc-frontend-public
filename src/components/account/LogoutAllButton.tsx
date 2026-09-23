@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { useRouter } from "@/i18n/navigation";
 import { Button } from "@/components/ui/Button";
 import { logout } from "@/lib/auth/client";
 
 export function LogoutAllButton() {
+  const t = useTranslations("LogoutAllButton");
   const router = useRouter();
   const [loading, setLoading] = useState(false);
 
@@ -22,9 +24,7 @@ export function LogoutAllButton() {
 
   return (
     <Button variant="secondary" onClick={handleClick} disabled={loading}>
-      {loading
-        ? "Cerrando sesiones..."
-        : "Cerrar sesión en todos los dispositivos"}
+      {loading ? t("loggingOut") : t("submit")}
     </Button>
   );
 }

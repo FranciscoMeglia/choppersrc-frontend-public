@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
 import type { ReactNode } from "react";
+import { getLocale, getTranslations } from "next-intl/server";
+import { redirect } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { AccountNav } from "@/components/account/AccountNav";
@@ -11,18 +12,25 @@ export default async function AccountLayout({
 }: {
   children: ReactNode;
 }) {
-  const user = await getCurrentUser();
-  if (!user) redirect("/login?redirect=/account");
+  const [user, locale, t] = await Promise.all([
+    getCurrentUser(),
+    getLocale(),
+    getTranslations("Header"),
+  ]);
+  if (!user) {
+    redirect({ href: { pathname: "/login", query: { redirect: "/account" } }, locale });
+  }
+  const currentUser = user!;
 
   return (
     <Container>
-      <Breadcrumb current="Mi cuenta" />
+      <Breadcrumb current={t("myAccount")} />
 
       <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-12">
         <aside className="lg:w-56 lg:shrink-0">
           <div className="mb-4 hidden lg:block">
-            <p className="truncate font-medium">{user.name}</p>
-            <p className="truncate text-sm text-ink/60">{user.email}</p>
+            <p className="truncate font-medium">{currentUser.name}</p>
+            <p className="truncate text-sm text-ink/60">{currentUser.email}</p>
           </div>
 
           <AccountNav />

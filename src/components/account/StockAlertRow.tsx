@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { imageUrl } from "@/lib/utils/imageUrl";
 import { formatUsd } from "@/lib/utils/formatPrice";
 import type { StockAlert } from "@/types/stockAlert";
 
 export function StockAlertRow({ alert }: { alert: StockAlert }) {
+  const t = useTranslations("StockAlertRow");
   const [removed, setRemoved] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -50,8 +52,8 @@ export function StockAlertRow({ alert }: { alert: StockAlert }) {
         </Link>
         <p className="text-sm text-ink/60">
           {alert.product.stock > 0
-            ? `${alert.product.stock} en stock`
-            : "Sin stock"}{" "}
+            ? t("inStock", { count: alert.product.stock })
+            : t("outOfStock")}{" "}
           · {formatUsd(alert.product.priceUsd)}
         </p>
       </div>
@@ -61,7 +63,7 @@ export function StockAlertRow({ alert }: { alert: StockAlert }) {
         disabled={loading}
         className="shrink-0 text-sm text-ink/60 hover:text-primary"
       >
-        {loading ? "Quitando..." : "Quitar aviso"}
+        {loading ? t("removing") : t("remove")}
       </button>
     </div>
   );

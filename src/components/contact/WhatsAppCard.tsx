@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { getPublicSettings } from "@/lib/settings/getPublicSettings";
+import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
 
 export async function WhatsAppCard() {
   const [t, settings] = await Promise.all([
@@ -19,7 +20,7 @@ export async function WhatsAppCard() {
       </div>
 
       <a
-        href={`https://wa.me/${settings.contactPhone.replace(/\D/g, "")}`}
+        href={buildWhatsAppUrl(settings.contactPhone)}
         className="flex items-center gap-3 rounded bg-[#25D366] px-5 py-4 text-white hover:bg-[#1fbd59]"
       >
         <svg
