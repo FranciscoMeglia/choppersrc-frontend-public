@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import { setSessionCookies } from "@/lib/auth/cookies";
 import type { ApiErrorEnvelope, ApiSuccessEnvelope } from "@/types/api";
 import type { AuthSession, TwoFactorChallenge } from "@/types/auth";
@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
   const backendRes = await fetch(`${env.apiBaseUrl}/auth/login`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...internalApiHeaders() },
     body: JSON.stringify(credentials),
   });
   const body = (await backendRes.json()) as

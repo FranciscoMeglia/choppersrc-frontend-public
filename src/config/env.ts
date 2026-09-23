@@ -19,3 +19,14 @@ export const env = {
   // prefijo NEXT_PUBLIC_, Next no lo incluye en el bundle del cliente.
   internalApiKey: isServer ? process.env.INTERNAL_API_KEY || "" : "",
 };
+
+// Every server-side fetch straight to the backend (client.ts's apiFetch,
+// plus the /api/auth/* route handlers and the /api/backend/[...path] proxy,
+// which all call fetch() directly instead of going through apiFetch) needs
+// this or the backend's requireInternalKey middleware 403s it once
+// INTERNAL_API_KEY is set in production.
+export function internalApiHeaders(): Record<string, string> {
+  return env.isServer && env.internalApiKey
+    ? { "X-Internal-Key": env.internalApiKey, "X-Channel": "public" }
+    : {};
+}

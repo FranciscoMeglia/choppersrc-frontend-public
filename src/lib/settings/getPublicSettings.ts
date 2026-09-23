@@ -24,9 +24,15 @@ const EMPTY_SETTINGS: PublicSettings = {
 
 export async function getPublicSettings(): Promise<PublicSettings> {
   try {
-    return await apiFetch<PublicSettings>("/settings", {
+    // Merge over EMPTY_SETTINGS even on success: a setting the admin
+    // hasn't configured yet comes back missing/null from the API despite
+    // the type saying `string`, and every field here renders unguarded in
+    // the footer of every page (e.g. Footer.tsx calling
+    // buildWhatsAppUrl(settings.contactPhone) -> phone.replace(...)).
+    const data = await apiFetch<Partial<PublicSettings>>("/settings", {
       next: { revalidate: CONTACT_SETTINGS_REVALIDATE_SECONDS },
     });
+    return { ...EMPTY_SETTINGS, ...data };
   } catch (err) {
     console.error("getPublicSettings: falling back to empty settings", err);
     return EMPTY_SETTINGS;

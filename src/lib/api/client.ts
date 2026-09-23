@@ -1,4 +1,4 @@
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import type {
   ApiErrorEnvelope,
   ApiSuccessEnvelope,
@@ -36,9 +36,7 @@ async function request<T>(
     ...init,
     headers: {
       "Content-Type": "application/json",
-      ...(env.isServer && env.internalApiKey
-        ? { "X-Internal-Key": env.internalApiKey, "X-Channel": "public" }
-        : {}),
+      ...internalApiHeaders(),
       ...init?.headers,
     },
   });

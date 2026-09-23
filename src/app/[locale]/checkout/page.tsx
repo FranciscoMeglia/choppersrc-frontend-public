@@ -10,9 +10,8 @@ import { getCurrentUser } from "@/lib/auth/session";
 import { getCart } from "@/lib/cart/session";
 import { cartToLines, hydrateCartLines } from "@/lib/cart/mapCart";
 import { authFetch } from "@/lib/api/authFetch";
-import { apiFetch } from "@/lib/api/client";
+import { getPublicSettings } from "@/lib/settings/getPublicSettings";
 import type { Address } from "@/types/address";
-import type { PublicSettings } from "@/types/settings";
 
 export default async function CheckoutPage() {
   const [user, t, tCommon] = await Promise.all([
@@ -42,7 +41,7 @@ export default async function CheckoutPage() {
   const [cart, addresses, settings] = await Promise.all([
     getCart(),
     authFetch<Address[]>("/addresses"),
-    apiFetch<PublicSettings>("/settings"),
+    getPublicSettings(),
   ]);
   const items = cart ? await hydrateCartLines(cartToLines(cart)) : [];
 

@@ -4,6 +4,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { authFetch } from "@/lib/api/authFetch";
 import { apiFetch, ApiError } from "@/lib/api/client";
+import { getPublicSettings } from "@/lib/settings/getPublicSettings";
 import { OrderStatusBadge } from "@/components/account/OrderStatusBadge";
 import { OrderStatusTimeline } from "@/components/account/OrderStatusTimeline";
 import { ReceiptUpload } from "@/components/account/ReceiptUpload";
@@ -11,7 +12,6 @@ import { BankTransferDetails } from "@/components/checkout/BankTransferDetails";
 import { formatArs, formatUsd } from "@/lib/utils/formatPrice";
 import { formatDate } from "@/lib/utils/formatDate";
 import type { Order } from "@/types/order";
-import type { PublicSettings } from "@/types/settings";
 
 const PAYMENT_ICONS: Record<Order["paymentMethod"], ComponentType<{ className?: string }>> = {
   TRANSFERENCIA: BankIcon,
@@ -67,7 +67,7 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
   const { id } = await params;
   const { justPlaced } = await searchParams;
 
-  const settingsPromise = apiFetch<PublicSettings>("/settings");
+  const settingsPromise = getPublicSettings();
   const [t, tPayment, locale] = await Promise.all([
     getTranslations("OrderDetailPage"),
     getTranslations("PaymentMethodSelector"),

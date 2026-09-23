@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import { getAccessToken } from "@/lib/auth/cookies";
 
 type RouteContext = { params: Promise<{ path: string[] }> };
@@ -21,6 +21,7 @@ async function proxy(request: NextRequest, { params }: RouteContext) {
       ...(hasBody && requestContentType
         ? { "Content-Type": requestContentType }
         : {}),
+      ...internalApiHeaders(),
       ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
     },
     body: hasBody ? request.body : undefined,

@@ -1,4 +1,4 @@
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import type { ApiErrorEnvelope, ApiSuccessEnvelope } from "@/types/api";
 import type { RefreshResponse } from "@/types/auth";
 
@@ -7,7 +7,7 @@ export async function refreshTokens(
 ): Promise<RefreshResponse | null> {
   const res = await fetch(`${env.apiBaseUrl}/auth/refresh`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", ...internalApiHeaders() },
     body: JSON.stringify({ refreshToken }),
   });
   const body = (await res.json()) as
