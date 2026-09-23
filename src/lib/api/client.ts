@@ -27,7 +27,13 @@ async function request<T>(
 ): Promise<ApiSuccessEnvelope<T>> {
   const res = await fetch(`${env.apiBaseUrl}${path}`, {
     ...init,
-    headers: { "Content-Type": "application/json", ...init?.headers },
+    headers: {
+      "Content-Type": "application/json",
+      ...(env.isServer && env.internalApiKey
+        ? { "X-Internal-Key": env.internalApiKey, "X-Channel": "public" }
+        : {}),
+      ...init?.headers,
+    },
   });
 
   const body = (await res.json()) as ApiSuccessEnvelope<T> | ApiErrorEnvelope;
