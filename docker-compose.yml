@@ -1,0 +1,17 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-/api}
+        NEXT_PUBLIC_API_ORIGIN: ${PUBLIC_ORIGIN:-https://choppersrc.com}
+        NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID:-}
+    image: choppersrc/frontend-publico:latest
+    container_name: choppersrc_frontend_publico
+    restart: unless-stopped
+    environment:
+      API_BASE_URL: ${API_BASE_URL:-http://host.docker.internal:3000/api}
+    ports:
+      - "${APP_PORT:-3001}:3001"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
