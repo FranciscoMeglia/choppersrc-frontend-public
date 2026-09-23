@@ -21,11 +21,18 @@ export class ApiError extends Error {
   }
 }
 
+// If the backend is unreachable (e.g. API_BASE_URL misconfigured or the
+// network isn't up yet, as during `next build`), an unbounded fetch hangs
+// the whole page render — and during static generation, the whole build —
+// instead of failing fast. Bound every request so that can't happen.
+const REQUEST_TIMEOUT_MS = 10_000;
+
 async function request<T>(
   path: string,
   init?: RequestInit,
 ): Promise<ApiSuccessEnvelope<T>> {
   const res = await fetch(`${env.apiBaseUrl}${path}`, {
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     ...init,
     headers: {
       "Content-Type": "application/json",

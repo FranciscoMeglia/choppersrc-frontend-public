@@ -30,6 +30,17 @@ const nextConfig: NextConfig = {
   // node_modules it actually needs) — that's what the Dockerfile ships,
   // instead of the whole node_modules tree.
   output: "standalone",
+  // The prod VPS this builds on has limited CPU/RAM, and Next's default
+  // static-generation worker pool (one per CPU it detects) saturates it —
+  // pages then miss the 60s prerender timeout even though they're trivial
+  // client components (e.g. forgot-password). Building pages serially
+  // avoids that contention.
+  experimental: {
+    cpus: 1,
+  },
+  // Safety margin on top of the reduced parallelism above, in case a page
+  // is still slow on this hardware.
+  staticPageGenerationTimeout: 120,
   images: {
     remotePatterns: [
       {
