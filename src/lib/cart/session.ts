@@ -1,5 +1,5 @@
 import "server-only";
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import { getAccessToken } from "@/lib/auth/cookies";
 import { cartItemCount } from "./mapCart";
 import type { ApiErrorEnvelope, ApiSuccessEnvelope } from "@/types/api";
@@ -10,7 +10,10 @@ export async function getCart(): Promise<Cart | null> {
   if (!accessToken) return null;
 
   const res = await fetch(`${env.apiBaseUrl}/cart`, {
-    headers: { Authorization: `Bearer ${accessToken}` },
+    headers: {
+      ...internalApiHeaders(),
+      Authorization: `Bearer ${accessToken}`,
+    },
     cache: "no-store",
   });
   const body = (await res.json()) as
