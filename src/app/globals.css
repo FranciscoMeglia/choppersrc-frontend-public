@@ -46,3 +46,46 @@ body {
 button:not(:disabled) {
   cursor: pointer;
 }
+
+/* Contenido armado con el editor rich text del admin (#1b/#14, blog y
+ * descripción de producto) — el HTML que llega acá ya pasó por un allowlist
+ * chico del lado del servidor (ver backend/src/utils/sanitizeRichText.js:
+ * p, br, strong, em, u, s, h2, h3, ul, ol, li, a, blockquote), así que sólo
+ * hace falta darle espaciado/tipografía a esos tags, no un reset genérico
+ * tipo Tailwind Typography. */
+.rich-text p:not(:last-child) {
+  margin-bottom: 1em;
+}
+.rich-text h2 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+.rich-text h3 {
+  margin-top: 1.25em;
+  margin-bottom: 0.5em;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+.rich-text ul,
+.rich-text ol {
+  margin-bottom: 1em;
+  padding-left: 1.5em;
+}
+.rich-text ul {
+  list-style: disc;
+}
+.rich-text ol {
+  list-style: decimal;
+}
+.rich-text blockquote {
+  margin-bottom: 1em;
+  padding-left: 1em;
+  border-left: 2px solid var(--color-ink);
+  opacity: 0.8;
+}
+.rich-text a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}

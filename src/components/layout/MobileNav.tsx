@@ -3,6 +3,8 @@
 import { useState, type ReactNode } from "react";
 import { useTranslations } from "next-intl";
 import { NavLinks } from "./NavLinks";
+import { MobileProductsAccordion } from "./MobileProductsAccordion";
+import type { CategoryGroup } from "@/types/catalog";
 
 interface NavItem {
   label: string;
@@ -10,14 +12,24 @@ interface NavItem {
 }
 
 export function MobileNav({
-  items,
+  beforeProductsItems,
+  productsLabel,
+  categoryGroups,
+  afterProductsItems,
   children,
 }: {
-  items: NavItem[];
+  beforeProductsItems: NavItem[];
+  productsLabel: string;
+  categoryGroups: CategoryGroup[];
+  afterProductsItems: NavItem[];
   children?: ReactNode;
 }) {
   const [open, setOpen] = useState(false);
   const t = useTranslations("Header");
+
+  function close() {
+    setOpen(false);
+  }
 
   return (
     <div className="md:hidden">
@@ -44,14 +56,16 @@ export function MobileNav({
       </button>
 
       {open && (
-        <div className="absolute inset-x-0 top-full z-20 border-b border-ink/10 bg-background px-4 py-4 shadow-sm">
+        <div className="absolute inset-x-0 top-full z-20 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-ink/10 bg-background px-4 py-4 shadow-sm">
           <nav className="flex flex-col gap-3 text-sm">
-            <NavLinks items={items} onNavigate={() => setOpen(false)} />
+            <NavLinks items={beforeProductsItems} onNavigate={close} />
+            <MobileProductsAccordion label={productsLabel} groups={categoryGroups} onNavigate={close} />
+            <NavLinks items={afterProductsItems} onNavigate={close} />
           </nav>
           {children && (
             <div
               className="mt-3 flex flex-col gap-3 border-t border-ink/10 pt-3 text-sm"
-              onClick={() => setOpen(false)}
+              onClick={close}
             >
               {children}
             </div>

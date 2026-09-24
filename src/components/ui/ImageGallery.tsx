@@ -19,10 +19,19 @@ export function ImageGallery({
   const [active, setActive] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
+  function showPrev() {
+    setActive((i) => (i - 1 + images.length) % images.length);
+  }
+  function showNext() {
+    setActive((i) => (i + 1) % images.length);
+  }
+
   useEffect(() => {
     if (!lightboxOpen) return;
     function handleKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") setLightboxOpen(false);
+      if (event.key === "ArrowLeft") showPrev();
+      if (event.key === "ArrowRight") showNext();
     }
     document.addEventListener("keydown", handleKeyDown);
     const previousOverflow = document.body.style.overflow;
@@ -31,7 +40,8 @@ export function ImageGallery({
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = previousOverflow;
     };
-  }, [lightboxOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [lightboxOpen, images.length]);
 
   if (images.length === 0) {
     return (
@@ -121,6 +131,7 @@ export function ImageGallery({
               onClick={(event) => event.stopPropagation()}
             >
               <Image
+                key={images[active]}
                 src={imageUrl(images[active])}
                 alt={alt}
                 fill
@@ -128,6 +139,40 @@ export function ImageGallery({
                 className="object-contain"
               />
             </m.div>
+
+            {images.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    showPrev();
+                  }}
+                  aria-label={t("previous")}
+                  className="absolute top-1/2 left-2 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white/90 hover:bg-black/60 hover:text-white sm:left-4"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="h-6 w-6">
+                    <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  onClick={(event) => {
+                    event.stopPropagation();
+                    showNext();
+                  }}
+                  aria-label={t("next")}
+                  className="absolute top-1/2 right-2 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white/90 hover:bg-black/60 hover:text-white sm:right-4"
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.75} className="h-6 w-6">
+                    <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </button>
+                <span className="absolute bottom-4 left-1/2 -translate-x-1/2 rounded-full bg-black/40 px-3 py-1 text-xs text-white/90">
+                  {active + 1} / {images.length}
+                </span>
+              </>
+            )}
           </m.div>
         )}
       </AnimatePresence>

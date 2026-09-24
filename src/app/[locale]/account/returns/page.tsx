@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { authFetch } from "@/lib/api/authFetch";
@@ -7,6 +8,8 @@ import { formatDate } from "@/lib/utils/formatDate";
 import type { ReturnRequest } from "@/types/return";
 
 export default async function ReturnsPage() {
+  notFound();
+
   const [returns, t, locale] = await Promise.all([
     authFetch<ReturnRequest[]>("/returns/mine"),
     getTranslations("ReturnsPage"),

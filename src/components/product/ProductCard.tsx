@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PriceTag } from "@/components/ui/PriceTag";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
@@ -16,6 +17,7 @@ function percentOff(product: Product): number | null {
 }
 
 export function ProductCard({ product }: { product: Product }) {
+  const t = useTranslations("ProductDetail");
   const price = getDisplayPrice(product);
   const cover = product.images[0];
   const discount = percentOff(product);
@@ -59,6 +61,11 @@ export function ProductCard({ product }: { product: Product }) {
             −{discount}%
           </span>
         )}
+        {product.condition === "USED" && (
+          <span className="absolute top-2 left-2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-800 shadow-sm">
+            {t("used")}
+          </span>
+        )}
       </Link>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
@@ -84,6 +91,7 @@ export function ProductCard({ product }: { product: Product }) {
           <AddToCartButton
             productId={product.id}
             slug={product.slug}
+            stock={product.stock}
             className="mt-auto"
           />
         ) : (

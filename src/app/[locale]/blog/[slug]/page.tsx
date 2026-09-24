@@ -4,6 +4,7 @@ import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { PostMeta } from "@/components/blog/PostMeta";
+import { EventInfo } from "@/components/blog/EventInfo";
 import { apiFetch, ApiError } from "@/lib/api/client";
 import type { BlogPost } from "@/types/blogPost";
 
@@ -45,15 +46,21 @@ export default async function Page({ params }: Props) {
             {tCategory(post.category)}
           </p>
           <h1 className="text-3xl font-semibold">{post.title}</h1>
+          <EventInfo
+            eventDateStart={post.eventDateStart}
+            eventDateEnd={post.eventDateEnd}
+            location={post.location}
+          />
           {post.publishedAt && (
             <PostMeta date={post.publishedAt} excerpt={null} />
           )}
         </div>
       </div>
 
-      <div className="mt-8 max-w-3xl whitespace-pre-line text-ink/80">
-        {post.content}
-      </div>
+      <div
+        className="rich-text mt-8 max-w-3xl text-ink/80"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
     </Container>
   );
 }

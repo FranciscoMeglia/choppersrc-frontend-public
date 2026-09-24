@@ -14,7 +14,8 @@
     "contact": "Contato",
     "faqLong": "Perguntas frequentes",
     "terms": "Termos e condições",
-    "privacy": "Política de privacidade"
+    "privacy": "Política de privacidade",
+    "allProducts": "Ver todos os produtos"
   },
   "Site": {
     "description": "Peças e acessórios para aeromodelismo e RC.",
@@ -105,7 +106,8 @@
     "priceRange": "Faixa de preço (USD)",
     "min": "Mín",
     "max": "Máx",
-    "apply": "Aplicar"
+    "apply": "Aplicar",
+    "model": "Modelo compatível"
   },
   "SortBar": {
     "count": "{count} produtos",
@@ -121,7 +123,8 @@
   "AddToCartButton": {
     "added": "Produto adicionado ao carrinho",
     "adding": "Adicionando...",
-    "add": "Adicionar ao carrinho"
+    "add": "Adicionar ao carrinho",
+    "maxStockReached": "Você já tem no carrinho todo o estoque disponível"
   },
   "StockAlertButton": {
     "subscribed": "Vamos avisar por email quando o estoque voltar.",
@@ -135,12 +138,16 @@
   },
   "ProductDetail": {
     "inStock": "{count} em estoque",
-    "outOfStock": "Sem estoque no momento"
+    "outOfStock": "Sem estoque no momento",
+    "sku": "SKU",
+    "used": "Usado"
   },
   "ImageGallery": {
     "zoom": "Ampliar imagem",
     "viewImage": "Ver imagem {index} de {total}",
-    "close": "Fechar"
+    "close": "Fechar",
+    "previous": "Imagem anterior",
+    "next": "Próxima imagem"
   },
   "Common": {
     "viewCatalog": "Ver catálogo"
@@ -156,7 +163,8 @@
     "increase": "Aumentar",
     "remove": "Remover",
     "continueToCheckout": "Continuar para o checkout",
-    "loginToContinue": "Entrar para continuar"
+    "loginToContinue": "Entrar para continuar",
+    "maxStockReached": "Não há mais estoque disponível ({count} em estoque)"
   },
   "CartIcon": {
     "ariaLabel": "Ver carrinho",
@@ -183,7 +191,8 @@
     "notesPlaceholder": "Algo que devêssemos saber sobre o seu pedido...",
     "confirming": "Confirmando...",
     "confirmOrder": "Confirmar pedido",
-    "submitError": "Não foi possível confirmar o pedido"
+    "submitError": "Não foi possível confirmar o pedido",
+    "backToCart": "Voltar ao carrinho"
   },
   "DeliverySelector": {
     "pickupTitle": "Retirar na loja",
@@ -333,7 +342,10 @@
     "estimatedArs": "Estimado em pesos",
     "delivery": "Entrega",
     "pickupAtStore": "Retirada na loja",
-    "payment": "Pagamento"
+    "payment": "Pagamento",
+    "returnTitle": "Algum problema com seu pedido?",
+    "returnSubtitle": "Fale conosco pelo formulário de contato e combinamos a devolução.",
+    "returnCta": "Ir para contato"
   },
   "OrderStatusTimeline": {
     "title": "Histórico"
@@ -367,6 +379,19 @@
     "orderNumber": "Pedido #{id}",
     "reason": "Motivo:",
     "refunded": "Reembolsado: {amount}"
+  },
+  "RequestReturnDialog": {
+    "trigger": "Solicitar devolução",
+    "title": "Solicitar devolução",
+    "subtitle": "Escolha quais produtos e quantas unidades de cada um você quer devolver.",
+    "purchased": "Comprado: {count}",
+    "reason": "Motivo",
+    "optional": "(opcional)",
+    "selectAtLeastOne": "Escolha pelo menos um produto para devolver.",
+    "submitError": "Não foi possível enviar a solicitação. Tente de novo.",
+    "cancel": "Cancelar",
+    "submit": "Enviar solicitação",
+    "submitting": "Enviando…"
   },
   "ReturnStatus": {
     "REQUESTED": "Solicitada",
@@ -506,11 +531,41 @@
     "s5Title": "5. Cookies e tecnologias similares",
     "s5P1": "Um cookie é um pequeno arquivo que o site salva no seu navegador. Usamos dois tipos: cookies necessários, que você não pode desativar porque o site não funciona sem eles (manter sua sessão iniciada, lembrar seu carrinho), e cookies de análise, que só se ativam se você os aceitar no aviso de cookies, e que você pode recusar sem que isso afete sua compra.",
     "s5P2": "Você pode mudar sua escolha a qualquer momento apagando os cookies do site nas configurações do seu navegador — o aviso vai aparecer novamente na sua próxima visita.",
-    "s5TableHeaders": ["Cookie", "Tipo", "Fornecedor", "Finalidade", "Duração"],
-    "s5Row1": ["session", "Necessário", "ChoppersRC (próprio)", "Mantém sua sessão iniciada.", "Até encerrar sessão / expirar"],
-    "s5Row2": ["cart", "Necessário", "ChoppersRC (próprio)", "Lembra o conteúdo do seu carrinho.", "30 dias"],
-    "s5Row3": ["_ga, _ga_*", "Análise", "Google Analytics", "Distingue visitantes únicos para as estatísticas de uso do site.", "Até 2 anos"],
-    "s5Row4": ["_gid", "Análise", "Google Analytics", "Distingue visitantes durante 24h.", "24 horas"],
+    "s5TableHeaders": [
+      "Cookie",
+      "Tipo",
+      "Fornecedor",
+      "Finalidade",
+      "Duração"
+    ],
+    "s5Row1": [
+      "session",
+      "Necessário",
+      "ChoppersRC (próprio)",
+      "Mantém sua sessão iniciada.",
+      "Até encerrar sessão / expirar"
+    ],
+    "s5Row2": [
+      "cart",
+      "Necessário",
+      "ChoppersRC (próprio)",
+      "Lembra o conteúdo do seu carrinho.",
+      "30 dias"
+    ],
+    "s5Row3": [
+      "_ga, _ga_*",
+      "Análise",
+      "Google Analytics",
+      "Distingue visitantes únicos para as estatísticas de uso do site.",
+      "Até 2 anos"
+    ],
+    "s5Row4": [
+      "_gid",
+      "Análise",
+      "Google Analytics",
+      "Distingue visitantes durante 24h.",
+      "24 horas"
+    ],
     "s6Title": "6. Seus direitos sobre seus dados",
     "s6P1": "Conforme a Lei 25.326, você tem direito a acessar, retificar, atualizar e solicitar a exclusão dos seus dados pessoais. Você pode exercê-los escrevendo para nós pelos canais de Contato, ou diretamente junto à Agencia de Acceso a la Información Pública (AAIP) caso considere que sua solicitação não foi devidamente atendida.",
     "s7Title": "7. Segurança dos dados",

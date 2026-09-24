@@ -31,3 +31,13 @@ export interface ReturnRequest {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface CreateReturnItemInput {
+  orderItemId: number;
+  quantity: number;
+}
+
+export interface CreateReturnPayload {
+  reason?: string;
+  items: CreateReturnItemInput[];
+}

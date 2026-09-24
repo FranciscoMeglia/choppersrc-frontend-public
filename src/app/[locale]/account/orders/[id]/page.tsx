@@ -219,6 +219,18 @@ export default async function OrderDetailPage({ params, searchParams }: Props) {
         </div>
       )}
 
+      {order.status === "DELIVERED" && (
+        <div className="flex items-center justify-between gap-3 rounded-lg border border-ink/10 p-4 text-sm">
+          <div>
+            <p className="font-medium text-ink">{t("returnTitle")}</p>
+            <p className="mt-0.5 text-ink/60">{t("returnSubtitle")}</p>
+          </div>
+          <Link href="/contact" className="text-sm font-medium text-primary hover:underline">
+            {t("returnCta")}
+          </Link>
+        </div>
+      )}
+
       {order.statusHistory.length > 0 && (
         <OrderStatusTimeline history={order.statusHistory} />
       )}

@@ -1,6 +1,7 @@
 import type { Brand, Category, ExchangeRate, Supplier } from "./catalog";
 
 export type DiscountType = "PERCENTAGE" | "FIXED";
+export type ProductCondition = "NEW" | "USED";
 
 export interface ProductDiscount {
   id: number;
@@ -19,6 +20,7 @@ export interface Product {
   priceArs: string;
   finalPriceArs: string;
   sku: string | null;
+  condition: ProductCondition;
   discount: ProductDiscount | null;
   exchangeRate: ExchangeRate;
   stock: number;

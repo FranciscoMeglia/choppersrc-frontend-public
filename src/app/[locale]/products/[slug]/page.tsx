@@ -46,7 +46,19 @@ export default async function Page({ params }: Props) {
               {product.brand.name}
             </p>
           )}
-          <h1 className="text-3xl font-semibold">{product.name}</h1>
+          <div className="flex flex-wrap items-center gap-2">
+            <h1 className="text-3xl font-semibold">{product.name}</h1>
+            {product.condition === "USED" && (
+              <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800">
+                {t("used")}
+              </span>
+            )}
+          </div>
+          {product.sku && (
+            <p className="text-xs text-ink/40">
+              {t("sku")}: {product.sku}
+            </p>
+          )}
           <div className="text-xl">
             <PriceTag usd={price.usd} ars={price.ars} />
           </div>
@@ -58,14 +70,21 @@ export default async function Page({ params }: Props) {
           </p>
           <div className="mt-2">
             {product.stock > 0 ? (
-              <AddToCartButton productId={product.id} slug={product.slug} />
+              <AddToCartButton
+                productId={product.id}
+                slug={product.slug}
+                stock={product.stock}
+              />
             ) : (
               <StockAlertButton slug={product.slug} />
             )}
           </div>
 
           {product.description && (
-            <p className="text-ink/80">{product.description}</p>
+            <div
+              className="rich-text text-ink/80"
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
           )}
         </div>
       </div>

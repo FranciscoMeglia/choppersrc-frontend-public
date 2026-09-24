@@ -12,11 +12,13 @@ export function FacetCheckboxGroup({
   items,
   paramKey,
   current,
+  basePath,
 }: {
   title: string;
   items: { name: string; slug: string }[];
   paramKey: "category" | "brand" | "stock";
   current: ProductsSearchParams;
+  basePath?: string;
 }) {
   const router = useRouter();
   const selected = current[paramKey];
@@ -29,7 +31,7 @@ export function FacetCheckboxGroup({
 
   function handleChange(slug: string, checked: boolean) {
     router.push(
-      buildProductsHref(current, { [paramKey]: checked ? slug : undefined }),
+      buildProductsHref(current, { [paramKey]: checked ? slug : undefined }, basePath),
     );
   }
 

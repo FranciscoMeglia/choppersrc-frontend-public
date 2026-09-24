@@ -3,12 +3,6 @@
 import { useEffect } from "react";
 import { Button } from "@/components/ui/Button";
 
-/**
- * Modal de confirmación genérico — sin librería de terceros, sólo overlay +
- * tarjeta centrada. Pensado para acciones "de una sola vez" donde conviene
- * frenar al usuario antes de confirmar (ver ReceiptUpload, el primer caso de
- * uso: un comprobante subido no se puede reemplazar).
- */
 export function ConfirmDialog({
   open,
   title,

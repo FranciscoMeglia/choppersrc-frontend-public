@@ -14,7 +14,8 @@
     "contact": "Contact",
     "faqLong": "Frequently asked questions",
     "terms": "Terms and conditions",
-    "privacy": "Privacy policy"
+    "privacy": "Privacy policy",
+    "allProducts": "View all products"
   },
   "Site": {
     "description": "RC helicopter parts and accessories.",
@@ -105,7 +106,8 @@
     "priceRange": "Price range (USD)",
     "min": "Min",
     "max": "Max",
-    "apply": "Apply"
+    "apply": "Apply",
+    "model": "Compatible model"
   },
   "SortBar": {
     "count": "{count} products",
@@ -121,7 +123,8 @@
   "AddToCartButton": {
     "added": "Added to cart",
     "adding": "Adding...",
-    "add": "Add to cart"
+    "add": "Add to cart",
+    "maxStockReached": "You already have all available stock in your cart"
   },
   "StockAlertButton": {
     "subscribed": "We'll email you when it's back in stock.",
@@ -135,12 +138,16 @@
   },
   "ProductDetail": {
     "inStock": "{count} in stock",
-    "outOfStock": "Out of stock for now"
+    "outOfStock": "Out of stock for now",
+    "sku": "SKU",
+    "used": "Used"
   },
   "ImageGallery": {
     "zoom": "Zoom image",
     "viewImage": "View image {index} of {total}",
-    "close": "Close"
+    "close": "Close",
+    "previous": "Previous image",
+    "next": "Next image"
   },
   "Common": {
     "viewCatalog": "View catalog"
@@ -156,7 +163,8 @@
     "increase": "Increase",
     "remove": "Remove",
     "continueToCheckout": "Continue to checkout",
-    "loginToContinue": "Log in to continue"
+    "loginToContinue": "Log in to continue",
+    "maxStockReached": "No more stock available ({count} in stock)"
   },
   "CartIcon": {
     "ariaLabel": "View cart",
@@ -183,7 +191,8 @@
     "notesPlaceholder": "Anything we should know about your order...",
     "confirming": "Confirming...",
     "confirmOrder": "Confirm order",
-    "submitError": "Couldn't confirm the order"
+    "submitError": "Couldn't confirm the order",
+    "backToCart": "Back to cart"
   },
   "DeliverySelector": {
     "pickupTitle": "Pick up in store",
@@ -333,7 +342,10 @@
     "estimatedArs": "Estimated in pesos",
     "delivery": "Delivery",
     "pickupAtStore": "Pickup at the store",
-    "payment": "Payment"
+    "payment": "Payment",
+    "returnTitle": "Any issue with your order?",
+    "returnSubtitle": "Reach out through the contact form and we'll coordinate the return.",
+    "returnCta": "Go to contact"
   },
   "OrderStatusTimeline": {
     "title": "History"
@@ -367,6 +379,19 @@
     "orderNumber": "Order #{id}",
     "reason": "Reason:",
     "refunded": "Refunded: {amount}"
+  },
+  "RequestReturnDialog": {
+    "trigger": "Request return",
+    "title": "Request a return",
+    "subtitle": "Choose which products and how many units of each you want to return.",
+    "purchased": "Purchased: {count}",
+    "reason": "Reason",
+    "optional": "(optional)",
+    "selectAtLeastOne": "Choose at least one product to return.",
+    "submitError": "Couldn't submit the request. Please try again.",
+    "cancel": "Cancel",
+    "submit": "Send request",
+    "submitting": "Sending…"
   },
   "ReturnStatus": {
     "REQUESTED": "Requested",
@@ -506,11 +531,41 @@
     "s5Title": "5. Cookies and similar technologies",
     "s5P1": "A cookie is a small file the site stores in your browser. We use two types: necessary cookies, which you can't disable because the site doesn't work without them (keeping you logged in, remembering your cart), and analytics cookies, which only activate if you accept them from the cookie notice, and which you can decline without affecting your purchase.",
     "s5P2": "You can change your choice at any time by deleting the site's cookies from your browser settings — the notice will appear again on your next visit.",
-    "s5TableHeaders": ["Cookie", "Type", "Provider", "Purpose", "Duration"],
-    "s5Row1": ["session", "Necessary", "ChoppersRC (own)", "Keeps you logged in.", "Until logout / expiration"],
-    "s5Row2": ["cart", "Necessary", "ChoppersRC (own)", "Remembers your cart's contents.", "30 days"],
-    "s5Row3": ["_ga, _ga_*", "Analytics", "Google Analytics", "Distinguishes unique visitors for site usage statistics.", "Up to 2 years"],
-    "s5Row4": ["_gid", "Analytics", "Google Analytics", "Distinguishes visitors for 24 hours.", "24 hours"],
+    "s5TableHeaders": [
+      "Cookie",
+      "Type",
+      "Provider",
+      "Purpose",
+      "Duration"
+    ],
+    "s5Row1": [
+      "session",
+      "Necessary",
+      "ChoppersRC (own)",
+      "Keeps you logged in.",
+      "Until logout / expiration"
+    ],
+    "s5Row2": [
+      "cart",
+      "Necessary",
+      "ChoppersRC (own)",
+      "Remembers your cart's contents.",
+      "30 days"
+    ],
+    "s5Row3": [
+      "_ga, _ga_*",
+      "Analytics",
+      "Google Analytics",
+      "Distinguishes unique visitors for site usage statistics.",
+      "Up to 2 years"
+    ],
+    "s5Row4": [
+      "_gid",
+      "Analytics",
+      "Google Analytics",
+      "Distinguishes visitors for 24 hours.",
+      "24 hours"
+    ],
     "s6Title": "6. Your rights over your data",
     "s6P1": "Under Ley 25.326, you have the right to access, rectify, update and request deletion of your personal data. You can exercise these rights by writing to us through the Contact channels, or directly with the Agencia de Acceso a la Información Pública (AAIP) if you feel your request wasn't properly addressed.",
     "s7Title": "7. Data security",

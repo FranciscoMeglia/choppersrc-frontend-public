@@ -5,6 +5,20 @@ export interface Category {
   slug: string;
 }
 
+export interface CategoryGroup {
+  id: number;
+  name: string;
+  slug: string;
+  sortOrder: number;
+  categories: Category[];
+}
+
+export interface ProductModel {
+  id: number;
+  name: string;
+  slug: string;
+}
+
 export interface Brand {
   id: number;
   name: string;

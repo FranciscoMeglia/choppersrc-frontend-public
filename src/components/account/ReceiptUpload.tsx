@@ -30,11 +30,6 @@ export function ReceiptUpload({
   const [uploadedAt, setUploadedAt] = useState(initialUploadedAt);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
-  // Se guarda acá al elegirlo, todavía sin subir — recién sube al confirmar
-  // en el modal (ver ConfirmDialog más abajo). Una vez que `uploadedAt` queda
-  // seteado no hay forma de volver a elegir otro: el backend rechaza un
-  // segundo POST para el mismo pedido (ver orders.service.js#saveReceipt), a
-  // propósito, para que no ande cambiando el comprobante varias veces.
   const [pendingFile, setPendingFile] = useState<File | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 

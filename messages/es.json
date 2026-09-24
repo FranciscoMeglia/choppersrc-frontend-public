@@ -14,7 +14,8 @@
     "contact": "Contacto",
     "faqLong": "Preguntas frecuentes",
     "terms": "Términos y condiciones",
-    "privacy": "Política de privacidad"
+    "privacy": "Política de privacidad",
+    "allProducts": "Ver todos los productos"
   },
   "Site": {
     "description": "Repuestos y accesorios para aeromodelismo y RC.",
@@ -105,7 +106,8 @@
     "priceRange": "Rango de precio (USD)",
     "min": "Mín",
     "max": "Máx",
-    "apply": "Aplicar"
+    "apply": "Aplicar",
+    "model": "Modelo compatible"
   },
   "SortBar": {
     "count": "{count} productos",
@@ -121,7 +123,8 @@
   "AddToCartButton": {
     "added": "Producto agregado al carrito",
     "adding": "Agregando...",
-    "add": "Agregar al carrito"
+    "add": "Agregar al carrito",
+    "maxStockReached": "Ya tenés en el carrito todo el stock disponible"
   },
   "StockAlertButton": {
     "subscribed": "Te vamos a avisar por email cuando vuelva el stock.",
@@ -135,12 +138,16 @@
   },
   "ProductDetail": {
     "inStock": "{count} en stock",
-    "outOfStock": "Sin stock por el momento"
+    "outOfStock": "Sin stock por el momento",
+    "sku": "SKU",
+    "used": "Usado"
   },
   "ImageGallery": {
     "zoom": "Ampliar imagen",
     "viewImage": "Ver imagen {index} de {total}",
-    "close": "Cerrar"
+    "close": "Cerrar",
+    "previous": "Imagen anterior",
+    "next": "Imagen siguiente"
   },
   "Common": {
     "viewCatalog": "Ver catálogo"
@@ -156,7 +163,8 @@
     "increase": "Sumar",
     "remove": "Quitar",
     "continueToCheckout": "Continuar a checkout",
-    "loginToContinue": "Iniciar sesión para continuar"
+    "loginToContinue": "Iniciar sesión para continuar",
+    "maxStockReached": "No hay más stock disponible ({count} en stock)"
   },
   "CartIcon": {
     "ariaLabel": "Ver carrito",
@@ -183,7 +191,8 @@
     "notesPlaceholder": "Algo que debamos saber sobre tu pedido...",
     "confirming": "Confirmando...",
     "confirmOrder": "Confirmar pedido",
-    "submitError": "No se pudo confirmar el pedido"
+    "submitError": "No se pudo confirmar el pedido",
+    "backToCart": "Volver al carrito"
   },
   "DeliverySelector": {
     "pickupTitle": "Retirar en el local",
@@ -333,7 +342,10 @@
     "estimatedArs": "Estimado en pesos",
     "delivery": "Entrega",
     "pickupAtStore": "Retiro en local",
-    "payment": "Pago"
+    "payment": "Pago",
+    "returnTitle": "¿Algún problema con tu pedido?",
+    "returnSubtitle": "Escribinos por el formulario de contacto y coordinamos la devolución.",
+    "returnCta": "Ir a contacto"
   },
   "OrderStatusTimeline": {
     "title": "Historial"
@@ -367,6 +379,19 @@
     "orderNumber": "Pedido #{id}",
     "reason": "Motivo:",
     "refunded": "Reembolsado: {amount}"
+  },
+  "RequestReturnDialog": {
+    "trigger": "Solicitar devolución",
+    "title": "Solicitar devolución",
+    "subtitle": "Elegí qué productos y cuántas unidades de cada uno querés devolver.",
+    "purchased": "Comprado: {count}",
+    "reason": "Motivo",
+    "optional": "(opcional)",
+    "selectAtLeastOne": "Elegí al menos un producto para devolver.",
+    "submitError": "No se pudo enviar la solicitud. Probá de nuevo.",
+    "cancel": "Cancelar",
+    "submit": "Enviar solicitud",
+    "submitting": "Enviando…"
   },
   "ReturnStatus": {
     "REQUESTED": "Solicitada",
@@ -506,7 +531,13 @@
     "s5Title": "5. Cookies y tecnologías similares",
     "s5P1": "Una cookie es un pequeño archivo que el sitio guarda en tu navegador. Usamos dos tipos: cookies necesarias, que no podés desactivar porque el sitio no funciona sin ellas (mantener tu sesión iniciada, recordar tu carrito), y cookies de análisis, que solo se activan si las aceptás desde el aviso de cookies, y que podés rechazar sin que eso afecte tu compra.",
     "s5P2": "Podés cambiar tu elección en cualquier momento borrando las cookies del sitio desde la configuración de tu navegador — el aviso va a volver a aparecer en tu próxima visita.",
-    "s5TableHeaders": ["Cookie", "Tipo", "Proveedor", "Finalidad", "Duración"],
+    "s5TableHeaders": [
+      "Cookie",
+      "Tipo",
+      "Proveedor",
+      "Finalidad",
+      "Duración"
+    ],
     "s5Row1": [
       "session",
       "Necesaria",

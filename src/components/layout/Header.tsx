@@ -4,28 +4,34 @@ import { Link } from "@/i18n/navigation";
 import { mainNav, site } from "@/config/site";
 import { getCurrentUser } from "@/lib/auth/session";
 import { getCartItemCount } from "@/lib/cart/session";
+import { getCategoryGroups } from "@/lib/catalog/facets";
 import { CartIcon } from "@/components/cart/CartIcon";
 import { SearchInput } from "./SearchInput";
 import { LogoutButton } from "./LogoutButton";
 import { AccountMenu } from "./AccountMenu";
 import { MobileNav } from "./MobileNav";
 import { NavLinks } from "./NavLinks";
+import { ProductsMegaMenu } from "./ProductsMegaMenu";
 import { TopBar } from "./TopBar";
 
 const navLinkClass = "underline-offset-4 hover:text-primary hover:underline";
 
 export async function Header() {
-  const [user, cartCount, t, tNav] = await Promise.all([
+  const [user, cartCount, t, tNav, categoryGroups] = await Promise.all([
     getCurrentUser(),
     getCartItemCount(),
     getTranslations("Header"),
     getTranslations("Nav"),
+    getCategoryGroups(),
   ]);
 
   const navItems = mainNav.map((item) => ({
     label: tNav(item.key),
     href: item.href,
   }));
+  const beforeProducts = navItems.slice(0, navItems.findIndex((item) => item.href === "/products"));
+  const afterProducts = navItems.slice(navItems.findIndex((item) => item.href === "/products") + 1);
+  const productsLabel = tNav("products");
 
   const accountLinks = user ? (
     <>
@@ -61,7 +67,9 @@ export async function Header() {
             />
           </Link>
           <nav className="hidden items-center gap-6 text-base whitespace-nowrap md:flex">
-            <NavLinks items={navItems} className={navLinkClass} />
+            <NavLinks items={beforeProducts} className={navLinkClass} />
+            <ProductsMegaMenu label={productsLabel} groups={categoryGroups} className={navLinkClass} />
+            <NavLinks items={afterProducts} className={navLinkClass} />
           </nav>
           <div className="hidden md:block">
             <SearchInput className="w-72 lg:w-96" />
@@ -71,7 +79,14 @@ export async function Header() {
               <AccountMenu user={user} />
             </div>
             <CartIcon initialCount={cartCount} isAuthenticated={!!user} />
-            <MobileNav items={navItems}>{accountLinks}</MobileNav>
+            <MobileNav
+              beforeProductsItems={beforeProducts}
+              productsLabel={productsLabel}
+              categoryGroups={categoryGroups}
+              afterProductsItems={afterProducts}
+            >
+              {accountLinks}
+            </MobileNav>
           </div>
         </div>
         <div className="border-t border-ink/10 px-4 py-3 md:hidden">
