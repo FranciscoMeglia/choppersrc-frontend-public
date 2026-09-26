@@ -489,7 +489,10 @@
     "message": "Mensagem",
     "messagePlaceholder": "Conte sua dúvida: qual heli você voa, o que precisa, para quando...",
     "submit": "Enviar consulta",
-    "responseNote": "Respondemos por email. Para algo urgente, melhor pelo WhatsApp."
+    "responseNote": "Respondemos por email. Para algo urgente, melhor pelo WhatsApp.",
+    "sending": "Enviando…",
+    "successMessage": "Obrigado! Recebemos sua consulta e vamos responder por email em breve.",
+    "errorGeneric": "Não conseguimos enviar sua consulta. Tente novamente em alguns minutos ou fale conosco pelo WhatsApp."
   },
   "FaqPage": {
     "title": "Perguntas frequentes",

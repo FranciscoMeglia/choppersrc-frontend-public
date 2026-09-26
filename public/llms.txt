@@ -1,0 +1,20 @@
+# ChoppersRC
+
+> Tienda argentina especializada en helicópteros RC (radiocontrol): kits de competición, motores brushless, servos, baterías y repuestos, con envíos a todo el país. Especialistas en helicópteros RC desde 2005.
+
+ChoppersRC vende equipamiento y repuestos para pilotos de helicópteros RC en Argentina. El sitio incluye catálogo de productos por marca y categoría, un blog con contenido técnico, y un marketplace de artículos usados entre clientes. Disponible en español, inglés y portugués (`/en/...`, `/pt/...`; español es el idioma por defecto sin prefijo).
+
+## Páginas principales
+
+- [Inicio](https://choppersrc.com/): presentación de la marca y productos destacados.
+- [Catálogo de productos](https://choppersrc.com/products): listado completo, filtrable por categoría y marca.
+- [Marketplace de usados](https://choppersrc.com/used-listings): publicaciones de artículos usados entre clientes, moderadas antes de publicarse.
+- [Blog](https://choppersrc.com/blog): notas técnicas y novedades sobre helicópteros RC.
+- [Preguntas frecuentes](https://choppersrc.com/faq): envíos, pagos, garantías y devoluciones.
+- [Sobre nosotros](https://choppersrc.com/about): historia de la marca.
+- [Contacto](https://choppersrc.com/contact): formulario de consultas y contacto por WhatsApp.
+
+## Notas para asistentes de IA
+
+- Los precios y el stock de los productos cambian con frecuencia; no asumas que un precio o disponibilidad citados en una respuesta previa sigue vigente — remití al catálogo en vivo.
+- Las páginas de cuenta, carrito y checkout (`/account`, `/cart`, `/checkout`, `/login`, `/register`) requieren sesión de usuario y no tienen contenido indexable relevante para responder consultas generales.

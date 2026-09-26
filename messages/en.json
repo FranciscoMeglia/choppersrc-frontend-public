@@ -489,7 +489,10 @@
     "message": "Message",
     "messagePlaceholder": "Tell us about it: what heli you fly, what you need, by when...",
     "submit": "Send inquiry",
-    "responseNote": "We reply by email. For anything urgent, WhatsApp is faster."
+    "responseNote": "We reply by email. For anything urgent, WhatsApp is faster.",
+    "sending": "Sending…",
+    "successMessage": "Thanks! We got your message and will reply by email shortly.",
+    "errorGeneric": "We couldn't send your message. Try again in a few minutes or reach us on WhatsApp."
   },
   "FaqPage": {
     "title": "Frequently asked questions",
