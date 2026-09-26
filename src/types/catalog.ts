@@ -3,6 +3,10 @@ export interface Category {
   id: number;
   name: string;
   slug: string;
+  // El público /categories ya lo incluye (ver categories.service.js#CATEGORY_INCLUDE)
+  // — se usa para armar la migaja de pan completa (grupo > categoría) en la
+  // página de producto cuando se entra desde el listado por categoría.
+  group?: { id: number; name: string; slug: string } | null;
 }
 
 export interface CategoryGroup {

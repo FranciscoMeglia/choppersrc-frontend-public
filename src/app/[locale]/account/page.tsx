@@ -1,9 +1,21 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { getCurrentUser } from "@/lib/auth/session";
 import { ProfileForm } from "@/components/account/ProfileForm";
 import { ChangeEmailForm } from "@/components/account/ChangeEmailForm";
 import { PasswordForm } from "@/components/account/PasswordForm";
 import { LogoutAllButton } from "@/components/account/LogoutAllButton";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
+
+type Props = { params: Promise<{ locale: string }> };
+
+// Privada (requiere login, ver account/layout.tsx) — noindex.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "AccountPage" });
+  return buildMetadata({ locale: locale as AppLocale, href: "/account", title: t("title"), description: t("subtitle"), noIndex: true });
+}
 
 export default async function AccountPage() {
   const [user, t] = await Promise.all([

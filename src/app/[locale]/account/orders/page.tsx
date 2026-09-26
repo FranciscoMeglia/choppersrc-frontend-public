@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { authFetchPage } from "@/lib/api/authFetch";
@@ -5,7 +6,18 @@ import { ArrowRight } from "@/components/ui/ArrowRight";
 import { OrderStatusBadge } from "@/components/account/OrderStatusBadge";
 import { formatUsd } from "@/lib/utils/formatPrice";
 import { formatDate } from "@/lib/utils/formatDate";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
 import type { Order } from "@/types/order";
+
+type Props = { params: Promise<{ locale: string }> };
+
+// Privada — noindex.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "OrdersPage" });
+  return buildMetadata({ locale: locale as AppLocale, href: "/account/orders", title: t("title"), description: t("subtitle"), noIndex: true });
+}
 
 export default async function OrdersPage() {
   const [{ data: orders }, t, tCommon, locale] = await Promise.all([

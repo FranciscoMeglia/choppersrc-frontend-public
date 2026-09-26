@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -7,12 +8,30 @@ import { FeaturedPost } from "@/components/blog/FeaturedPost";
 import { PostCard } from "@/components/blog/PostCard";
 import { apiFetch } from "@/lib/api/client";
 import { BLOG_CATEGORIES } from "@/lib/blog/categoryLabels";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
 import type { BlogCategory, BlogPost } from "@/types/blogPost";
 
-type Props = { searchParams: Promise<{ category?: string }> };
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<{ category?: string }>;
+};
 
 function isBlogCategory(value: string | undefined): value is BlogCategory {
   return !!value && (BLOG_CATEGORIES as string[]).includes(value);
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  // Canonical siempre a /blog "limpio": el filtro por categoría es una
+  // variante de la misma página (ver el mismo criterio en /products).
+  return buildMetadata({
+    locale: locale as AppLocale,
+    href: "/blog",
+    title: t("blog.title"),
+    description: t("blog.description"),
+  });
 }
 
 export default async function BlogPage({ searchParams }: Props) {
@@ -22,7 +41,10 @@ export default async function BlogPage({ searchParams }: Props) {
   const [posts, t, tNav, tCategory] = await Promise.all([
     apiFetch<BlogPost[]>(
       `/blog?limit=13${category ? `&category=${category}` : ""}`,
-    ),
+    ).catch((err) => {
+      console.error("BlogPage: falling back to empty list", err);
+      return [] as BlogPost[];
+    }),
     getTranslations("BlogPage"),
     getTranslations("Nav"),
     getTranslations("BlogCategory"),

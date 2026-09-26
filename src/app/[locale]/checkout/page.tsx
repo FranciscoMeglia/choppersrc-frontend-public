@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Container } from "@/components/ui/Container";
@@ -11,7 +12,18 @@ import { getCart } from "@/lib/cart/session";
 import { cartToLines, hydrateCartLines } from "@/lib/cart/mapCart";
 import { authFetch } from "@/lib/api/authFetch";
 import { getPublicSettings } from "@/lib/settings/getPublicSettings";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
 import type { Address } from "@/types/address";
+
+type Props = { params: Promise<{ locale: string }> };
+
+// Transaccional, sin valor de búsqueda — noindex (ver robots.ts).
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "CheckoutPage" });
+  return buildMetadata({ locale: locale as AppLocale, href: "/checkout", title: t("title"), description: t("title"), noIndex: true });
+}
 
 export default async function CheckoutPage() {
   const [user, t, tCommon] = await Promise.all([

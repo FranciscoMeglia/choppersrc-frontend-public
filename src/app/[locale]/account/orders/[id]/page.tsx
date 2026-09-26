@@ -1,4 +1,5 @@
 import type { ComponentType } from "react";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
@@ -11,6 +12,8 @@ import { ReceiptUpload } from "@/components/account/ReceiptUpload";
 import { BankTransferDetails } from "@/components/checkout/BankTransferDetails";
 import { formatArs, formatUsd } from "@/lib/utils/formatPrice";
 import { formatDate } from "@/lib/utils/formatDate";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
 import type { Order } from "@/types/order";
 
 const PAYMENT_ICONS: Record<Order["paymentMethod"], ComponentType<{ className?: string }>> = {
@@ -59,9 +62,17 @@ function CashIcon({ className }: { className?: string }) {
 }
 
 type Props = {
-  params: Promise<{ id: string }>;
+  params: Promise<{ locale: string; id: string }>;
   searchParams: Promise<{ justPlaced?: string }>;
 };
+
+// Privada — noindex.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, id } = await params;
+  const t = await getTranslations({ locale, namespace: "OrdersPage" });
+  const title = t("orderNumber", { id });
+  return buildMetadata({ locale: locale as AppLocale, href: `/account/orders/${id}`, title, description: title, noIndex: true });
+}
 
 export default async function OrderDetailPage({ params, searchParams }: Props) {
   const { id } = await params;

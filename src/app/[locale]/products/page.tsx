@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -9,11 +10,29 @@ import { ProductGrid } from "@/components/product/ProductGrid";
 import { apiFetchPage } from "@/lib/api/client";
 import { getBrands } from "@/lib/catalog/facets";
 import { buildProductsHref, type ProductsSearchParams } from "@/lib/utils/productSearchParams";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
 import type { Product } from "@/types/product";
 
 const PAGE_SIZE = 30;
 
-type Props = { searchParams: Promise<ProductsSearchParams> };
+type Props = {
+  params: Promise<{ locale: string }>;
+  searchParams: Promise<ProductsSearchParams>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  // Canonical siempre a /products "limpio": los filtros/orden en query string
+  // son variantes de la misma página, no contenido distinto que indexar aparte.
+  return buildMetadata({
+    locale: locale as AppLocale,
+    href: "/products",
+    title: t("products.title"),
+    description: t("products.description"),
+  });
+}
 
 export default async function ProductsPage({ searchParams }: Props) {
   const { category, ...current } = await searchParams;
@@ -36,7 +55,13 @@ export default async function ProductsPage({ searchParams }: Props) {
   if (current.stock) query.set("stock", current.stock);
 
   const [{ data: products, pagination }, brands] = await Promise.all([
-    apiFetchPage<Product[]>(`/products?${query.toString()}`),
+    apiFetchPage<Product[]>(`/products?${query.toString()}`).catch((err) => {
+      console.error("ProductsPage: falling back to empty results", err);
+      return {
+        data: [] as Product[],
+        pagination: { page: 1, limit: PAGE_SIZE, total: 0, totalPages: 0 },
+      };
+    }),
     getBrands(),
   ]);
 

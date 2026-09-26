@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Reveal } from "@/components/ui/Reveal";
@@ -7,6 +8,21 @@ import { ValuesGrid } from "@/components/about/ValuesGrid";
 import { QuoteBlock } from "@/components/about/QuoteBlock";
 import { MOCK_STATS } from "@/lib/mock/statsMockData";
 import { ABOUT_VALUES } from "@/lib/mock/aboutMockData";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
+
+type Props = { params: Promise<{ locale: string }> };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "Metadata" });
+  return buildMetadata({
+    locale: locale as AppLocale,
+    href: "/about",
+    title: t("about.title"),
+    description: t("about.description"),
+  });
+}
 
 export default async function AboutPage() {
   const [t, tNav] = await Promise.all([

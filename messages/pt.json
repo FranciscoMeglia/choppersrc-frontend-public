@@ -15,7 +15,8 @@
     "faqLong": "Perguntas frequentes",
     "terms": "Termos e condições",
     "privacy": "Política de privacidade",
-    "allProducts": "Ver todos os produtos"
+    "allProducts": "Ver todos os produtos",
+    "usedListings": "Usados"
   },
   "Site": {
     "description": "Peças e acessórios para aeromodelismo e RC.",
@@ -237,7 +238,8 @@
     "addresses": "Endereços",
     "orders": "Pedidos",
     "returns": "Devoluções",
-    "stockAlerts": "Alertas de estoque"
+    "stockAlerts": "Alertas de estoque",
+    "usedListings": "Meus anúncios"
   },
   "AccountPage": {
     "title": "Minha conta",
@@ -623,5 +625,158 @@
     "title": "Caiu um helicóptero aqui!",
     "description": "A página que você procura não existe ou mudou de lugar. Enquanto resgatamos o piloto, volte para o início e continue vendo o catálogo.",
     "backHome": "Voltar para o início"
+  },
+  "ErrorBoundary": {
+    "eyebrow": "Algo deu errado",
+    "title": "Travou uma engrenagem",
+    "description": "Tivemos um problema para carregar esta seção. Tente novamente em instantes.",
+    "retry": "Tentar novamente"
+  },
+  "UsedListingsPage": {
+    "subtitle": "Itens usados publicados por outros clientes. A venda é combinada diretamente entre vocês — a ChoppersRC só modera os anúncios.",
+    "publishCta": "Publicar um usado"
+  },
+  "UsedListingFilters": {
+    "title": "Filtros",
+    "clear": "Limpar",
+    "category": "Categoria",
+    "priceRange": "Faixa de preço (ARS)",
+    "min": "Mín",
+    "max": "Máx",
+    "apply": "Aplicar"
+  },
+  "UsedListingSortBar": {
+    "count": "{count} anúncios",
+    "sortLabel": "Ordenar",
+    "relevance": "Relevância",
+    "price": "Preço"
+  },
+  "UsedListingGrid": {
+    "noResults": "Nenhum anúncio corresponde a esses filtros.",
+    "loading": "Carregando...",
+    "loadMore": "Ver mais anúncios"
+  },
+  "UsedListingDetail": {
+    "sellerLabel": "Vendedor",
+    "noStoreInvolvement": "A ChoppersRC apenas lista este anúncio — a venda é combinada diretamente com o vendedor."
+  },
+  "UsedListingStatus": {
+    "PENDING": "Em análise",
+    "APPROVED": "Publicado",
+    "REJECTED": "Rejeitado",
+    "TAKEN_DOWN": "Removido",
+    "SOLD": "Vendido"
+  },
+  "UsedListingForm": {
+    "title": "Título",
+    "description": "Descrição",
+    "price": "Preço (ARS)",
+    "category": "Categoria",
+    "categoryPlaceholder": "Escolha uma categoria",
+    "city": "Cidade",
+    "cityPlaceholder": "Apenas a cidade, não o endereço exato",
+    "contactPhone": "Telefone / WhatsApp",
+    "contactPhonePlaceholder": "Com código de área",
+    "images": "Fotos",
+    "imagesMax": "máximo {max}",
+    "currentImages": "Fotos atuais",
+    "replaceImagesWarning": "Se você enviar fotos novas, elas vão substituir todas as anteriores.",
+    "saving": "Salvando...",
+    "saveChanges": "Salvar alterações",
+    "publish": "Publicar",
+    "imagesRequired": "Envie pelo menos uma foto",
+    "saveError": "Não foi possível salvar o anúncio",
+    "cancel": "Cancelar",
+    "contactBlockTitle": "Contato exibido no anúncio",
+    "contactBlockHint": "Nome e email são os da sua conta, não podem ser alterados aqui — se quiser que apareçam diferentes, atualize primeiro em Minha conta."
+  },
+  "NewUsedListingPage": {
+    "title": "Publicar um usado",
+    "editTitle": "Editar anúncio",
+    "subtitle": "Preencha os dados do seu item — ele fica pendente de revisão antes de aparecer na listagem pública.",
+    "verifyEmailPrompt": "Verifique seu email antes de publicar em Usados.",
+    "close": "Fechar"
+  },
+  "MyUsedListingsPage": {
+    "title": "Meus anúncios",
+    "subtitle": "Os itens usados que você publicou, com o status de revisão.",
+    "empty": "Você ainda não publicou nenhum item usado.",
+    "publishCta": "Publicar um usado",
+    "rejectionReason": "Motivo da rejeição:",
+    "publishedOn": "Publicado em {date}",
+    "edit": "Editar",
+    "confirmStillAvailable": "Ainda à venda",
+    "confirming": "Confirmando...",
+    "confirmSuccess": "Pronto! Confirmamos que ainda está à venda.",
+    "confirmError": "Não foi possível confirmar",
+    "delete": "Excluir",
+    "deleteConfirmTitle": "Excluir este anúncio?",
+    "deleteConfirmDescription": "Ele será removido da listagem pública e isso não pode ser desfeito.",
+    "deleteConfirm": "Excluir",
+    "deleteCancel": "Cancelar",
+    "deleting": "Excluindo...",
+    "deleteSuccess": "Anúncio excluído",
+    "deleteError": "Não foi possível excluir",
+    "markAsSold": "Marcar como vendido",
+    "markingAsSold": "Marcando...",
+    "markSoldSuccess": "Parabéns pela venda!",
+    "markSoldError": "Não foi possível marcar como vendido",
+    "markSoldConfirmTitle": "Marcar como vendido?",
+    "markSoldConfirmDescription": "Deixa de aparecer na listagem pública. Não pode ser desfeito — se foi engano, você vai precisar editar o anúncio para publicá-lo de novo.",
+    "markSoldConfirm": "Marcar como vendido",
+    "markSoldCancel": "Cancelar"
+  },
+  "UsedListingImagesPicker": {
+    "dropHint": "Arraste fotos aqui ou",
+    "chooseFiles": "escolha-as",
+    "onlyWebp": "Só são aceitas imagens .webp — converta o arquivo antes de enviá-lo.",
+    "tooLarge": "Algumas fotos têm mais de {maxMb}MB e não foram adicionadas.",
+    "onlyWebpMax": "— apenas .webp, até {max}.",
+    "atLimit": "Você atingiu o limite de {max} fotos.",
+    "cover": "Capa",
+    "remove": "Remover esta foto",
+    "moveBefore": "Mover para antes",
+    "moveAfter": "Mover para depois",
+    "addImage": "Adicionar uma foto"
+  },
+  "Metadata": {
+    "home": {
+      "title": "ChoppersRC — Helicópteros RC, kits e peças",
+      "description": "Kits de competição, motores brushless, servos, baterias e peças para helicópteros RC. As marcas que os pilotos escolhem, com envio para todo o país."
+    },
+    "products": {
+      "title": "Catálogo de produtos",
+      "description": "Todo o catálogo da ChoppersRC: kits, motores, servos, baterias, hélices e eletrônica para helicópteros RC. Filtre por categoria, marca e preço."
+    },
+    "usedListings": {
+      "title": "Usados — Compre e venda entre pilotos",
+      "description": "Itens usados de helicópteros RC publicados por outros pilotos: kits, peças e equipamentos a bom preço. A venda é combinada diretamente entre vocês."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Guias, novidades e tutoriais sobre helicópteros RC: manutenção, escolha de motores, LiPo e mais, escritos pela equipe da ChoppersRC."
+    },
+    "about": {
+      "title": "Sobre nós",
+      "description": "Especialistas em helicópteros RC desde 2005. Conheça a história da ChoppersRC e por que os pilotos confiam em nós para seus kits e peças."
+    },
+    "contact": {
+      "title": "Contato",
+      "description": "Fale conosco pelo WhatsApp, email ou formulário de contato. Respondemos rápido para te ajudar a escolher suas peças de helicóptero RC."
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "description": "Envios, formas de pagamento, trocas e devoluções: respostas para as perguntas mais comuns sobre comprar na ChoppersRC."
+    },
+    "terms": {
+      "title": "Termos e condições",
+      "description": "Termos e condições de compra e uso do site da ChoppersRC."
+    },
+    "privacy": {
+      "title": "Política de privacidade",
+      "description": "Como a ChoppersRC coleta, usa e protege seus dados pessoais."
+    },
+    "productFallbackDescription": "Compre {name} na ChoppersRC, com envio para todo o país.",
+    "usedListingDescriptionSuffix": "Anúncio de usado na ChoppersRC — {city}."
   }
 }

@@ -8,15 +8,20 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
   const accessToken = await getAccessToken();
   if (!accessToken) return null;
 
-  const res = await fetch(`${env.apiBaseUrl}/auth/me`, {
-    headers: {
-      ...internalApiHeaders(),
-      Authorization: `Bearer ${accessToken}`,
-    },
-    cache: "no-store",
-  });
-  const body = (await res.json()) as
-    | ApiSuccessEnvelope<AuthUser>
-    | ApiErrorEnvelope;
-  return body.success ? body.data : null;
+  try {
+    const res = await fetch(`${env.apiBaseUrl}/auth/me`, {
+      headers: {
+        ...internalApiHeaders(),
+        Authorization: `Bearer ${accessToken}`,
+      },
+      cache: "no-store",
+    });
+    const body = (await res.json()) as
+      | ApiSuccessEnvelope<AuthUser>
+      | ApiErrorEnvelope;
+    return body.success ? body.data : null;
+  } catch (err) {
+    console.error("getCurrentUser: falling back to signed-out", err);
+    return null;
+  }
 }

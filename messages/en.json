@@ -15,7 +15,8 @@
     "faqLong": "Frequently asked questions",
     "terms": "Terms and conditions",
     "privacy": "Privacy policy",
-    "allProducts": "View all products"
+    "allProducts": "View all products",
+    "usedListings": "Used Gear"
   },
   "Site": {
     "description": "RC helicopter parts and accessories.",
@@ -237,7 +238,8 @@
     "addresses": "Addresses",
     "orders": "Orders",
     "returns": "Returns",
-    "stockAlerts": "Stock alerts"
+    "stockAlerts": "Stock alerts",
+    "usedListings": "My Listings"
   },
   "AccountPage": {
     "title": "My account",
@@ -623,5 +625,158 @@
     "title": "We just lost a chopper!",
     "description": "The page you're looking for doesn't exist or moved. While we rescue the pilot, head back home and keep browsing the catalog.",
     "backHome": "Back to home"
+  },
+  "ErrorBoundary": {
+    "eyebrow": "Something went wrong",
+    "title": "We stripped a gear",
+    "description": "We had trouble loading this section. Please try again in a moment.",
+    "retry": "Try again"
+  },
+  "UsedListingsPage": {
+    "subtitle": "Used gear posted by other customers. The sale is arranged directly between you two — ChoppersRC only moderates the listings.",
+    "publishCta": "Post a used item"
+  },
+  "UsedListingFilters": {
+    "title": "Filters",
+    "clear": "Clear",
+    "category": "Category",
+    "priceRange": "Price range (ARS)",
+    "min": "Min",
+    "max": "Max",
+    "apply": "Apply"
+  },
+  "UsedListingSortBar": {
+    "count": "{count} listings",
+    "sortLabel": "Sort",
+    "relevance": "Relevance",
+    "price": "Price"
+  },
+  "UsedListingGrid": {
+    "noResults": "No listings match these filters.",
+    "loading": "Loading...",
+    "loadMore": "See more listings"
+  },
+  "UsedListingDetail": {
+    "sellerLabel": "Seller",
+    "noStoreInvolvement": "ChoppersRC only lists this posting — the sale is arranged directly with the seller."
+  },
+  "UsedListingStatus": {
+    "PENDING": "Under review",
+    "APPROVED": "Published",
+    "REJECTED": "Rejected",
+    "TAKEN_DOWN": "Taken down",
+    "SOLD": "Sold"
+  },
+  "UsedListingForm": {
+    "title": "Title",
+    "description": "Description",
+    "price": "Price (ARS)",
+    "category": "Category",
+    "categoryPlaceholder": "Choose a category",
+    "city": "City",
+    "cityPlaceholder": "City only, not the exact address",
+    "contactPhone": "Phone / WhatsApp",
+    "contactPhonePlaceholder": "With area code",
+    "images": "Photos",
+    "imagesMax": "max {max}",
+    "currentImages": "Current photos",
+    "replaceImagesWarning": "Uploading new photos will replace all the previous ones.",
+    "saving": "Saving...",
+    "saveChanges": "Save changes",
+    "publish": "Publish",
+    "imagesRequired": "Upload at least one photo",
+    "saveError": "Couldn't save the listing",
+    "cancel": "Cancel",
+    "contactBlockTitle": "Contact info shown on the listing",
+    "contactBlockHint": "Name and email are your account's, they can't be changed here — if you want them to show differently, update them in My Account first."
+  },
+  "NewUsedListingPage": {
+    "title": "Post a used item",
+    "editTitle": "Edit listing",
+    "subtitle": "Fill in your item's details — it stays pending review before it shows up in the public listing.",
+    "verifyEmailPrompt": "Verify your email before posting in Used Gear.",
+    "close": "Close"
+  },
+  "MyUsedListingsPage": {
+    "title": "My Listings",
+    "subtitle": "The used items you posted, with their review status.",
+    "empty": "You haven't posted any used item yet.",
+    "publishCta": "Post a used item",
+    "rejectionReason": "Rejection reason:",
+    "publishedOn": "Posted on {date}",
+    "edit": "Edit",
+    "confirmStillAvailable": "Still for sale",
+    "confirming": "Confirming...",
+    "confirmSuccess": "Done! We confirmed it's still for sale.",
+    "confirmError": "Couldn't confirm",
+    "delete": "Delete",
+    "deleteConfirmTitle": "Delete this listing?",
+    "deleteConfirmDescription": "It will be removed from the public listing and this can't be undone.",
+    "deleteConfirm": "Delete",
+    "deleteCancel": "Cancel",
+    "deleting": "Deleting...",
+    "deleteSuccess": "Listing deleted",
+    "deleteError": "Couldn't delete",
+    "markAsSold": "Mark as sold",
+    "markingAsSold": "Marking...",
+    "markSoldSuccess": "Congrats on the sale!",
+    "markSoldError": "Couldn't mark as sold",
+    "markSoldConfirmTitle": "Mark as sold?",
+    "markSoldConfirmDescription": "It stops showing in the public listing. This can't be undone — if this was a mistake, you'll need to edit it to publish it again.",
+    "markSoldConfirm": "Mark as sold",
+    "markSoldCancel": "Cancel"
+  },
+  "UsedListingImagesPicker": {
+    "dropHint": "Drag photos here or",
+    "chooseFiles": "choose them",
+    "onlyWebp": "Only .webp images are accepted — convert the file before uploading it.",
+    "tooLarge": "Some photos are over {maxMb}MB and weren't added.",
+    "onlyWebpMax": "— .webp only, up to {max}.",
+    "atLimit": "You've reached the {max}-photo limit.",
+    "cover": "Cover",
+    "remove": "Remove this photo",
+    "moveBefore": "Move earlier",
+    "moveAfter": "Move later",
+    "addImage": "Add a photo"
+  },
+  "Metadata": {
+    "home": {
+      "title": "ChoppersRC — RC Helicopters, Kits & Parts",
+      "description": "Competition kits, brushless motors, servos, batteries and parts for RC helicopters. The brands pilots trust, shipped nationwide."
+    },
+    "products": {
+      "title": "Product catalog",
+      "description": "The full ChoppersRC catalog: kits, motors, servos, batteries, blades and electronics for RC helicopters. Filter by category, brand and price."
+    },
+    "usedListings": {
+      "title": "Used Gear — Buy and sell among pilots",
+      "description": "Used RC helicopter gear posted by other pilots: kits, parts and equipment at a good price. The sale is arranged directly between you two."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Guides, news and tutorials about RC helicopters: maintenance, choosing motors, LiPo care and more, written by the ChoppersRC team."
+    },
+    "about": {
+      "title": "About us",
+      "description": "RC helicopter specialists since 2005. Learn ChoppersRC's story and why pilots trust us for their kits and parts."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Reach us on WhatsApp, email or the contact form. We reply fast to help you pick the right RC helicopter parts."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "description": "Shipping, payment methods, exchanges and returns: answers to the most common questions about shopping at ChoppersRC."
+    },
+    "terms": {
+      "title": "Terms and conditions",
+      "description": "Terms and conditions for purchasing and using the ChoppersRC website."
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "description": "How ChoppersRC collects, uses and protects your personal data."
+    },
+    "productFallbackDescription": "Buy {name} at ChoppersRC, with nationwide shipping.",
+    "usedListingDescriptionSuffix": "Used gear listing on ChoppersRC — {city}."
   }
 }

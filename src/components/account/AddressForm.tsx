@@ -94,6 +94,7 @@ export function AddressForm({
             onChange={(e) => setStreet(e.target.value)}
             required
             minLength={3}
+            maxLength={200}
             className={inputClass}
           />
         </label>
@@ -121,6 +122,7 @@ export function AddressForm({
             onChange={(e) => setCity(e.target.value)}
             required
             minLength={2}
+            maxLength={100}
             className={inputClass}
           />
         </label>
@@ -132,6 +134,7 @@ export function AddressForm({
             onChange={(e) => setProvince(e.target.value)}
             required
             minLength={2}
+            maxLength={100}
             className={inputClass}
           />
         </label>
@@ -145,6 +148,7 @@ export function AddressForm({
           onChange={(e) => setPostalCode(e.target.value)}
           required
           minLength={3}
+          maxLength={20}
           className={`max-w-40 ${inputClass}`}
         />
       </label>

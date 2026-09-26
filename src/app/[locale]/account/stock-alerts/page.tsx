@@ -1,7 +1,19 @@
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { authFetch } from "@/lib/api/authFetch";
 import { StockAlertRow } from "@/components/account/StockAlertRow";
+import { buildMetadata } from "@/lib/seo/metadata";
+import type { AppLocale } from "@/i18n/routing";
 import type { StockAlert } from "@/types/stockAlert";
+
+type Props = { params: Promise<{ locale: string }> };
+
+// Privada — noindex.
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "StockAlertsPage" });
+  return buildMetadata({ locale: locale as AppLocale, href: "/account/stock-alerts", title: t("title"), description: t("subtitle"), noIndex: true });
+}
 
 export default async function StockAlertsPage() {
   const [alerts, t] = await Promise.all([

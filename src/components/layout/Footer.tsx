@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { legalNav, site } from "@/config/site";
 import { getPublicSettings } from "@/lib/settings/getPublicSettings";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
+import { formatPhone } from "@/lib/utils/phone";
 
 export async function Footer() {
   const [t, tNav, tSite, settings] = await Promise.all([
@@ -84,7 +85,7 @@ export async function Footer() {
               href={buildWhatsAppUrl(settings.contactPhone)}
               className="text-white/85 hover:text-primary"
             >
-              {settings.contactPhone}
+              {formatPhone(settings.contactPhone)}
             </a>
             <span className="text-white/50">{settings.contactAddress}</span>
           </nav>

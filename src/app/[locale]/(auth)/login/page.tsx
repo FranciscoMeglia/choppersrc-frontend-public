@@ -9,6 +9,20 @@ import { PasswordInput } from "@/components/ui/PasswordInput";
 import { login } from "@/lib/auth/client";
 import { ApiError } from "@/lib/api/client";
 
+/**
+ * `?redirect=` viene de la URL — cualquiera puede armar un link tipo
+ * `/login?redirect=https://sitio-falso.com` para que, después de un login
+ * legítimo, la víctima termine redirigida a un sitio externo (phishing
+ * post-login). Sólo se acepta si es una ruta interna: empieza con `/` pero
+ * no con `//` ni `/\` (ambos son formas de que el navegador lo interprete
+ * como una URL absoluta a otro origen, no como una ruta relativa).
+ */
+function resolveSafeRedirect(raw: string | null): string {
+  if (!raw) return "/account";
+  if (raw.startsWith("/") && !raw.startsWith("//") && !raw.startsWith("/\\")) return raw;
+  return "/account";
+}
+
 export default function LoginPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -23,7 +37,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       await login(email, password);
-      router.push(searchParams.get("redirect") || "/account");
+      router.push(resolveSafeRedirect(searchParams.get("redirect")));
       router.refresh();
     } catch (err) {
       setError(

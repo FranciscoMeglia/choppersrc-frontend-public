@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import { Container } from "@/components/ui/Container";
 import { Breadcrumb } from "@/components/ui/Breadcrumb";
@@ -6,17 +7,38 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ProductFilters } from "@/components/product/ProductFilters";
 import { SortBar } from "@/components/product/SortBar";
 import { ProductGrid } from "@/components/product/ProductGrid";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { apiFetchPage } from "@/lib/api/client";
 import { getBrands, getCategories, getProductModelsFor } from "@/lib/catalog/facets";
+import { buildMetadata } from "@/lib/seo/metadata";
+import { breadcrumbJsonLd } from "@/lib/seo/jsonLd";
+import type { AppLocale } from "@/i18n/routing";
 import type { ProductsSearchParams } from "@/lib/utils/productSearchParams";
 import type { Product } from "@/types/product";
 
 const PAGE_SIZE = 30;
 
 type Props = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ locale: string; slug: string }>;
   searchParams: Promise<ProductsSearchParams>;
 };
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
+  const [categories, t] = await Promise.all([
+    getCategories(),
+    getTranslations({ locale, namespace: "Metadata" }),
+  ]);
+  const category = categories.find((c) => c.slug === slug);
+  if (!category) return {};
+
+  return buildMetadata({
+    locale: locale as AppLocale,
+    href: `/products/category/${slug}`,
+    title: category.name,
+    description: t("products.description"),
+  });
+}
 
 export default async function CategoryProductsPage({ params, searchParams }: Props) {
   const [{ slug }, current] = await Promise.all([params, searchParams]);
@@ -46,11 +68,30 @@ export default async function CategoryProductsPage({ params, searchParams }: Pro
     `/products?${query.toString()}`,
   );
 
+  const breadcrumbItems = category.group
+    ? [
+        { name: tNav("products"), path: "/products" },
+        { name: category.group.name, path: `/products/group/${category.group.slug}` },
+        { name: category.name, path: `/products/category/${category.slug}` },
+      ]
+    : [
+        { name: tNav("products"), path: "/products" },
+        { name: category.name, path: `/products/category/${category.slug}` },
+      ];
+
   return (
     <Container>
+      <JsonLd data={breadcrumbJsonLd(breadcrumbItems)} />
       <Breadcrumb
         current={category.name}
-        parent={{ label: tNav("products"), href: "/products" }}
+        parents={
+          category.group
+            ? [
+                { label: tNav("products"), href: "/products" },
+                { label: category.group.name, href: `/products/group/${category.group.slug}` },
+              ]
+            : [{ label: tNav("products"), href: "/products" }]
+        }
       />
       <Reveal>
         <h1 className="mt-2 font-heading text-4xl font-bold tracking-tight uppercase sm:text-5xl">
@@ -73,6 +114,7 @@ export default async function CategoryProductsPage({ params, searchParams }: Pro
             initialProducts={products}
             initialPagination={pagination}
             queryString={query.toString()}
+            context={{ categorySlug: slug, groupSlug: category.group?.slug }}
           />
         </div>
       </div>

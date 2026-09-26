@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { ProductCard } from "./ProductCard";
+import { ProductCard, type ProductListContext } from "./ProductCard";
 import { apiFetchPage } from "@/lib/api/client";
 import type { Pagination } from "@/types/api";
 import type { Product } from "@/types/product";
@@ -15,10 +15,13 @@ export function ProductGrid({
   initialProducts,
   initialPagination,
   queryString,
+  context,
 }: {
   initialProducts: Product[];
   initialPagination: Pagination;
   queryString: string;
+  /** Contexto de grupo/categoría del listado actual — ver ProductCard. */
+  context?: ProductListContext;
 }) {
   const t = useTranslations("ProductGrid");
   const [products, setProducts] = useState(initialProducts);
@@ -57,7 +60,7 @@ export function ProductGrid({
             key={product.slug}
             delay={Math.min(i % PAGE_SIZE, 5) * 0.06}
           >
-            <ProductCard product={product} />
+            <ProductCard product={product} context={context} />
           </Reveal>
         ))}
       </div>

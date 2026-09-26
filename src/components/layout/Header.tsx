@@ -66,13 +66,19 @@ export async function Header() {
               priority
             />
           </Link>
-          <nav className="hidden items-center gap-6 text-base whitespace-nowrap md:flex">
+          <nav className="hidden items-center gap-4 text-base whitespace-nowrap md:flex xl:gap-6">
             <NavLinks items={beforeProducts} className={navLinkClass} />
             <ProductsMegaMenu label={productsLabel} groups={categoryGroups} className={navLinkClass} />
             <NavLinks items={afterProducts} className={navLinkClass} />
           </nav>
-          <div className="hidden md:block">
-            <SearchInput className="w-72 lg:w-96" />
+          {/* A partir de lg, no de md: con 7 ítems de nav + buscador fijo no
+              entraban juntos en el rango 768-1023px (se generaba scroll
+              horizontal) — entre esos anchos el buscador baja a la segunda
+              fila, igual que en mobile. Ya en lg, el buscador arranca
+              angosto (justo entra) y recién crece a partir de xl, que es
+              donde sobra lugar. */}
+          <div className="hidden lg:block">
+            <SearchInput className="w-56 xl:w-72 2xl:w-96" />
           </div>
           <div className="ml-auto flex items-center gap-1 whitespace-nowrap sm:gap-2">
             <div className="hidden md:block">
@@ -89,7 +95,7 @@ export async function Header() {
             </MobileNav>
           </div>
         </div>
-        <div className="border-t border-ink/10 px-4 py-3 md:hidden">
+        <div className="border-t border-ink/10 px-4 py-3 lg:hidden">
           <SearchInput />
         </div>
       </header>

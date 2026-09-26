@@ -12,6 +12,7 @@ export function AccountNav() {
     { label: tHeader("myAccount"), href: "/account" },
     { label: t("addresses"), href: "/account/addresses" },
     { label: t("orders"), href: "/account/orders" },
+    { label: t("usedListings"), href: "/account/used-listings" },
     { label: t("stockAlerts"), href: "/account/stock-alerts" },
   ] as const;
 

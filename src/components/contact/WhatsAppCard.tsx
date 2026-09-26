@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { getPublicSettings } from "@/lib/settings/getPublicSettings";
 import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
+import { formatPhone } from "@/lib/utils/phone";
 
 export async function WhatsAppCard() {
   const [t, settings] = await Promise.all([
@@ -33,7 +34,7 @@ export async function WhatsAppCard() {
         <span>
           <span className="block font-semibold">{t("chatNow")}</span>
           <span className="block text-sm text-white/90">
-            {settings.contactPhone}
+            {formatPhone(settings.contactPhone)}
           </span>
         </span>
       </a>

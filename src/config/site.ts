@@ -6,6 +6,7 @@ export const site = {
 export const mainNav = [
   { key: "home", href: "/" },
   { key: "products", href: "/products" },
+  { key: "usedListings", href: "/used-listings" },
   { key: "about", href: "/about" },
   { key: "blog", href: "/blog" },
   { key: "faq", href: "/faq" },

@@ -10,6 +10,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "libphonenumber-js": "^1.13.14",
     "lucide-react": "^1.44.0",
     "motion": "^13.2.0",
     "next": "16.3.4",
