@@ -9,9 +9,11 @@ import {
 export function SortBar({
   count,
   current,
+  basePath = "/products",
 }: {
   count: number;
   current: ProductsSearchParams;
+  basePath?: string;
 }) {
   const t = useTranslations("SortBar");
 
@@ -32,7 +34,7 @@ export function SortBar({
           return (
             <Link
               key={option.value ?? "relevancia"}
-              href={buildProductsHref(current, { sort: option.value })}
+              href={buildProductsHref(current, { sort: option.value }, basePath)}
               className={
                 isActive
                   ? "flex items-center gap-1 rounded bg-primary px-3 py-1.5 text-white"

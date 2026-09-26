@@ -1,4 +1,4 @@
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import type {
   ApiErrorEnvelope,
   ApiSuccessEnvelope,
@@ -21,13 +21,20 @@ export class ApiError extends Error {
   }
 }
 
+const REQUEST_TIMEOUT_MS = 10_000;
+
 async function request<T>(
   path: string,
   init?: RequestInit,
 ): Promise<ApiSuccessEnvelope<T>> {
   const res = await fetch(`${env.apiBaseUrl}${path}`, {
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT_MS),
     ...init,
-    headers: { "Content-Type": "application/json", ...init?.headers },
+    headers: {
+      "Content-Type": "application/json",
+      ...internalApiHeaders(),
+      ...init?.headers,
+    },
   });
 
   const body = (await res.json()) as ApiSuccessEnvelope<T> | ApiErrorEnvelope;

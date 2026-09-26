@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { AddressForm } from "./AddressForm";
 import { formatAddressLine } from "@/lib/utils/formatAddress";
@@ -42,6 +43,7 @@ export function AddressesManager({
 }: {
   initialAddresses: Address[];
 }) {
+  const t = useTranslations("AddressesManager");
   const [addresses, setAddresses] = useState(initialAddresses);
   const [editingId, setEditingId] = useState<number | "new" | null>(null);
   const [deletingId, setDeletingId] = useState<number | null>(null);
@@ -98,7 +100,7 @@ export function AddressesManager({
                 className="inline-flex items-center gap-1.5 rounded-full border border-ink/15 px-3 py-1.5 text-xs font-medium text-ink/70 transition-colors hover:border-ink/30 hover:bg-ink/5 hover:text-ink"
               >
                 <PencilIcon className="h-3.5 w-3.5" />
-                Editar
+                {t("edit")}
               </button>
               <button
                 type="button"
@@ -111,7 +113,7 @@ export function AddressesManager({
                 ) : (
                   <TrashIcon className="h-3.5 w-3.5" />
                 )}
-                {deletingId === address.id ? "Eliminando..." : "Eliminar"}
+                {deletingId === address.id ? t("deleting") : t("delete")}
               </button>
             </div>
           </div>
@@ -119,7 +121,7 @@ export function AddressesManager({
       )}
 
       {addresses.length === 0 && editingId !== "new" && (
-        <p className="text-sm text-ink/60">Todavía no guardaste ninguna dirección.</p>
+        <p className="text-sm text-ink/60">{t("empty")}</p>
       )}
 
       {editingId === "new" ? (
@@ -131,7 +133,7 @@ export function AddressesManager({
         addresses.length < MAX_ADDRESSES && (
           <div>
             <Button variant="secondary" onClick={() => setEditingId("new")}>
-              + Agregar dirección
+              {t("add")}
             </Button>
           </div>
         )
@@ -139,8 +141,7 @@ export function AddressesManager({
 
       {addresses.length >= MAX_ADDRESSES && editingId !== "new" && (
         <p className="text-xs text-ink/50">
-          Llegaste al máximo de {MAX_ADDRESSES} direcciones guardadas — borrá
-          una para agregar otra.
+          {t("maxReached", { max: MAX_ADDRESSES })}
         </p>
       )}
     </div>

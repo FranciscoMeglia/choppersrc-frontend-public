@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import { clearSessionCookies, getRefreshToken } from "@/lib/auth/cookies";
 import { sendSuccess } from "@/lib/api/envelope";
 
@@ -9,7 +9,7 @@ export async function POST() {
   if (refreshToken) {
     await fetch(`${env.apiBaseUrl}/auth/logout`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", ...internalApiHeaders() },
       body: JSON.stringify({ refreshToken }),
     }).catch(() => {
     });

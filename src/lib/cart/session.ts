@@ -1,5 +1,5 @@
 import "server-only";
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import { getAccessToken } from "@/lib/auth/cookies";
 import { cartItemCount } from "./mapCart";
 import type { ApiErrorEnvelope, ApiSuccessEnvelope } from "@/types/api";
@@ -9,14 +9,22 @@ export async function getCart(): Promise<Cart | null> {
   const accessToken = await getAccessToken();
   if (!accessToken) return null;
 
-  const res = await fetch(`${env.apiBaseUrl}/cart`, {
-    headers: { Authorization: `Bearer ${accessToken}` },
-    cache: "no-store",
-  });
-  const body = (await res.json()) as
-    | ApiSuccessEnvelope<Cart>
-    | ApiErrorEnvelope;
-  return body.success ? body.data : null;
+  try {
+    const res = await fetch(`${env.apiBaseUrl}/cart`, {
+      headers: {
+        ...internalApiHeaders(),
+        Authorization: `Bearer ${accessToken}`,
+      },
+      cache: "no-store",
+    });
+    const body = (await res.json()) as
+      | ApiSuccessEnvelope<Cart>
+      | ApiErrorEnvelope;
+    return body.success ? body.data : null;
+  } catch (err) {
+    console.error("getCart: falling back to empty cart", err);
+    return null;
+  }
 }
 
 export async function getCartItemCount(): Promise<number> {

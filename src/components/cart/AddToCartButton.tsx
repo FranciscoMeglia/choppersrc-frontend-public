@@ -11,10 +11,12 @@ import type { Cart } from "@/types/cart";
 export function AddToCartButton({
   productId,
   slug,
+  stock,
   className = "",
 }: {
   productId: number;
   slug: string;
+  stock?: number;
   className?: string;
 }) {
   const t = useTranslations("AddToCartButton");
@@ -38,12 +40,20 @@ export function AddToCartButton({
         );
         showToast(t("added"));
       } else if (body.statusCode === 401) {
-        addLocalItem(productId, slug);
-        showToast(t("added"));
+        if (addLocalItem(productId, slug, 1, stock)) {
+          showToast(t("added"));
+        } else {
+          showToast(t("maxStockReached"));
+        }
+      } else {
+        showToast(body.message);
       }
     } catch {
-      addLocalItem(productId, slug);
-      showToast(t("added"));
+      if (addLocalItem(productId, slug, 1, stock)) {
+        showToast(t("added"));
+      } else {
+        showToast(t("maxStockReached"));
+      }
     } finally {
       setLoading(false);
     }

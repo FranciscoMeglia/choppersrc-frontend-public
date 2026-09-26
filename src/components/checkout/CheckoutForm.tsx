@@ -147,7 +147,17 @@ export function CheckoutForm({
         <div className="flex flex-col gap-4">
           <OrderSummary items={items} coupon={coupon} />
 
-          {error && <p className="text-sm text-primary">{error}</p>}
+          {error && (
+            <div className="flex flex-col gap-2">
+              <p className="text-sm text-primary">{error}</p>
+              <Link
+                href="/cart"
+                className="text-sm text-ink/60 underline hover:text-primary"
+              >
+                {t("backToCart")}
+              </Link>
+            </div>
+          )}
 
           <Button
             type="button"

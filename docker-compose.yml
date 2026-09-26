@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-/api}
+        NEXT_PUBLIC_API_ORIGIN: ${PUBLIC_ORIGIN:-https://choppersrc.com}
+        NEXT_PUBLIC_SITE_URL: ${PUBLIC_ORIGIN:-https://choppersrc.com}
+        NEXT_PUBLIC_GA_MEASUREMENT_ID: ${NEXT_PUBLIC_GA_MEASUREMENT_ID:-}
+        API_BASE_URL: ${API_BASE_URL:-http://choppersrc_api:3000/api}
+    image: choppersrc/frontend-publico:latest
+    container_name: choppersrc_frontend_publico
+    restart: unless-stopped
+    environment:
+      API_BASE_URL: ${API_BASE_URL:-http://choppersrc_api:3000/api}
+      INTERNAL_API_KEY: ${INTERNAL_API_KEY:-}
+    expose:
+      - '3001'
+    networks:
+      - default
+      - choppersrc_net
+
+networks:
+  default: {}
+  choppersrc_net:
+    external: true

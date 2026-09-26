@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { PriceTag } from "@/components/ui/PriceTag";
 import { AddToCartButton } from "@/components/cart/AddToCartButton";
@@ -15,15 +16,32 @@ function percentOff(product: Product): number | null {
   return Math.round((1 - final / price) * 100);
 }
 
-export function ProductCard({ product }: { product: Product }) {
+/** De dónde se está listando el producto — sólo se completa en los listados
+ * por categoría/grupo (ver ProductGrid), nunca en "todos los productos" ni en
+ * la home. La ficha de producto lo lee de la URL para armar la migaja de pan
+ * completa (inicio/productos/grupo/categoría/producto) en vez de la genérica
+ * (inicio/productos/producto) — ver products/[slug]/page.tsx. */
+export type ProductListContext = { groupSlug?: string; categorySlug?: string };
+
+function productHref(product: Product, context?: ProductListContext) {
+  const qs = new URLSearchParams();
+  if (context?.groupSlug) qs.set("group", context.groupSlug);
+  if (context?.categorySlug) qs.set("category", context.categorySlug);
+  const query = qs.toString();
+  return `/products/${product.slug}${query ? `?${query}` : ""}`;
+}
+
+export function ProductCard({ product, context }: { product: Product; context?: ProductListContext }) {
+  const t = useTranslations("ProductDetail");
   const price = getDisplayPrice(product);
   const cover = product.images[0];
   const discount = percentOff(product);
+  const href = productHref(product, context);
 
   return (
     <div className="group flex h-full flex-col overflow-hidden rounded-xl border border-ink/10 bg-background shadow-sm transition-shadow hover:shadow-lg">
       <Link
-        href={`/products/${product.slug}`}
+        href={href}
         className="relative block aspect-square overflow-hidden bg-ink/5"
       >
         {cover ? (
@@ -59,6 +77,11 @@ export function ProductCard({ product }: { product: Product }) {
             −{discount}%
           </span>
         )}
+        {product.condition === "USED" && (
+          <span className="absolute top-2 left-2 rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-800 shadow-sm">
+            {t("used")}
+          </span>
+        )}
       </Link>
 
       <div className="flex flex-1 flex-col gap-3 p-4">
@@ -69,7 +92,7 @@ export function ProductCard({ product }: { product: Product }) {
             </p>
           )}
           <Link
-            href={`/products/${product.slug}`}
+            href={href}
             className="mt-0.5 line-clamp-2 min-h-10 text-sm font-medium hover:text-primary"
           >
             {product.name}
@@ -84,6 +107,7 @@ export function ProductCard({ product }: { product: Product }) {
           <AddToCartButton
             productId={product.id}
             slug={product.slug}
+            stock={product.stock}
             className="mt-auto"
           />
         ) : (

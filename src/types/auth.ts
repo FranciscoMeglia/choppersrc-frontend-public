@@ -5,6 +5,7 @@ export interface AuthUser {
   id: number;
   name: string;
   email: string;
+  pendingEmail: string | null;
   phone: string | null;
   role: UserRole;
   emailVerified: boolean;

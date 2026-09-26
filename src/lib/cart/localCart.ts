@@ -33,15 +33,26 @@ export function getLocalCartCount(): number {
   return totalQuantity(getLocalCart());
 }
 
-export function addLocalItem(productId: number, slug: string, quantity = 1) {
+export function addLocalItem(
+  productId: number,
+  slug: string,
+  quantity = 1,
+  maxQuantity?: number,
+): boolean {
   const items = getLocalCart();
   const existing = items.find((item) => item.productId === productId);
+  const currentQuantity = existing?.quantity ?? 0;
+  if (maxQuantity !== undefined && currentQuantity + quantity > maxQuantity) {
+    return false;
+  }
+
   if (existing) {
     existing.quantity += quantity;
   } else {
     items.push({ productId, slug, quantity });
   }
   setLocalCart(items);
+  return true;
 }
 
 export function updateLocalItem(productId: number, quantity: number) {

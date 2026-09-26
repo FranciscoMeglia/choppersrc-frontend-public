@@ -26,6 +26,7 @@ export function CartView({
   const tCommon = useTranslations("Common");
   const [items, setItems] = useState(initialItems);
   const [loading, setLoading] = useState(!isAuthenticated);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (isAuthenticated) return;
@@ -50,15 +51,24 @@ export function CartView({
       | ApiSuccessEnvelope<Cart>
       | ApiErrorEnvelope;
     if (body.success) {
+      setError(null);
       setItems(await hydrateCartLines(cartToLines(body.data)));
       dispatchCartUpdated(
         body.data.items.reduce((sum, item) => sum + item.quantity, 0),
       );
+    } else {
+      setError(body.message);
     }
   }
 
   async function updateQuantity(productId: number, quantity: number) {
     if (quantity < 1) return removeItem(productId);
+
+    const item = items.find((i) => i.productId === productId);
+    if (item && quantity > item.stock) {
+      setError(t("maxStockReached", { count: item.stock }));
+      return;
+    }
 
     if (isAuthenticated) {
       await applyBackendMutation(() =>
@@ -69,6 +79,7 @@ export function CartView({
         }),
       );
     } else {
+      setError(null);
       updateLocalItem(productId, quantity);
       setItems((prev) =>
         prev.map((item) =>
@@ -169,8 +180,9 @@ export function CartView({
                   onClick={() =>
                     updateQuantity(item.productId, item.quantity + 1)
                   }
+                  disabled={item.quantity >= item.stock}
                   aria-label={t("increase")}
-                  className="rounded border border-ink/20 px-2 py-1 hover:border-primary hover:text-primary"
+                  className="rounded border border-ink/20 px-2 py-1 hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:border-ink/20 disabled:hover:text-inherit"
                 >
                   +
                 </button>
@@ -184,6 +196,7 @@ export function CartView({
               </button>
             </div>
           ))}
+          {error && <p className="text-sm text-primary">{error}</p>}
         </div>
 
         <div className="flex flex-col gap-4">

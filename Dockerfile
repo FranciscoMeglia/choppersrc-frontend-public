@@ -12,10 +12,19 @@ WORKDIR /app
 
 ARG NEXT_PUBLIC_API_BASE_URL
 ARG NEXT_PUBLIC_API_ORIGIN
+ARG NEXT_PUBLIC_SITE_URL
 ARG NEXT_PUBLIC_GA_MEASUREMENT_ID
+# Server-side fetches (e.g. the footer's settings call, rendered on every
+# page) run during `next build` too, while it's collecting/prerendering
+# page data — so this needs a real value here, not just at container
+# runtime, or it falls back to an unreachable localhost and every page
+# render stalls on that fetch until it times out.
+ARG API_BASE_URL
 ENV NEXT_PUBLIC_API_BASE_URL=$NEXT_PUBLIC_API_BASE_URL \
     NEXT_PUBLIC_API_ORIGIN=$NEXT_PUBLIC_API_ORIGIN \
+    NEXT_PUBLIC_SITE_URL=$NEXT_PUBLIC_SITE_URL \
     NEXT_PUBLIC_GA_MEASUREMENT_ID=$NEXT_PUBLIC_GA_MEASUREMENT_ID \
+    API_BASE_URL=$API_BASE_URL \
     NEXT_TELEMETRY_DISABLED=1
 
 COPY --from=deps /app/node_modules ./node_modules

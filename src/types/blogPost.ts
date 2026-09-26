@@ -14,4 +14,7 @@ export interface BlogPost {
   images: string[];
   category: BlogCategory;
   publishedAt: string | null;
+  eventDateStart: string | null;
+  eventDateEnd: string | null;
+  location: string | null;
 }

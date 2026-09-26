@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { ApiError } from "@/lib/api/client";
 import type { ApiErrorEnvelope, ApiSuccessEnvelope } from "@/types/api";
@@ -19,6 +20,7 @@ export function AddressForm({
   onSaved: (address: Address) => void;
   onCancel: () => void;
 }) {
+  const t = useTranslations("AddressForm");
   const [label, setLabel] = useState(address?.label ?? "");
   const [street, setStreet] = useState(address?.street ?? "");
   const [floorUnit, setFloorUnit] = useState(address?.floorUnit ?? "");
@@ -58,9 +60,7 @@ export function AddressForm({
       }
       onSaved(body.data);
     } catch (err) {
-      setError(
-        err instanceof ApiError ? err.message : "No se pudo guardar la dirección",
-      );
+      setError(err instanceof ApiError ? err.message : t("saveError"));
     } finally {
       setLoading(false);
     }
@@ -73,14 +73,13 @@ export function AddressForm({
     >
       <label className={labelClass}>
         <span>
-          Nombre de la dirección{" "}
-          <span className="text-ink/40">(opcional)</span>
+          {t("labelField")} <span className="text-ink/40">{t("optional")}</span>
         </span>
         <input
           type="text"
           value={label}
           onChange={(e) => setLabel(e.target.value)}
-          placeholder="Casa, trabajo..."
+          placeholder={t("labelPlaceholder")}
           maxLength={50}
           className={inputClass}
         />
@@ -88,25 +87,26 @@ export function AddressForm({
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className={labelClass}>
-          Calle y número
+          {t("street")}
           <input
             type="text"
             value={street}
             onChange={(e) => setStreet(e.target.value)}
             required
             minLength={3}
+            maxLength={200}
             className={inputClass}
           />
         </label>
         <label className={labelClass}>
           <span>
-            Piso / Depto <span className="text-ink/40">(opcional)</span>
+            {t("floorUnit")} <span className="text-ink/40">{t("optional")}</span>
           </span>
           <input
             type="text"
             value={floorUnit}
             onChange={(e) => setFloorUnit(e.target.value)}
-            placeholder="Piso 3, Depto B"
+            placeholder={t("floorUnitPlaceholder")}
             maxLength={50}
             className={inputClass}
           />
@@ -115,51 +115,53 @@ export function AddressForm({
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <label className={labelClass}>
-          Ciudad
+          {t("city")}
           <input
             type="text"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
             minLength={2}
+            maxLength={100}
             className={inputClass}
           />
         </label>
         <label className={labelClass}>
-          Provincia
+          {t("province")}
           <input
             type="text"
             value={province}
             onChange={(e) => setProvince(e.target.value)}
             required
             minLength={2}
+            maxLength={100}
             className={inputClass}
           />
         </label>
       </div>
 
       <label className={labelClass}>
-        Código postal
+        {t("postalCode")}
         <input
           type="text"
           value={postalCode}
           onChange={(e) => setPostalCode(e.target.value)}
           required
           minLength={3}
+          maxLength={20}
           className={`max-w-40 ${inputClass}`}
         />
       </label>
 
       <label className={labelClass}>
         <span>
-          Referencia para el envío{" "}
-          <span className="text-ink/40">(opcional)</span>
+          {t("reference")} <span className="text-ink/40">{t("optional")}</span>
         </span>
         <input
           type="text"
           value={reference}
           onChange={(e) => setReference(e.target.value)}
-          placeholder="Portón negro, timbre 2, entre calles..."
+          placeholder={t("referencePlaceholder")}
           maxLength={200}
           className={inputClass}
         />
@@ -169,14 +171,14 @@ export function AddressForm({
 
       <div className="flex items-center gap-3">
         <Button type="submit" disabled={loading}>
-          {loading ? "Guardando..." : "Guardar dirección"}
+          {loading ? t("saving") : t("save")}
         </Button>
         <button
           type="button"
           onClick={onCancel}
           className="text-sm text-ink/60 hover:text-ink"
         >
-          Cancelar
+          {t("cancel")}
         </button>
       </div>
     </form>

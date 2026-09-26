@@ -14,7 +14,9 @@
     "contact": "Contato",
     "faqLong": "Perguntas frequentes",
     "terms": "Termos e condições",
-    "privacy": "Política de privacidade"
+    "privacy": "Política de privacidade",
+    "allProducts": "Ver todos os produtos",
+    "usedListings": "Usados"
   },
   "Site": {
     "description": "Peças e acessórios para aeromodelismo e RC.",
@@ -105,7 +107,8 @@
     "priceRange": "Faixa de preço (USD)",
     "min": "Mín",
     "max": "Máx",
-    "apply": "Aplicar"
+    "apply": "Aplicar",
+    "model": "Modelo compatível"
   },
   "SortBar": {
     "count": "{count} produtos",
@@ -121,7 +124,8 @@
   "AddToCartButton": {
     "added": "Produto adicionado ao carrinho",
     "adding": "Adicionando...",
-    "add": "Adicionar ao carrinho"
+    "add": "Adicionar ao carrinho",
+    "maxStockReached": "Você já tem no carrinho todo o estoque disponível"
   },
   "StockAlertButton": {
     "subscribed": "Vamos avisar por email quando o estoque voltar.",
@@ -135,12 +139,16 @@
   },
   "ProductDetail": {
     "inStock": "{count} em estoque",
-    "outOfStock": "Sem estoque no momento"
+    "outOfStock": "Sem estoque no momento",
+    "sku": "SKU",
+    "used": "Usado"
   },
   "ImageGallery": {
     "zoom": "Ampliar imagem",
     "viewImage": "Ver imagem {index} de {total}",
-    "close": "Fechar"
+    "close": "Fechar",
+    "previous": "Imagem anterior",
+    "next": "Próxima imagem"
   },
   "Common": {
     "viewCatalog": "Ver catálogo"
@@ -156,7 +164,8 @@
     "increase": "Aumentar",
     "remove": "Remover",
     "continueToCheckout": "Continuar para o checkout",
-    "loginToContinue": "Entrar para continuar"
+    "loginToContinue": "Entrar para continuar",
+    "maxStockReached": "Não há mais estoque disponível ({count} em estoque)"
   },
   "CartIcon": {
     "ariaLabel": "Ver carrinho",
@@ -183,7 +192,8 @@
     "notesPlaceholder": "Algo que devêssemos saber sobre o seu pedido...",
     "confirming": "Confirmando...",
     "confirmOrder": "Confirmar pedido",
-    "submitError": "Não foi possível confirmar o pedido"
+    "submitError": "Não foi possível confirmar o pedido",
+    "backToCart": "Voltar ao carrinho"
   },
   "DeliverySelector": {
     "pickupTitle": "Retirar na loja",
@@ -223,6 +233,185 @@
     "sent": "Reenviamos o email",
     "sending": "Enviando...",
     "resend": "Reenviar verificação"
+  },
+  "AccountNav": {
+    "addresses": "Endereços",
+    "orders": "Pedidos",
+    "returns": "Devoluções",
+    "stockAlerts": "Alertas de estoque",
+    "usedListings": "Meus anúncios"
+  },
+  "AccountPage": {
+    "title": "Minha conta",
+    "subtitle": "Seus dados pessoais e sua senha.",
+    "activeSessionsTitle": "Sessões ativas",
+    "activeSessionsHint": "Entrou em outro dispositivo? Encerre todas as sessões ativas, incluindo esta."
+  },
+  "ProfileForm": {
+    "title": "Dados pessoais",
+    "name": "Nome",
+    "phone": "Telefone",
+    "optional": "(opcional)",
+    "email": "Email",
+    "verified": "Verificado",
+    "unverified": "Não verificado",
+    "changesSaved": "Alterações salvas.",
+    "saving": "Salvando...",
+    "save": "Salvar alterações",
+    "saveError": "Não foi possível salvar as alterações"
+  },
+  "ChangeEmailForm": {
+    "title": "Alterar email",
+    "hint": "Vamos enviar um link de confirmação para o novo endereço — seu email atual continua funcionando até você confirmar.",
+    "pending": "Você tem uma troca pendente de confirmação para {email}. Pode reenviar com outro endereço se quiser.",
+    "newEmail": "Novo email",
+    "currentPassword": "Senha atual",
+    "sending": "Enviando...",
+    "submit": "Enviar confirmação",
+    "sent": "Pronto, confira a nova caixa de entrada para confirmar a troca.",
+    "genericError": "Não foi possível solicitar a troca de email"
+  },
+  "ConfirmEmailChangePage": {
+    "title": "Confirmar troca de email",
+    "confirming": "Confirmando seu novo email...",
+    "success": "Seu email foi atualizado com sucesso.",
+    "goToAccount": "Ir para minha conta",
+    "missingToken": "Falta o token de confirmação no link.",
+    "genericError": "Não foi possível confirmar a troca de email"
+  },
+  "PasswordForm": {
+    "title": "Alterar senha",
+    "hint": "Sua sessão e as dos seus outros dispositivos continuam ativas depois da troca. Se preferir encerrá-las de qualquer forma, você pode fazer isso abaixo.",
+    "currentPassword": "Senha atual",
+    "newPassword": "Nova senha",
+    "confirmPassword": "Confirmar nova senha",
+    "passwordHint": "Mínimo de 8 caracteres, com pelo menos uma maiúscula, uma minúscula, um número e um símbolo.",
+    "mismatchError": "As novas senhas não coincidem",
+    "sameAsCurrentError": "A nova senha não pode ser igual à atual",
+    "updated": "Senha atualizada com sucesso",
+    "genericError": "Não foi possível alterar a senha",
+    "changing": "Alterando...",
+    "submit": "Alterar senha"
+  },
+  "LogoutAllButton": {
+    "loggingOut": "Encerrando sessões...",
+    "submit": "Encerrar sessão em todos os dispositivos"
+  },
+  "AddressesPage": {
+    "title": "Meus endereços",
+    "subtitle": "Até 2 endereços de entrega, somente dentro da Argentina."
+  },
+  "AddressesManager": {
+    "edit": "Editar",
+    "delete": "Excluir",
+    "deleting": "Excluindo...",
+    "empty": "Você ainda não salvou nenhum endereço.",
+    "add": "+ Adicionar endereço",
+    "maxReached": "Você atingiu o limite de {max} endereços salvos — exclua um para adicionar outro."
+  },
+  "AddressForm": {
+    "labelField": "Nome do endereço",
+    "labelPlaceholder": "Casa, trabalho...",
+    "optional": "(opcional)",
+    "street": "Rua e número",
+    "floorUnit": "Andar / Apto",
+    "floorUnitPlaceholder": "Andar 3, Apto B",
+    "city": "Cidade",
+    "province": "Província",
+    "postalCode": "Código postal",
+    "reference": "Referência para a entrega",
+    "referencePlaceholder": "Portão preto, campainha 2, entre ruas...",
+    "saving": "Salvando...",
+    "save": "Salvar endereço",
+    "cancel": "Cancelar",
+    "saveError": "Não foi possível salvar o endereço"
+  },
+  "OrdersPage": {
+    "title": "Meus pedidos",
+    "subtitle": "Histórico e status das suas compras.",
+    "empty": "Você ainda não fez nenhum pedido.",
+    "orderNumber": "Pedido #{id}"
+  },
+  "OrderDetailPage": {
+    "backToOrders": "← Meus pedidos",
+    "orderNumber": "Pedido #{id}",
+    "thanksTitle": "Obrigado pela sua compra!",
+    "thanksTransfer": "Enviamos um email confirmando o pedido #{id}. Transfira com os dados abaixo e envie o comprovante para confirmarmos o pagamento mais rápido.",
+    "thanksGeneric": "Enviamos um email confirmando o pedido #{id}.",
+    "subtotal": "Subtotal",
+    "discount": "Desconto",
+    "total": "Total",
+    "estimatedArs": "Estimado em pesos",
+    "delivery": "Entrega",
+    "pickupAtStore": "Retirada na loja",
+    "payment": "Pagamento",
+    "returnTitle": "Algum problema com seu pedido?",
+    "returnSubtitle": "Fale conosco pelo formulário de contato e combinamos a devolução.",
+    "returnCta": "Ir para contato"
+  },
+  "OrderStatusTimeline": {
+    "title": "Histórico"
+  },
+  "OrderStatus": {
+    "PENDING_PAYMENT": "Aguardando pagamento",
+    "PAYMENT_CONFIRMED": "Pagamento confirmado",
+    "PROCESSING": "Em preparação",
+    "SHIPPED": "Enviado",
+    "DELIVERED": "Entregue",
+    "CANCELLED": "Cancelado"
+  },
+  "ReceiptUpload": {
+    "title": "Comprovante de transferência",
+    "uploadedOn": "Enviado em {date}",
+    "notUploaded": "Você ainda não enviou nada.",
+    "view": "Ver comprovante",
+    "uploading": "Enviando...",
+    "upload": "Enviar comprovante",
+    "uploadError": "Não foi possível enviar o comprovante",
+    "confirmTitle": "Confirmar este comprovante?",
+    "confirmDescription": "Você vai enviar \"{filename}\". Depois de confirmado não vai poder substituí-lo, então verifique se é o correto.",
+    "confirmSubmit": "Sim, confirmar",
+    "confirmCancel": "Cancelar"
+  },
+  "ReturnsPage": {
+    "title": "Minhas devoluções",
+    "subtitle": "Status das devoluções solicitadas nos seus pedidos.",
+    "empty": "Você ainda não solicitou nenhuma devolução.",
+    "returnNumber": "Devolução #{id}",
+    "orderNumber": "Pedido #{id}",
+    "reason": "Motivo:",
+    "refunded": "Reembolsado: {amount}"
+  },
+  "RequestReturnDialog": {
+    "trigger": "Solicitar devolução",
+    "title": "Solicitar devolução",
+    "subtitle": "Escolha quais produtos e quantas unidades de cada um você quer devolver.",
+    "purchased": "Comprado: {count}",
+    "reason": "Motivo",
+    "optional": "(opcional)",
+    "selectAtLeastOne": "Escolha pelo menos um produto para devolver.",
+    "submitError": "Não foi possível enviar a solicitação. Tente de novo.",
+    "cancel": "Cancelar",
+    "submit": "Enviar solicitação",
+    "submitting": "Enviando…"
+  },
+  "ReturnStatus": {
+    "REQUESTED": "Solicitada",
+    "APPROVED": "Aprovada",
+    "REJECTED": "Rejeitada",
+    "RECEIVED": "Recebida",
+    "REFUNDED": "Reembolsada"
+  },
+  "StockAlertsPage": {
+    "title": "Alertas de estoque",
+    "subtitle": "Avisamos por email assim que esses produtos voltarem ao estoque.",
+    "empty": "Você não tem avisos ativos. Ative-os na página de um produto sem estoque."
+  },
+  "StockAlertRow": {
+    "inStock": "{count} em estoque",
+    "outOfStock": "Sem estoque",
+    "removing": "Removendo...",
+    "remove": "Remover aviso"
   },
   "BlogPage": {
     "description": "Novidades de marcas, eventos, competições e notas de interesse para a comunidade heli. Escrito pela equipe da ChoppersRC.",
@@ -344,11 +533,41 @@
     "s5Title": "5. Cookies e tecnologias similares",
     "s5P1": "Um cookie é um pequeno arquivo que o site salva no seu navegador. Usamos dois tipos: cookies necessários, que você não pode desativar porque o site não funciona sem eles (manter sua sessão iniciada, lembrar seu carrinho), e cookies de análise, que só se ativam se você os aceitar no aviso de cookies, e que você pode recusar sem que isso afete sua compra.",
     "s5P2": "Você pode mudar sua escolha a qualquer momento apagando os cookies do site nas configurações do seu navegador — o aviso vai aparecer novamente na sua próxima visita.",
-    "s5TableHeaders": ["Cookie", "Tipo", "Fornecedor", "Finalidade", "Duração"],
-    "s5Row1": ["session", "Necessário", "ChoppersRC (próprio)", "Mantém sua sessão iniciada.", "Até encerrar sessão / expirar"],
-    "s5Row2": ["cart", "Necessário", "ChoppersRC (próprio)", "Lembra o conteúdo do seu carrinho.", "30 dias"],
-    "s5Row3": ["_ga, _ga_*", "Análise", "Google Analytics", "Distingue visitantes únicos para as estatísticas de uso do site.", "Até 2 anos"],
-    "s5Row4": ["_gid", "Análise", "Google Analytics", "Distingue visitantes durante 24h.", "24 horas"],
+    "s5TableHeaders": [
+      "Cookie",
+      "Tipo",
+      "Fornecedor",
+      "Finalidade",
+      "Duração"
+    ],
+    "s5Row1": [
+      "session",
+      "Necessário",
+      "ChoppersRC (próprio)",
+      "Mantém sua sessão iniciada.",
+      "Até encerrar sessão / expirar"
+    ],
+    "s5Row2": [
+      "cart",
+      "Necessário",
+      "ChoppersRC (próprio)",
+      "Lembra o conteúdo do seu carrinho.",
+      "30 dias"
+    ],
+    "s5Row3": [
+      "_ga, _ga_*",
+      "Análise",
+      "Google Analytics",
+      "Distingue visitantes únicos para as estatísticas de uso do site.",
+      "Até 2 anos"
+    ],
+    "s5Row4": [
+      "_gid",
+      "Análise",
+      "Google Analytics",
+      "Distingue visitantes durante 24h.",
+      "24 horas"
+    ],
     "s6Title": "6. Seus direitos sobre seus dados",
     "s6P1": "Conforme a Lei 25.326, você tem direito a acessar, retificar, atualizar e solicitar a exclusão dos seus dados pessoais. Você pode exercê-los escrevendo para nós pelos canais de Contato, ou diretamente junto à Agencia de Acceso a la Información Pública (AAIP) caso considere que sua solicitação não foi devidamente atendida.",
     "s7Title": "7. Segurança dos dados",
@@ -406,5 +625,158 @@
     "title": "Caiu um helicóptero aqui!",
     "description": "A página que você procura não existe ou mudou de lugar. Enquanto resgatamos o piloto, volte para o início e continue vendo o catálogo.",
     "backHome": "Voltar para o início"
+  },
+  "ErrorBoundary": {
+    "eyebrow": "Algo deu errado",
+    "title": "Travou uma engrenagem",
+    "description": "Tivemos um problema para carregar esta seção. Tente novamente em instantes.",
+    "retry": "Tentar novamente"
+  },
+  "UsedListingsPage": {
+    "subtitle": "Itens usados publicados por outros clientes. A venda é combinada diretamente entre vocês — a ChoppersRC só modera os anúncios.",
+    "publishCta": "Publicar um usado"
+  },
+  "UsedListingFilters": {
+    "title": "Filtros",
+    "clear": "Limpar",
+    "category": "Categoria",
+    "priceRange": "Faixa de preço (ARS)",
+    "min": "Mín",
+    "max": "Máx",
+    "apply": "Aplicar"
+  },
+  "UsedListingSortBar": {
+    "count": "{count} anúncios",
+    "sortLabel": "Ordenar",
+    "relevance": "Relevância",
+    "price": "Preço"
+  },
+  "UsedListingGrid": {
+    "noResults": "Nenhum anúncio corresponde a esses filtros.",
+    "loading": "Carregando...",
+    "loadMore": "Ver mais anúncios"
+  },
+  "UsedListingDetail": {
+    "sellerLabel": "Vendedor",
+    "noStoreInvolvement": "A ChoppersRC apenas lista este anúncio — a venda é combinada diretamente com o vendedor."
+  },
+  "UsedListingStatus": {
+    "PENDING": "Em análise",
+    "APPROVED": "Publicado",
+    "REJECTED": "Rejeitado",
+    "TAKEN_DOWN": "Removido",
+    "SOLD": "Vendido"
+  },
+  "UsedListingForm": {
+    "title": "Título",
+    "description": "Descrição",
+    "price": "Preço (ARS)",
+    "category": "Categoria",
+    "categoryPlaceholder": "Escolha uma categoria",
+    "city": "Cidade",
+    "cityPlaceholder": "Apenas a cidade, não o endereço exato",
+    "contactPhone": "Telefone / WhatsApp",
+    "contactPhonePlaceholder": "Com código de área",
+    "images": "Fotos",
+    "imagesMax": "máximo {max}",
+    "currentImages": "Fotos atuais",
+    "replaceImagesWarning": "Se você enviar fotos novas, elas vão substituir todas as anteriores.",
+    "saving": "Salvando...",
+    "saveChanges": "Salvar alterações",
+    "publish": "Publicar",
+    "imagesRequired": "Envie pelo menos uma foto",
+    "saveError": "Não foi possível salvar o anúncio",
+    "cancel": "Cancelar",
+    "contactBlockTitle": "Contato exibido no anúncio",
+    "contactBlockHint": "Nome e email são os da sua conta, não podem ser alterados aqui — se quiser que apareçam diferentes, atualize primeiro em Minha conta."
+  },
+  "NewUsedListingPage": {
+    "title": "Publicar um usado",
+    "editTitle": "Editar anúncio",
+    "subtitle": "Preencha os dados do seu item — ele fica pendente de revisão antes de aparecer na listagem pública.",
+    "verifyEmailPrompt": "Verifique seu email antes de publicar em Usados.",
+    "close": "Fechar"
+  },
+  "MyUsedListingsPage": {
+    "title": "Meus anúncios",
+    "subtitle": "Os itens usados que você publicou, com o status de revisão.",
+    "empty": "Você ainda não publicou nenhum item usado.",
+    "publishCta": "Publicar um usado",
+    "rejectionReason": "Motivo da rejeição:",
+    "publishedOn": "Publicado em {date}",
+    "edit": "Editar",
+    "confirmStillAvailable": "Ainda à venda",
+    "confirming": "Confirmando...",
+    "confirmSuccess": "Pronto! Confirmamos que ainda está à venda.",
+    "confirmError": "Não foi possível confirmar",
+    "delete": "Excluir",
+    "deleteConfirmTitle": "Excluir este anúncio?",
+    "deleteConfirmDescription": "Ele será removido da listagem pública e isso não pode ser desfeito.",
+    "deleteConfirm": "Excluir",
+    "deleteCancel": "Cancelar",
+    "deleting": "Excluindo...",
+    "deleteSuccess": "Anúncio excluído",
+    "deleteError": "Não foi possível excluir",
+    "markAsSold": "Marcar como vendido",
+    "markingAsSold": "Marcando...",
+    "markSoldSuccess": "Parabéns pela venda!",
+    "markSoldError": "Não foi possível marcar como vendido",
+    "markSoldConfirmTitle": "Marcar como vendido?",
+    "markSoldConfirmDescription": "Deixa de aparecer na listagem pública. Não pode ser desfeito — se foi engano, você vai precisar editar o anúncio para publicá-lo de novo.",
+    "markSoldConfirm": "Marcar como vendido",
+    "markSoldCancel": "Cancelar"
+  },
+  "UsedListingImagesPicker": {
+    "dropHint": "Arraste fotos aqui ou",
+    "chooseFiles": "escolha-as",
+    "onlyWebp": "Só são aceitas imagens .webp — converta o arquivo antes de enviá-lo.",
+    "tooLarge": "Algumas fotos têm mais de {maxMb}MB e não foram adicionadas.",
+    "onlyWebpMax": "— apenas .webp, até {max}.",
+    "atLimit": "Você atingiu o limite de {max} fotos.",
+    "cover": "Capa",
+    "remove": "Remover esta foto",
+    "moveBefore": "Mover para antes",
+    "moveAfter": "Mover para depois",
+    "addImage": "Adicionar uma foto"
+  },
+  "Metadata": {
+    "home": {
+      "title": "ChoppersRC — Helicópteros RC, kits e peças",
+      "description": "Kits de competição, motores brushless, servos, baterias e peças para helicópteros RC. As marcas que os pilotos escolhem, com envio para todo o país."
+    },
+    "products": {
+      "title": "Catálogo de produtos",
+      "description": "Todo o catálogo da ChoppersRC: kits, motores, servos, baterias, hélices e eletrônica para helicópteros RC. Filtre por categoria, marca e preço."
+    },
+    "usedListings": {
+      "title": "Usados — Compre e venda entre pilotos",
+      "description": "Itens usados de helicópteros RC publicados por outros pilotos: kits, peças e equipamentos a bom preço. A venda é combinada diretamente entre vocês."
+    },
+    "blog": {
+      "title": "Blog",
+      "description": "Guias, novidades e tutoriais sobre helicópteros RC: manutenção, escolha de motores, LiPo e mais, escritos pela equipe da ChoppersRC."
+    },
+    "about": {
+      "title": "Sobre nós",
+      "description": "Especialistas em helicópteros RC desde 2005. Conheça a história da ChoppersRC e por que os pilotos confiam em nós para seus kits e peças."
+    },
+    "contact": {
+      "title": "Contato",
+      "description": "Fale conosco pelo WhatsApp, email ou formulário de contato. Respondemos rápido para te ajudar a escolher suas peças de helicóptero RC."
+    },
+    "faq": {
+      "title": "Perguntas frequentes",
+      "description": "Envios, formas de pagamento, trocas e devoluções: respostas para as perguntas mais comuns sobre comprar na ChoppersRC."
+    },
+    "terms": {
+      "title": "Termos e condições",
+      "description": "Termos e condições de compra e uso do site da ChoppersRC."
+    },
+    "privacy": {
+      "title": "Política de privacidade",
+      "description": "Como a ChoppersRC coleta, usa e protege seus dados pessoais."
+    },
+    "productFallbackDescription": "Compre {name} na ChoppersRC, com envio para todo o país.",
+    "usedListingDescriptionSuffix": "Anúncio de usado na ChoppersRC — {city}."
   }
 }

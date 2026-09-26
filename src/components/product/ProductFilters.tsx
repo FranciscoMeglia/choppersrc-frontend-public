@@ -1,17 +1,22 @@
 import { useLocale, useTranslations } from "next-intl";
 import { Link, getPathname } from "@/i18n/navigation";
-import type { Brand, Category } from "@/types/catalog";
+import type { Brand, Category, ProductModel } from "@/types/catalog";
 import { FacetCheckboxGroup } from "./FacetCheckboxGroup";
+import { ModelFacetSearch } from "./ModelFacetSearch";
 import type { ProductsSearchParams } from "@/lib/utils/productSearchParams";
 
 export function ProductFilters({
-  categories,
   brands,
   current,
+  basePath = "/products",
+  categories,
+  models,
 }: {
-  categories: Category[];
   brands: Brand[];
   current: ProductsSearchParams;
+  basePath?: string;
+  categories?: Category[];
+  models?: ProductModel[];
 }) {
   const t = useTranslations("ProductFilters");
   const locale = useLocale();
@@ -27,45 +32,67 @@ export function ProductFilters({
         <p className="font-semibold">{t("title")}</p>
         {(current.q ||
           current.category ||
+          current.model ||
           current.brand ||
           current.minPrice ||
           current.maxPrice ||
           current.stock) && (
-          <Link href="/products" className="text-xs text-ink/60 underline">
+          <Link href={basePath} className="text-xs text-ink/60 underline">
             {t("clear")}
           </Link>
         )}
       </div>
 
+      {models && models.length > 0 && (
+        <>
+          <ModelFacetSearch
+            title={t("model")}
+            models={models}
+            current={current}
+            basePath={basePath}
+          />
+          <hr className="border-ink/10" />
+        </>
+      )}
       <FacetCheckboxGroup
         title={t("stock")}
         items={stockOptions}
         paramKey="stock"
         current={current}
+        basePath={basePath}
       />
       <hr className="border-ink/10" />
-      <FacetCheckboxGroup
-        title={t("category")}
-        items={categories}
-        paramKey="category"
-        current={current}
-      />
-      <hr className="border-ink/10" />
+      {categories && categories.length > 0 && (
+        <>
+          <FacetCheckboxGroup
+            title={t("category")}
+            items={categories}
+            paramKey="category"
+            current={current}
+            basePath={basePath}
+          />
+          <hr className="border-ink/10" />
+        </>
+      )}
       <FacetCheckboxGroup
         title={t("brand")}
         items={brands}
         paramKey="brand"
         current={current}
+        basePath={basePath}
       />
       <hr className="border-ink/10" />
 
       <form
-        action={getPathname({ href: "/products", locale })}
+        action={getPathname({ href: basePath, locale })}
         className="flex flex-col gap-3"
       >
         {current.q && <input type="hidden" name="q" value={current.q} />}
         {current.category && (
           <input type="hidden" name="category" value={current.category} />
+        )}
+        {current.model && (
+          <input type="hidden" name="model" value={current.model} />
         )}
         {current.brand && (
           <input type="hidden" name="brand" value={current.brand} />

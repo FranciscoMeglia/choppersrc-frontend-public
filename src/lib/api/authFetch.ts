@@ -1,5 +1,5 @@
 import "server-only";
-import { env } from "@/config/env";
+import { env, internalApiHeaders } from "@/config/env";
 import { getAccessToken } from "@/lib/auth/cookies";
 import { ApiError } from "./client";
 import type {
@@ -17,6 +17,7 @@ async function request<T>(
     ...init,
     headers: {
       "Content-Type": "application/json",
+      ...internalApiHeaders(),
       ...(accessToken ? { Authorization: `Bearer ${accessToken}` } : {}),
       ...init?.headers,
     },

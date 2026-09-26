@@ -3,6 +3,8 @@ import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { legalNav, site } from "@/config/site";
 import { getPublicSettings } from "@/lib/settings/getPublicSettings";
+import { buildWhatsAppUrl } from "@/lib/utils/whatsapp";
+import { formatPhone } from "@/lib/utils/phone";
 
 export async function Footer() {
   const [t, tNav, tSite, settings] = await Promise.all([
@@ -16,13 +18,15 @@ export async function Footer() {
     <footer className="border-t border-white/10 bg-black text-white">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 text-sm sm:grid-cols-2 lg:grid-cols-4">
         <div className="flex flex-col gap-4 lg:col-span-1">
-          <Image
-            src="/images/logoWhite.webp"
-            alt={site.name}
-            width={1536}
-            height={1024}
-            className="h-20 w-auto self-center object-contain"
-          />
+          <Link href="/" className="self-center">
+            <Image
+              src="/images/logoWhite.webp"
+              alt={site.name}
+              width={1536}
+              height={1024}
+              className="h-20 w-auto object-contain"
+            />
+          </Link>
           <p className="text-white/80">{tSite("footerDescription")}</p>
         </div>
 
@@ -71,13 +75,19 @@ export async function Footer() {
                 {tNav(item.key)}
               </Link>
             ))}
-            <span className="text-white/50">{settings.contactEmail}</span>
             <a
-              href={`https://wa.me/${settings.contactPhone.replace(/\D/g, "")}`}
+              href={`mailto:${settings.contactEmail}`}
               className="text-white/85 hover:text-primary"
             >
-              {settings.contactPhone}
+              {settings.contactEmail}
             </a>
+            <a
+              href={buildWhatsAppUrl(settings.contactPhone)}
+              className="text-white/85 hover:text-primary"
+            >
+              {formatPhone(settings.contactPhone)}
+            </a>
+            <span className="text-white/50">{settings.contactAddress}</span>
           </nav>
         </div>
       </div>
